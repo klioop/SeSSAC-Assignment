@@ -12,7 +12,7 @@
 		31FD5CD3270D983B00DD9B15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FD5CD1270D983B00DD9B15 /* Main.storyboard */; };
 		31FD5CD5270D983E00DD9B15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FD5CD4270D983E00DD9B15 /* Assets.xcassets */; };
 		31FD5CD8270D983E00DD9B15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FD5CD6270D983E00DD9B15 /* LaunchScreen.storyboard */; };
-		31FD5CE2270D98E200DD9B15 /* EmotionDiaryMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FD5CE1270D98E200DD9B15 /* EmotionDiaryMainViewController.swift */; };
+		31FD5CE2270D98E200DD9B15 /* EmotionDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FD5CE1270D98E200DD9B15 /* EmotionDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		31FD5CD4270D983E00DD9B15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31FD5CD7270D983E00DD9B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31FD5CD9270D983E00DD9B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31FD5CE1270D98E200DD9B15 /* EmotionDiaryMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDiaryMainViewController.swift; sourceTree = "<group>"; };
+		31FD5CE1270D98E200DD9B15 /* EmotionDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 		31FD5CE0270D98C900DD9B15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				31FD5CE1270D98E200DD9B15 /* EmotionDiaryMainViewController.swift */,
+				31FD5CE1270D98E200DD9B15 /* EmotionDiaryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31FD5CE2270D98E200DD9B15 /* EmotionDiaryMainViewController.swift in Sources */,
+				31FD5CE2270D98E200DD9B15 /* EmotionDiaryViewController.swift in Sources */,
 				31FD5CCC270D983B00DD9B15 /* AppDelegate.swift in Sources */,
 				31FD5CCE270D983B00DD9B15 /* SceneDelegate.swift in Sources */,
 			);

@@ -7,29 +7,34 @@
 
 import UIKit
 
-class EmotionDiaryMainViewController: UIViewController {
+class EmotionDiaryViewController: UIViewController {
 
+    // MARK: - IBOutlets
     
     @IBOutlet var emotions: [UIView]!
     
-    // 앱이 처음 실행되는지 판단하기 위한 변수
-    var isAppFirstLaunch: Bool = true
-    
-    private let emotionNames = [
-        "행복해", "사랑해", "좋아해", "당황해", "속상해", "우울해", "심심해", "실망해", "슬퍼해"
-    ]
-    
-    var emotionTracker = [String: Int]() {
-        didSet {
-            UserDefaults.standard.set(emotionTracker, forKey: "emotionTracker")
-        }
-    }
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         isAppLaunchFirst()
         configureEmotionTracker()
         configureEmotions()
+    }
+    
+    // MARK: - Private
+    
+    // 앱이 처음 실행되는지 판단하기 위한 변수
+    private var isAppFirstLaunch: Bool = true
+    
+    private let emotionNames = [
+        "행복해", "사랑해", "좋아해", "당황해", "속상해", "우울해", "심심해", "실망해", "슬퍼해"
+    ]
+    
+    private var emotionTracker = [String: Int]() {
+        didSet {
+            UserDefaults.standard.set(emotionTracker, forKey: "emotionTracker")
+        }
     }
     
     // 앱이 두 번째 실행될 때 부터 유저디폴트에 저장된 값(false)을 isAppFirstLaunch 에 저장
@@ -68,6 +73,8 @@ class EmotionDiaryMainViewController: UIViewController {
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didEmotionTapped(by:))))
     }
+    
+    // MARK: - objc
     
     @objc func didEmotionTapped(by recognizer: UITapGestureRecognizer) {
         let view = recognizer.view
