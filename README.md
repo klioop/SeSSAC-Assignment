@@ -1,1 +1,1 @@
-# Emotion-Diary
+# SeSSAC-Assignment
