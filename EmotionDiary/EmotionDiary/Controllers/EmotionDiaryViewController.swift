@@ -59,9 +59,10 @@ class EmotionDiaryViewController: UIViewController {
     private func configureEmotions() {
         emotions.indices.forEach {
             addTapGesture(to: emotions[$0])
-            
             guard let imageView = emotions[$0].subviews[0] as? UIImageView else { return }
+            
             guard let label = emotions[$0].subviews[1] as? UILabel else { return }
+            
             let emotionName = emotionNames[$0]
             
             imageView.image = UIImage(named: "mono_slime\($0 + 1)")
@@ -95,5 +96,4 @@ class EmotionDiaryViewController: UIViewController {
         default: return
         }
     }
-    
 }

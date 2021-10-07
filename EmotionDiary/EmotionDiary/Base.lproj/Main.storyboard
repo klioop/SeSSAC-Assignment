@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Dy-mu-fu2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xds-Qk-XvI">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -365,6 +365,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wl9-0i-oti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="668" y="-64.31784107946028"/>
+        </scene>
+        <!--Day View Controller-->
+        <scene sceneID="mwr-nY-bZt">
+            <objects>
+                <viewController id="xds-Qk-XvI" customClass="DDayViewController" customModule="EmotionDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLZ-ld-fH4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Z6d-Fa-AAv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Z6d-Fa-AAv" secondAttribute="height" id="RBm-qA-sN1"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="datePickerValueChanged:" destination="xds-Qk-XvI" eventType="valueChanged" id="j9b-Jm-D0C"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="c0f-SE-kmc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Z6d-Fa-AAv" firstAttribute="top" secondItem="c0f-SE-kmc" secondAttribute="top" id="HNE-aV-q5Q"/>
+                            <constraint firstItem="Z6d-Fa-AAv" firstAttribute="leading" secondItem="c0f-SE-kmc" secondAttribute="leading" id="gXS-ew-3aK"/>
+                            <constraint firstItem="Z6d-Fa-AAv" firstAttribute="trailing" secondItem="c0f-SE-kmc" secondAttribute="trailing" id="yLY-Vg-OCS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Z6d-Fa-AAv" id="9m8-W9-DTZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fX3-yL-GZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527" y="-49"/>
         </scene>
     </scenes>
     <resources>
