@@ -73,9 +73,9 @@ class ProfileViewDataSource: NSObject {
                     case 0:
                         self.waterTakeInInfo.name = text
                     case 1:
-                        self.waterTakeInInfo.height = Int(text)
+                        self.waterTakeInInfo.height = Double(text)
                     default:
-                        self.waterTakeInInfo.weight = Int(text)
+                        self.waterTakeInInfo.weight = Double(text)
                     }
                     self.profileChnageAction?(self.waterTakeInInfo)
                 }

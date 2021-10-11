@@ -13,8 +13,8 @@ struct WaterTakeInInfo {
     var todayTakeIn: Int = 0
     var goal: Int = 2100
     var image: UIImage?
-    var height: Int?
-    var weight: Int?
+    var height: Double?
+    var weight: Double?
     
     var goalLiter: Double {
         Double(goal) / 1000
