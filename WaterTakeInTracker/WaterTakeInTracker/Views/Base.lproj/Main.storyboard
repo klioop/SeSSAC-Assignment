@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zvf-je-Olr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--물 마시기-->
+        <scene sceneID="1EC-g7-YfA">
+            <objects>
+                <tableViewController id="ocB-ek-LTW" customClass="WaterTakeInViewContrller" customModule="WaterTakeInTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Mvq-LA-GuO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WaterTakeInLabelCell" rowHeight="200" id="E4f-qu-b0F" customClass="WaterTakeInLabelCell" customModule="WaterTakeInTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E4f-qu-b0F" id="TGM-5Z-OmL">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-WG-SaL">
+                                            <rect key="frame" x="20" y="11" width="180" height="189"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qLG-WG-SaL" firstAttribute="leading" secondItem="TGM-5Z-OmL" secondAttribute="leadingMargin" id="3tS-ld-APd"/>
+                                        <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="qLG-WG-SaL" secondAttribute="trailing" constant="194" id="Ju1-3E-NUk"/>
+                                        <constraint firstAttribute="bottom" secondItem="qLG-WG-SaL" secondAttribute="bottom" id="pq0-GY-h38"/>
+                                        <constraint firstItem="qLG-WG-SaL" firstAttribute="top" secondItem="TGM-5Z-OmL" secondAttribute="topMargin" id="yog-6a-Axi"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="qLG-WG-SaL" id="SGf-0f-Txs"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="300" id="5vR-R9-Qre" customClass="ImageCell" customModule="WaterTakeInTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="244.5" width="414" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5vR-R9-Qre" id="CUh-E9-7AF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-9" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-8Z-pWb">
+                                            <rect key="frame" x="20" y="11" width="374" height="278"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RcV-8Z-pWb" firstAttribute="top" secondItem="CUh-E9-7AF" secondAttribute="topMargin" id="TsP-ht-OmZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="RcV-8Z-pWb" secondAttribute="trailing" id="ZNK-zO-wwt"/>
+                                        <constraint firstItem="RcV-8Z-pWb" firstAttribute="leading" secondItem="CUh-E9-7AF" secondAttribute="leadingMargin" id="bvW-32-h10"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="RcV-8Z-pWb" secondAttribute="bottom" id="g6W-uP-Hhs"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageView" destination="RcV-8Z-pWb" id="thI-7O-CiR"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserInputCell" rowHeight="50" id="Wny-XA-b0g" customClass="UserInputCell" customModule="WaterTakeInTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="544.5" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wny-XA-b0g" id="ZSt-i4-s13">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5RU-Mr-JV0">
+                                            <rect key="frame" x="104" y="8" width="148" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="148" id="vIp-S4-eFD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ml" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auJ-DH-eo2">
+                                            <rect key="frame" x="252" y="8" width="50" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="auJ-DH-eo2" secondAttribute="trailing" constant="112" id="1J5-XR-Ado"/>
+                                        <constraint firstItem="auJ-DH-eo2" firstAttribute="height" secondItem="5RU-Mr-JV0" secondAttribute="height" id="8rf-en-9Cw"/>
+                                        <constraint firstItem="auJ-DH-eo2" firstAttribute="top" secondItem="ZSt-i4-s13" secondAttribute="top" constant="8" id="A0X-QU-GS4"/>
+                                        <constraint firstItem="5RU-Mr-JV0" firstAttribute="top" secondItem="ZSt-i4-s13" secondAttribute="top" constant="8" id="Rre-Q6-MtE"/>
+                                        <constraint firstItem="auJ-DH-eo2" firstAttribute="leading" secondItem="5RU-Mr-JV0" secondAttribute="trailing" id="Vc3-G0-PpQ"/>
+                                        <constraint firstItem="5RU-Mr-JV0" firstAttribute="leading" secondItem="ZSt-i4-s13" secondAttribute="leading" constant="104" id="qbi-lZ-dMB"/>
+                                        <constraint firstAttribute="bottom" secondItem="5RU-Mr-JV0" secondAttribute="bottom" constant="8" id="tF2-zv-W7h"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="5RU-Mr-JV0" id="PF7-A1-Tcd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ocB-ek-LTW" id="rFj-Eg-Gtu"/>
+                            <outlet property="delegate" destination="ocB-ek-LTW" id="fv9-EE-Sgt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="물 마시기" id="XGM-3P-e63"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCj-jN-6yT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936.23188405797111" y="71.651785714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8BF-BT-hDP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zvf-je-Olr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cew-5p-XHw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ocB-ek-LTW" kind="relationship" relationship="rootViewController" id="GJM-xM-VQB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uf3-Sl-HuG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26.086956521739133" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1-9" width="152" height="151"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

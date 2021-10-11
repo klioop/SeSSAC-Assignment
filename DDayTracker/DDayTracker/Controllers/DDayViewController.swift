@@ -42,14 +42,14 @@ class DDayViewController: UIViewController {
         
         cardViews[2].frame = CGRect(
             x: view.safeAreaInsets.left + 40,
-            y: cardViews[0].bottom + 10,
+            y: cardViews[0].bottom + 20,
             width: cardViewSize,
             height: cardViewSize
         )
         
         cardViews[3].frame = CGRect(
             x: view.width - cardViewSize - 40,
-            y: cardViews[0].bottom + 10,
+            y: cardViews[0].bottom + 20,
             width: cardViewSize,
             height: cardViewSize
         )
