@@ -15,10 +15,11 @@ class WaterTakeInViewDataSource: NSObject {
         case takeIn
         case image
         case input
+        case goal
         
         var numberOfRows: Int {
             switch self {
-            case .takeIn, .image, .input:
+            case .takeIn, .image, .input, .goal:
                 return 1
             }
         }
@@ -31,6 +32,8 @@ class WaterTakeInViewDataSource: NSObject {
                 return "ImageCell"
             case .input:
                 return "UserInputCell"
+            case .goal:
+                return "GoalLabelCell"
             }
         }
     }
@@ -72,6 +75,10 @@ class WaterTakeInViewDataSource: NSObject {
                     self.currentWaterTakeInChangeAction?(self.waterTakeInInfo)
                     tableView.reloadData()
                 }
+            }
+        case .goal:
+            if let goalLabelCell = cell as? GoalLabelCell {
+                goalLabelCell.configure(for: waterTakeInInfo.name, goal: waterTakeInInfo.goalLiter)
             }
         }
         

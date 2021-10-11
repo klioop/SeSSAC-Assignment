@@ -16,6 +16,10 @@ struct WaterTakeInInfo {
     var height: Int?
     var weight: Int?
     
+    var goalLiter: Double {
+        Double(goal) / 1000
+    }
+    
     var hegithString: String? {
         if let height = height {
             return String(height)

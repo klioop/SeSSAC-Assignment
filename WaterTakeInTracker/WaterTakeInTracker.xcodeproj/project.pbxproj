@@ -11,6 +11,7 @@
 		31B24C1F271411A5000FE4A7 /* ProfileViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B24C1E271411A5000FE4A7 /* ProfileViewDataSource.swift */; };
 		31B24C21271411D3000FE4A7 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B24C20271411D3000FE4A7 /* ProfileImageCell.swift */; };
 		31B24C23271411F6000FE4A7 /* ProfileUserInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B24C22271411F6000FE4A7 /* ProfileUserInputCell.swift */; };
+		31B24C2627149539000FE4A7 /* GoalLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B24C2527149539000FE4A7 /* GoalLabelCell.swift */; };
 		31C4561C2713E966007487C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4561B2713E966007487C9 /* AppDelegate.swift */; };
 		31C4561E2713E966007487C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4561D2713E966007487C9 /* SceneDelegate.swift */; };
 		31C456232713E966007487C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31C456212713E966007487C9 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		31B24C1E271411A5000FE4A7 /* ProfileViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewDataSource.swift; sourceTree = "<group>"; };
 		31B24C20271411D3000FE4A7 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
 		31B24C22271411F6000FE4A7 /* ProfileUserInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInputCell.swift; sourceTree = "<group>"; };
+		31B24C2527149539000FE4A7 /* GoalLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalLabelCell.swift; sourceTree = "<group>"; };
 		31C456182713E966007487C9 /* WaterTakeInTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTakeInTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C4561B2713E966007487C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31C4561D2713E966007487C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				31C4563A2713F21E007487C9 /* WaterTakeInLabelCell.swift */,
 				31C4563C2713F291007487C9 /* ImageCell.swift */,
 				31C4563E2713F4D2007487C9 /* CurrentWaterInputCell.swift */,
+				31B24C2527149539000FE4A7 /* GoalLabelCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				31B24C1F271411A5000FE4A7 /* ProfileViewDataSource.swift in Sources */,
 				31C4561C2713E966007487C9 /* AppDelegate.swift in Sources */,
 				31C456322713EA4D007487C9 /* WaterTakeInViewController.swift in Sources */,
+				31B24C2627149539000FE4A7 /* GoalLabelCell.swift in Sources */,
 				31C4561E2713E966007487C9 /* SceneDelegate.swift in Sources */,
 				31C4563D2713F291007487C9 /* ImageCell.swift in Sources */,
 			);
