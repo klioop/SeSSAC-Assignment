@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileViewDataSource: NSObject {
     
+    typealias ProfileChangeAction = (WaterTakeInInfo) -> Void
+    
     enum ProfileSection: Int, CaseIterable {
         case image
         case userInput
@@ -32,6 +34,15 @@ class ProfileViewDataSource: NSObject {
         }
     }
     
+    private var waterTakeInInfo: WaterTakeInInfo
+    
+    var profileChnageAction: ProfileChangeAction?
+    
+    init(waterTakeInInfo: WaterTakeInInfo, changeAction: @escaping ProfileChangeAction) {
+        self.waterTakeInInfo = waterTakeInInfo
+        self.profileChnageAction = changeAction
+    }
+    
     func dequeueAndConfigure(at indexPath: IndexPath, from tableView: UITableView) -> UITableViewCell {
         guard let section = ProfileSection(rawValue: indexPath.section) else {
             fatalError("Section index out of range")
@@ -48,7 +59,26 @@ class ProfileViewDataSource: NSObject {
             }
         case .userInput:
             if let userInputCell = cell as? ProfileUserInputCell {
-                userInputCell.configure(for: "내이름이얌")
+                let row = indexPath.row
+                let displayText: String?
+                
+                switch row {
+                case 0: displayText = waterTakeInInfo.name
+                case 1: displayText = waterTakeInInfo.hegithString
+                default: displayText = waterTakeInInfo.weightString
+                }
+                
+                userInputCell.configure(for: displayText, at: row) { text in
+                    switch row {
+                    case 0:
+                        self.waterTakeInInfo.name = text
+                    case 1:
+                        self.waterTakeInInfo.height = Int(text)
+                    default:
+                        self.waterTakeInInfo.weight = Int(text)
+                    }
+                    self.profileChnageAction?(self.waterTakeInInfo)
+                }
             }
         }
         
@@ -70,6 +100,10 @@ extension ProfileViewDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         dequeueAndConfigure(at: indexPath, from: tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        false
     }
     
 }

@@ -33,9 +33,9 @@ class WaterTakeInViewDataSource: NSObject {
         }
     }
     
-    private var waterTakeInInfo: WaterTakeIn
+    private var waterTakeInInfo: WaterTakeInInfo
     
-    init(waterTakeInInfo: WaterTakeIn) {
+    init(waterTakeInInfo: WaterTakeInInfo) {
         self.waterTakeInInfo = waterTakeInInfo
         super.init()
     }

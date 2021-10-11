@@ -20,7 +20,7 @@ class ProfileImageCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(profileImageView)
+        contentView.addSubview(profileImageView)
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +29,13 @@ class ProfileImageCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        profileImageView.frame = contentView.bounds
+        let imageSize = contentView.frame.height - 16
+        profileImageView.frame = CGRect(
+            x: (contentView.frame.width - imageSize) / 2,
+            y: 8,
+            width: imageSize,
+            height: imageSize
+        )
     }
     
     func configure(for image: UIImage?) {

@@ -5,19 +5,44 @@
 //  Created by klioop on 2021/10/11.
 //
 
+import TextFieldEffects
 import UIKit
 
 class ProfileUserInputCell: UITableViewCell {
     
-    let textField: UITextField = {
-        let textField = UITextField()
+    typealias UserInputChangeAction = (String) -> Void
+    
+    enum Inputs: Int, CaseIterable {
+        case name
+        case height
+        case weight
         
-        return textField
+        func placeHolderText() -> String {
+            switch self {
+            case .name:
+                return "닉네임을 입력해주세요"
+            case .height:
+                return "키(cm)를 입력해주세요"
+            case .weight:
+                return "몸무게를 입력해주세요"
+            }
+        }
+    }
+    
+    let hoshiTextField: HoshiTextField = {
+        let hoshi = HoshiTextField()
+        hoshi.placeholderColor = .lightGray
+        hoshi.borderActiveColor = .systemRed
+        
+        return hoshi
     }()
+    
+    var userInputChangeAction: UserInputChangeAction?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(textField)
+        contentView.addSubview(hoshiTextField)
+        hoshiTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -27,7 +52,7 @@ class ProfileUserInputCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let height: CGFloat = contentView.bounds.height - 10
-        textField.frame = CGRect(
+        hoshiTextField.frame = CGRect(
             x: 100,
             y: 5,
             width: contentView.bounds.width - 20,
@@ -35,7 +60,33 @@ class ProfileUserInputCell: UITableViewCell {
             )
     }
     
-    func configure(for text: String) {
-        textField.placeholder = text
+    func configure(for text: String?, at row: Int, changeAction: @escaping UserInputChangeAction) {
+        let placeHolderText = Inputs(rawValue: row)?.placeHolderText() ?? "?"
+        
+        hoshiTextField.placeholder = placeHolderText
+        hoshiTextField.text = text
+        self.userInputChangeAction = changeAction
+    }
+}
+
+extension ProfileUserInputCell: UITextFieldDelegate {
+    
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        if let originalText = textField.text {
+            let text = (originalText as NSString).replacingCharacters(in: range, with: string)
+            userInputChangeAction?(text)
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
 }
