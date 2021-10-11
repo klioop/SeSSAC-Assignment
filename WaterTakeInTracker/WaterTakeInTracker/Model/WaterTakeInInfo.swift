@@ -67,7 +67,7 @@ struct WaterTakeInInfo {
             case 80..<90:
                 image = UIImage(named: "1-9")
             default:
-                image = UIImage(systemName: "1-9")
+                image = UIImage(named: "1-9")
             }
         }
         return image
