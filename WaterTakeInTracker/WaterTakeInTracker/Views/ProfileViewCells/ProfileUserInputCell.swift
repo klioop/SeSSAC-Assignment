@@ -53,7 +53,7 @@ class ProfileUserInputCell: UITableViewCell {
         super.layoutSubviews()
         let height: CGFloat = contentView.bounds.height - 10
         hoshiTextField.frame = CGRect(
-            x: 100,
+            x: separatorInset.left,
             y: 5,
             width: contentView.bounds.width - 20,
             height: height

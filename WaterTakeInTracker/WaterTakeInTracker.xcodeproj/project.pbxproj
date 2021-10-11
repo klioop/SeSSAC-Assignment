@@ -71,6 +71,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		31B24C242714824B000FE4A7 /* ProfileViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				31B24C20271411D3000FE4A7 /* ProfileImageCell.swift */,
+				31B24C22271411F6000FE4A7 /* ProfileUserInputCell.swift */,
+			);
+			path = ProfileViewCells;
+			sourceTree = "<group>";
+		};
 		31C4560F2713E966007487C9 = {
 			isa = PBXGroup;
 			children = (
@@ -114,12 +123,11 @@
 		31C456302713E98D007487C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31B24C242714824B000FE4A7 /* ProfileViewCells */,
 				31C456212713E966007487C9 /* Main.storyboard */,
 				31C4563A2713F21E007487C9 /* WaterTakeInLabelCell.swift */,
 				31C4563C2713F291007487C9 /* ImageCell.swift */,
 				31C4563E2713F4D2007487C9 /* CurrentWaterInputCell.swift */,
-				31B24C20271411D3000FE4A7 /* ProfileImageCell.swift */,
-				31B24C22271411F6000FE4A7 /* ProfileUserInputCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -33,11 +33,40 @@ struct WaterTakeInInfo {
     }
     
     var perCentGoalString: String {
-        let percentLong = Double(todayTakeIn) / Double(goal)
-        let percentShort = percentLong * 100
-        let percentShortString = String(format: "%.0f", percentShort)
-        
-        return percentShortString
+            let percentLong = Double(todayTakeIn) / Double(goal)
+            let percentShort = percentLong * 100
+            let percentShortString = String(format: "%.0f", percentShort)
+            
+            return percentShortString
+    }
+    
+    var displayImage: UIImage? {
+        var image: UIImage?
+        if let percentShortInt = Int(self.perCentGoalString) {
+            switch percentShortInt {
+            case 0..<10:
+                image = UIImage(named: "1-1")
+            case 10..<20:
+                image = UIImage(named: "1-2")
+            case 20..<30:
+                image = UIImage(named: "1-3")
+            case 30..<40:
+                image = UIImage(named: "1-4")
+            case 40..<50:
+                image = UIImage(named: "1-5")
+            case 50..<60:
+                image = UIImage(named: "1-6")
+            case 60..<70:
+                image = UIImage(named: "1-7")
+            case 70..<80:
+                image = UIImage(named: "1-8")
+            case 80..<90:
+                image = UIImage(named: "1-9")
+            default:
+                image = UIImage(systemName: "1-9")
+            }
+        }
+        return image
     }
     
 }

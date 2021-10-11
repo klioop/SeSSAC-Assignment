@@ -38,7 +38,6 @@ class WaterTakeInViewContrller: UITableViewController {
         registerProfileCells()
         
         setEditing(false, animated: false)
-        
         navigationItem.setRightBarButton(editButtonItem, animated: false)
     }
     
@@ -114,5 +113,9 @@ extension WaterTakeInViewContrller {
         }
         
         return cellHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

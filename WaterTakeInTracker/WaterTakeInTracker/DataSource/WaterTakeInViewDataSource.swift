@@ -61,7 +61,7 @@ class WaterTakeInViewDataSource: NSObject {
             }
         case .image:
             if let imageCell = cell as? ImageCell {
-                imageCell.configure(for: waterTakeInInfo.image)
+                imageCell.configure(for: waterTakeInInfo.displayImage)
             }
         case .input:
             if let currentWaterInputCell = cell as? CurrentWaterInputCell {

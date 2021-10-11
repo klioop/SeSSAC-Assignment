@@ -9,12 +9,10 @@ import UIKit
 
 class ImageCell: UITableViewCell {
     
-    @IBOutlet var growImageView: UIImageView!
+    @IBOutlet var growingImageVIew: UIImageView!
     
     func configure(for image: UIImage?) {
-        if let imageView = growImageView {
-            imageView.image = image
-        }
+        growingImageVIew.image = image
     }
     
 }

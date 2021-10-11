@@ -31,19 +31,6 @@ class CurrentWaterInputCell: UITableViewCell {
 
 extension CurrentWaterInputCell: UITextFieldDelegate {
     
-//    func textField(
-//        _ textField: UITextField,
-//        shouldChangeCharactersIn range: NSRange,
-//        replacementString string: String
-//    ) -> Bool {
-//        if let originalText = textField.text {
-//            let currentWaterInputText = (originalText as NSString).replacingCharacters(in: range, with: string)
-//            self.currentWaterChangeAction?(currentWaterInputText)
-//        }
-//
-//
-//        return true
-//    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let currentWaterInput = textField.text {
             currentWaterChangeAction?(currentWaterInput)
