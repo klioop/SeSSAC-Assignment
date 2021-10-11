@@ -73,12 +73,26 @@ class WaterTakeInViewContrller: UITableViewController {
             }
             
             navigationItem.title = "물 마시기"
-            navigationItem.leftBarButtonItem = nil
+            navigationItem.leftBarButtonItem = UIBarButtonItem(
+                barButtonSystemItem: .refresh,
+                target: self,
+                action: #selector(triggerRefresh)
+            )
             editButtonItem.image = UIImage(systemName: "person.crop.circle")
         }
         
         tableView.dataSource = dataSource
         tableView.reloadData()
+    }
+    
+    @objc
+    func triggerRefresh() {
+        if var waterTakeInInfo = waterTakeInInfo {
+            waterTakeInInfo.todayTakeIn = 0
+            changeInfoAction?(waterTakeInInfo)
+            self.waterTakeInInfo = waterTakeInInfo
+            setEditing(false, animated: false)
+        }
     }
     
     @objc
