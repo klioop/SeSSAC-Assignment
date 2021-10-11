@@ -64,9 +64,13 @@ class WaterTakeInViewContrller: UITableViewController {
                 self.waterTakeInInfo = tempWaterTakeInfo
                 self.tempWaterTakeInInfo = nil
                 self.changeInfoAction?(tempWaterTakeInfo)
-                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: tempWaterTakeInfo)
+                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: tempWaterTakeInfo) { waterTakeInInfo in
+                    self.waterTakeInInfo = waterTakeInInfo
+                }
             } else {
-                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: waterTakeInInfo)
+                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: waterTakeInInfo) { waterTakeInInfo in
+                    self.waterTakeInInfo = waterTakeInInfo
+                }
             }
             
             navigationItem.title = "물 마시기"
@@ -80,6 +84,7 @@ class WaterTakeInViewContrller: UITableViewController {
     
     @objc
     func triggerCancle() {
+        tempWaterTakeInInfo = nil
         setEditing(false, animated: true)
     }
     

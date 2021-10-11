@@ -9,6 +9,8 @@ import UIKit
 
 class WaterTakeInViewDataSource: NSObject {
     
+    typealias CurrentWaterTakeInChangeAction = (WaterTakeInInfo) -> Void
+    
     enum WaterTakeInSection: Int, CaseIterable {
         case takeIn
         case image
@@ -35,8 +37,11 @@ class WaterTakeInViewDataSource: NSObject {
     
     private var waterTakeInInfo: WaterTakeInInfo
     
-    init(waterTakeInInfo: WaterTakeInInfo) {
+    private var currentWaterTakeInChangeAction: CurrentWaterTakeInChangeAction?
+    
+    init(waterTakeInInfo: WaterTakeInInfo, changeAction: @escaping CurrentWaterTakeInChangeAction) {
         self.waterTakeInInfo = waterTakeInInfo
+        self.currentWaterTakeInChangeAction = changeAction
         super.init()
     }
     
@@ -52,15 +57,21 @@ class WaterTakeInViewDataSource: NSObject {
         switch section {
         case .takeIn:
             if let waterTakeInLabelCell = cell as? WaterTakeInLabelCell {
-                waterTakeInLabelCell.configure(for: waterTakeInInfo.todayTakeIn)
+                waterTakeInLabelCell.configure(for: waterTakeInInfo.todayTakeIn, with: waterTakeInInfo.perCentGoalString)
             }
         case .image:
             if let imageCell = cell as? ImageCell {
                 imageCell.configure(for: waterTakeInInfo.image)
             }
         case .input:
-            if let userInputCell = cell as? UserInputCell {
-                userInputCell.textField.placeholder = "\(500)"
+            if let currentWaterInputCell = cell as? CurrentWaterInputCell {
+                currentWaterInputCell.configure { currentWaterInputText in
+                    if let currentWaterTakeIn = Int(currentWaterInputText) {
+                        self.waterTakeInInfo.todayTakeIn += currentWaterTakeIn
+                    }
+                    self.currentWaterTakeInChangeAction?(self.waterTakeInInfo)
+                    tableView.reloadData()
+                }
             }
         }
         

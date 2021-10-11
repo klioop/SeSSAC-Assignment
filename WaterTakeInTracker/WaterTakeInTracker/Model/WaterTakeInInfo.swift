@@ -10,7 +10,7 @@ import UIKit
 
 struct WaterTakeInInfo {
     var name: String
-    var todayTakeIn: Int
+    var todayTakeIn: Int = 0
     var goal: Int = 2100
     var image: UIImage?
     var height: Int?
@@ -30,6 +30,14 @@ struct WaterTakeInInfo {
         } else {
             return nil
         }
+    }
+    
+    var perCentGoalString: String {
+        let percentLong = Double(todayTakeIn) / Double(goal)
+        let percentShort = percentLong * 100
+        let percentShortString = String(format: "%.0f", percentShort)
+        
+        return percentShortString
     }
     
 }

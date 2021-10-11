@@ -11,8 +11,8 @@ class WaterTakeInLabelCell: UITableViewCell {
     
     @IBOutlet var label: UILabel!
     
-    func configure(for takeIn: Int) {
-        let text = "잘하셨어요!\n오늘 마신 양은\n\(takeIn)ml\n목표의 57%"
+    func configure(for takeIn: Int, with percentString: String) {
+        let text = "잘하셨어요!\n오늘 마신 양은\n\(takeIn)ml\n목표의 \(percentString)%"
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
         paragraphStyle.firstLineHeadIndent = 5

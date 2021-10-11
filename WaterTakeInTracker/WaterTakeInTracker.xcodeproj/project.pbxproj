@@ -20,7 +20,7 @@
 		31C456362713EC6D007487C9 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 31C456352713EC6D007487C9 /* TextFieldEffects */; };
 		31C4563B2713F21E007487C9 /* WaterTakeInLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4563A2713F21E007487C9 /* WaterTakeInLabelCell.swift */; };
 		31C4563D2713F291007487C9 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4563C2713F291007487C9 /* ImageCell.swift */; };
-		31C4563F2713F4D2007487C9 /* UserInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4563E2713F4D2007487C9 /* UserInputCell.swift */; };
+		31C4563F2713F4D2007487C9 /* CurrentWaterInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4563E2713F4D2007487C9 /* CurrentWaterInputCell.swift */; };
 		31C456412713F526007487C9 /* WaterTakeInViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C456402713F526007487C9 /* WaterTakeInViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +39,7 @@
 		31C456312713EA4D007487C9 /* WaterTakeInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTakeInViewController.swift; sourceTree = "<group>"; };
 		31C4563A2713F21E007487C9 /* WaterTakeInLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTakeInLabelCell.swift; sourceTree = "<group>"; };
 		31C4563C2713F291007487C9 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		31C4563E2713F4D2007487C9 /* UserInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputCell.swift; sourceTree = "<group>"; };
+		31C4563E2713F4D2007487C9 /* CurrentWaterInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWaterInputCell.swift; sourceTree = "<group>"; };
 		31C456402713F526007487C9 /* WaterTakeInViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTakeInViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +117,7 @@
 				31C456212713E966007487C9 /* Main.storyboard */,
 				31C4563A2713F21E007487C9 /* WaterTakeInLabelCell.swift */,
 				31C4563C2713F291007487C9 /* ImageCell.swift */,
-				31C4563E2713F4D2007487C9 /* UserInputCell.swift */,
+				31C4563E2713F4D2007487C9 /* CurrentWaterInputCell.swift */,
 				31B24C20271411D3000FE4A7 /* ProfileImageCell.swift */,
 				31B24C22271411F6000FE4A7 /* ProfileUserInputCell.swift */,
 			);
@@ -212,7 +212,7 @@
 			files = (
 				31C4563B2713F21E007487C9 /* WaterTakeInLabelCell.swift in Sources */,
 				31B24C21271411D3000FE4A7 /* ProfileImageCell.swift in Sources */,
-				31C4563F2713F4D2007487C9 /* UserInputCell.swift in Sources */,
+				31C4563F2713F4D2007487C9 /* CurrentWaterInputCell.swift in Sources */,
 				31C456412713F526007487C9 /* WaterTakeInViewDataSource.swift in Sources */,
 				31B24C23271411F6000FE4A7 /* ProfileUserInputCell.swift in Sources */,
 				31B24C1C2713FA03000FE4A7 /* WaterTakeInInfo.swift in Sources */,
