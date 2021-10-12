@@ -42,7 +42,7 @@ class WaterTakeInViewDataSource: NSObject {
     
     private var currentWaterTakeInChangeAction: CurrentWaterTakeInChangeAction?
     
-    init(waterTakeInInfo: WaterTakeInInfo, changeAction: @escaping CurrentWaterTakeInChangeAction) {
+    init(waterTakeInInfo: WaterTakeInInfo, changeAction: CurrentWaterTakeInChangeAction? = nil) {
         self.waterTakeInInfo = waterTakeInInfo
         self.currentWaterTakeInChangeAction = changeAction
         super.init()
@@ -100,4 +100,12 @@ extension WaterTakeInViewDataSource: UITableViewDataSource {
         dequeueAndConfigure(at: indexPath, from: tableView)
     }
     
+}
+
+// Deal with model
+extension WaterTakeInViewDataSource {
+    
+    func update(_ waterInfo: WaterTakeInInfo) {
+        WaterTakeInInfo.testData = waterInfo
+    }
 }

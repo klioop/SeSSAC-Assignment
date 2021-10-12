@@ -13,15 +13,12 @@ class WaterTakeInViewContrller: UITableViewController {
     
     private var dataSource: UITableViewDataSource?
     
-    private var waterTakeInInfo: WaterTakeInInfo?
+    private var waterTakeInInfo: WaterTakeInInfo = WaterTakeInInfo.testData
     
     private var tempWaterTakeInInfo: WaterTakeInInfo?
     
-    private var changeInfoAction: ChangeWaterTakeInInfo?
-    
-    private func configure(with info: WaterTakeInInfo, changeAction: @escaping ChangeWaterTakeInInfo) {
+    private func configure(with info: WaterTakeInInfo) {
         self.waterTakeInInfo = info
-        self.changeInfoAction = changeAction
     }
     
     private func registerProfileCells() {
@@ -32,9 +29,7 @@ class WaterTakeInViewContrller: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure(with: WaterTakeInInfo.testData) { waterTakeInInfo in
-            WaterTakeInInfo.testData = waterTakeInInfo
-        }
+        configure(with: waterTakeInInfo)
         registerProfileCells()
         
         setEditing(false, animated: false)
@@ -43,8 +38,6 @@ class WaterTakeInViewContrller: UITableViewController {
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        
-        guard let waterTakeInInfo = waterTakeInInfo else { fatalError("Could not find waterTakeInfo") }
         
         if editing {
             dataSource = ProfileViewDataSource(waterTakeInInfo: waterTakeInInfo) { waterTakeInfo in
@@ -62,14 +55,13 @@ class WaterTakeInViewContrller: UITableViewController {
             if let tempWaterTakeInfo = tempWaterTakeInInfo {
                 self.waterTakeInInfo = tempWaterTakeInfo
                 self.tempWaterTakeInInfo = nil
-                self.changeInfoAction?(tempWaterTakeInfo)
                 dataSource = WaterTakeInViewDataSource(waterTakeInInfo: tempWaterTakeInfo) { waterTakeInInfo in
-                    self.waterTakeInInfo = waterTakeInInfo
+                    if let viewDataSource = self.dataSource as? WaterTakeInViewDataSource {
+                        viewDataSource.update(waterTakeInInfo)
+                    }
                 }
             } else {
-                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: waterTakeInInfo) { waterTakeInInfo in
-                    self.waterTakeInInfo = waterTakeInInfo
-                }
+                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: waterTakeInInfo)
             }
             
             navigationItem.title = "물 마시기"
@@ -87,12 +79,11 @@ class WaterTakeInViewContrller: UITableViewController {
     
     @objc
     func triggerRefresh() {
-        if var waterTakeInInfo = waterTakeInInfo {
-            waterTakeInInfo.todayTakeIn = 0
-            changeInfoAction?(waterTakeInInfo)
-            self.waterTakeInInfo = waterTakeInInfo
-            setEditing(false, animated: false)
-        }
+        guard let dataSource = dataSource as? WaterTakeInViewDataSource else { return }
+        
+        waterTakeInInfo.todayTakeIn = 0
+        dataSource.update(waterTakeInInfo)
+        setEditing(false, animated: false)
     }
     
     @objc
