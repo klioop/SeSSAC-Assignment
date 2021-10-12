@@ -20,6 +20,7 @@ class CurrentWaterInputCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.delegate = self
+        textField.keyboardType = .numberPad
     }
     
     private var currentWaterChangeAction: CurrentWaterChangeAction?
@@ -42,6 +43,8 @@ extension CurrentWaterInputCell: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    
     
 }
 

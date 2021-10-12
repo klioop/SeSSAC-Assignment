@@ -62,10 +62,13 @@ class ProfileUserInputCell: UITableViewCell {
     
     func configure(for text: String?, at row: Int, changeAction: @escaping UserInputChangeAction) {
         let placeHolderText = Inputs(rawValue: row)?.placeHolderText() ?? "?"
+        if !(row == 0) {
+            hoshiTextField.keyboardType = .numberPad
+        }
         
         hoshiTextField.placeholder = placeHolderText
         hoshiTextField.text = text
-        self.userInputChangeAction = changeAction
+        userInputChangeAction = changeAction
     }
 }
 
