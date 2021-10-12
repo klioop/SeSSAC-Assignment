@@ -12,6 +12,7 @@
 		31B24C21271411D3000FE4A7 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B24C20271411D3000FE4A7 /* ProfileImageCell.swift */; };
 		31B24C23271411F6000FE4A7 /* ProfileUserInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B24C22271411F6000FE4A7 /* ProfileUserInputCell.swift */; };
 		31B24C2627149539000FE4A7 /* GoalLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B24C2527149539000FE4A7 /* GoalLabelCell.swift */; };
+		31B24C4E27152295000FE4A7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 31B24C4D27152295000FE4A7 /* IQKeyboardManagerSwift */; };
 		31C4561C2713E966007487C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4561B2713E966007487C9 /* AppDelegate.swift */; };
 		31C4561E2713E966007487C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C4561D2713E966007487C9 /* SceneDelegate.swift */; };
 		31C456232713E966007487C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31C456212713E966007487C9 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31C456362713EC6D007487C9 /* TextFieldEffects in Frameworks */,
+				31B24C4E27152295000FE4A7 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +164,7 @@
 			name = WaterTakeInTracker;
 			packageProductDependencies = (
 				31C456352713EC6D007487C9 /* TextFieldEffects */,
+				31B24C4D27152295000FE4A7 /* IQKeyboardManagerSwift */,
 			);
 			productName = WaterTakeInTracker;
 			productReference = 31C456182713E966007487C9 /* WaterTakeInTracker.app */;
@@ -193,6 +196,7 @@
 			mainGroup = 31C4560F2713E966007487C9;
 			packageReferences = (
 				31C456342713EC6D007487C9 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+				31B24C4C27152294000FE4A7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 31C456192713E966007487C9 /* Products */;
 			projectDirPath = "";
@@ -458,6 +462,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		31B24C4C27152294000FE4A7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		31C456342713EC6D007487C9 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
@@ -469,6 +481,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		31B24C4D27152295000FE4A7 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31B24C4C27152294000FE4A7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		31C456352713EC6D007487C9 /* TextFieldEffects */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 31C456342713EC6D007487C9 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
