@@ -28,49 +28,56 @@ class WaterTakeInViewContrller: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configure(with: waterTakeInInfo)
         registerProfileCells()
-        
         setEditing(false, animated: false)
+        
         navigationItem.setRightBarButton(editButtonItem, animated: false)
+    }
+    
+    private func transitonToEditMode() {
+        dataSource = ProfileViewDataSource(waterTakeInInfo: waterTakeInInfo) { waterTakeInfo in
+            self.tempWaterTakeInInfo = waterTakeInfo
+        }
+        navigationItem.title = nil
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(triggerCancle)
+        )
+        editButtonItem.image = nil
+        editButtonItem.title = "저장"
+    }
+    
+    private func transitionToViewMode() {
+        if let tempWaterTakeInfo = tempWaterTakeInInfo {
+            self.waterTakeInInfo = tempWaterTakeInfo
+            self.tempWaterTakeInInfo = nil
+            dataSource = WaterTakeInViewDataSource(waterTakeInInfo: tempWaterTakeInfo) { waterTakeInInfo in
+                if let viewDataSource = self.dataSource as? WaterTakeInViewDataSource {
+                    viewDataSource.update(waterTakeInInfo)
+                }
+            }
+        } else {
+            dataSource = WaterTakeInViewDataSource(waterTakeInInfo: waterTakeInInfo)
+        }
+        
+        navigationItem.title = "물 마시기"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .refresh,
+            target: self,
+            action: #selector(triggerRefresh)
+        )
+        editButtonItem.image = UIImage(systemName: "person.crop.circle")
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
         if editing {
-            dataSource = ProfileViewDataSource(waterTakeInInfo: waterTakeInInfo) { waterTakeInfo in
-                self.tempWaterTakeInInfo = waterTakeInfo
-            }
-            navigationItem.title = nil
-            navigationItem.leftBarButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .cancel,
-                target: self,
-                action: #selector(triggerCancle)
-            )
-            editButtonItem.image = nil
-            editButtonItem.title = "저장"
+            transitonToEditMode()
         } else {
-            if let tempWaterTakeInfo = tempWaterTakeInInfo {
-                self.waterTakeInInfo = tempWaterTakeInfo
-                self.tempWaterTakeInInfo = nil
-                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: tempWaterTakeInfo) { waterTakeInInfo in
-                    if let viewDataSource = self.dataSource as? WaterTakeInViewDataSource {
-                        viewDataSource.update(waterTakeInInfo)
-                    }
-                }
-            } else {
-                dataSource = WaterTakeInViewDataSource(waterTakeInInfo: waterTakeInInfo)
-            }
-            
-            navigationItem.title = "물 마시기"
-            navigationItem.leftBarButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .refresh,
-                target: self,
-                action: #selector(triggerRefresh)
-            )
-            editButtonItem.image = UIImage(systemName: "person.crop.circle")
+            transitionToViewMode()
         }
         
         tableView.dataSource = dataSource
