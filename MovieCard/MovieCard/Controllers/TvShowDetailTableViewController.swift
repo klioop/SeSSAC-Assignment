@@ -57,8 +57,11 @@ class TvShowDetailTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.cellIdentifier, for: indexPath)
                 as? DefaultTableViewCell else { fatalError("Could not find the cell") }
         
+        cell.defaultImageView.image = UIImage(named: tvShowInfo?.title ?? "?")
         cell.titleLabel.text = starringArray[indexPath.row]
         cell.subTitleLabel.text = "Hello"
+        
+        posterImageView.image = UIImage(named: tvShowInfo?.title ?? "?")
         
         return cell
     }

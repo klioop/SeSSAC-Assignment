@@ -113,7 +113,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQU-Ux-B1z">
                                                     <rect key="frame" x="20" y="68.5" width="374" height="332.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greys_anatomy" translatesAutoresizingMaskIntoConstraints="NO" id="QQC-8o-JKK">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A Tale Dark &amp; Grimm" translatesAutoresizingMaskIntoConstraints="NO" id="QQC-8o-JKK">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="199.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squid Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G93-we-NZw">
@@ -176,7 +176,9 @@
                                                                 <constraint firstAttribute="width" secondItem="w5J-iQ-W9F" secondAttribute="height" multiplier="1:1" id="pPV-kM-ODh"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="paperclip.circle.fill" catalog="system"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="paperclip.circle.fill" catalog="system">
+                                                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                            </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="clipButtonTouched:" destination="F8d-YZ-SGW" eventType="touchUpInside" id="qZS-A6-y7E"/>
                                                             </connections>
@@ -250,7 +252,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="0JV-tM-Axt">
                         <barButtonItem key="leftBarButtonItem" image="list.bullet" catalog="system" id="1fj-tD-3NC"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="0cu-cV-JbT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="0cu-cV-JbT">
+                            <connections>
+                                <action selector="searchButtonTouched:" destination="BYZ-38-t0r" id="fEL-gm-RTB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="headerImageContainer" destination="Wol-aZ-aa7" id="cbG-b8-Ais"/>
@@ -281,13 +287,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="A Tale Dark &amp; Grimm" width="182" height="276"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="cloud" catalog="system" width="128" height="88"/>
-        <image name="greys_anatomy" width="350" height="525"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="paperclip.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

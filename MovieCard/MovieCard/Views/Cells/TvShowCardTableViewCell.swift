@@ -19,24 +19,9 @@ class TvShowCardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var genreLabel: UILabel!
     
-    @IBOutlet weak var cardContainer: UIView! {
-        didSet {
-            cardContainer.layer.cornerRadius = 6
-            cardContainer.layer.shadowColor = UIColor.black.cgColor
-            cardContainer.layer.shadowOpacity = 0.8
-            cardContainer.layer.shadowRadius = 3
-            cardContainer.layer.shadowOffset = CGSize(width: 2, height: 2)
-            cardContainer.layer.masksToBounds = false
-            cardContainer.backgroundColor = .secondarySystemBackground
-        }
-    }
+    @IBOutlet weak var cardContainer: UIView!
     
-    @IBOutlet weak var posterImageView: UIImageView! {
-        didSet {
-            posterImageView.layer.cornerRadius = 6
-            posterImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        }
-    }
+    @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var ratingLabel: UILabel!
     
@@ -44,11 +29,8 @@ class TvShowCardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var starringLabel: UILabel!
     
-    @IBOutlet weak var clipButton: UIButton! {
-        didSet {
-            clipButton.imageView?.tintColor = .black
-        }
-    }
+    @IBOutlet weak var clipButton: UIButton!
+        
     
     @IBAction func clipButtonTouched(_ sender: UIButton) {
         self.clipButtonAction?()
@@ -59,11 +41,30 @@ class TvShowCardTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.backgroundColor = .systemBackground
+        updateUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    override func prepareForReuse() {
+        
+    }
+    
+    func updateUI() {
+        
+        posterImageView.layer.cornerRadius = 6
+        posterImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        cardContainer.layer.cornerRadius = 6
+        cardContainer.layer.shadowColor = UIColor.black.cgColor
+        cardContainer.layer.shadowOpacity = 0.8
+        cardContainer.layer.shadowRadius = 3
+        cardContainer.layer.shadowOffset = CGSize(width: 2, height: 2)
+        cardContainer.layer.masksToBounds = false
+        cardContainer.backgroundColor = .secondarySystemBackground
     }
     
     func configure(
@@ -79,8 +80,9 @@ class TvShowCardTableViewCell: UITableViewCell {
         ratingLabel.text = "\(rating)"
         nameLabel.text = name
         starringLabel.text = starring
+        posterImageView.image = UIImage(named: name)
         
         self.clipButtonAction = clipButtonAction
     }
-
+    
 }

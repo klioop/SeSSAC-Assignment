@@ -21,6 +21,8 @@
 		31BC0F63271D75DA00BED0A9 /* DefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31BC0F61271D75DA00BED0A9 /* DefaultTableViewCell.xib */; };
 		31BC0F66271D84C000BED0A9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 31BC0F65271D84C000BED0A9 /* Kingfisher */; };
 		31BC0F68271D8D0F00BED0A9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0F67271D8D0F00BED0A9 /* WebViewController.swift */; };
+		31BC0F6A271DCC1E00BED0A9 /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BC0F69271DCC1E00BED0A9 /* SearchView.storyboard */; };
+		31BC0F6C271DCC9C00BED0A9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0F6B271DCC9C00BED0A9 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		31BC0F60271D75DA00BED0A9 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		31BC0F61271D75DA00BED0A9 /* DefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultTableViewCell.xib; sourceTree = "<group>"; };
 		31BC0F67271D8D0F00BED0A9 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		31BC0F69271DCC1E00BED0A9 /* SearchView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchView.storyboard; sourceTree = "<group>"; };
+		31BC0F6B271DCC9C00BED0A9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				31BC0F5F271D75C300BED0A9 /* Cells */,
 				31BC0EE4271C588300BED0A9 /* Main.storyboard */,
 				31BC0F5B271D742D00BED0A9 /* TvShowDetail.storyboard */,
+				31BC0F69271DCC1E00BED0A9 /* SearchView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 				31BC0EFC271C668900BED0A9 /* TvShowListViewController.swift */,
 				31BC0F5D271D746E00BED0A9 /* TvShowDetailTableViewController.swift */,
 				31BC0F67271D8D0F00BED0A9 /* WebViewController.swift */,
+				31BC0F6B271DCC9C00BED0A9 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31BC0F5C271D742D00BED0A9 /* TvShowDetail.storyboard in Resources */,
+				31BC0F6A271DCC1E00BED0A9 /* SearchView.storyboard in Resources */,
 				31BC0EEB271C588600BED0A9 /* LaunchScreen.storyboard in Resources */,
 				31BC0EE8271C588600BED0A9 /* Assets.xcassets in Resources */,
 				31BC0F63271D75DA00BED0A9 /* DefaultTableViewCell.xib in Resources */,
@@ -212,6 +219,7 @@
 				31BC0EFB271C651400BED0A9 /* TvShowCardTableViewCell.swift in Sources */,
 				31BC0F5E271D746E00BED0A9 /* TvShowDetailTableViewController.swift in Sources */,
 				31BC0EFD271C668900BED0A9 /* TvShowListViewController.swift in Sources */,
+				31BC0F6C271DCC9C00BED0A9 /* SearchViewController.swift in Sources */,
 				31BC0EDF271C588300BED0A9 /* AppDelegate.swift in Sources */,
 				31BC0EF9271C599E00BED0A9 /* TvShow.swift in Sources */,
 				31BC0EE1271C588300BED0A9 /* SceneDelegate.swift in Sources */,

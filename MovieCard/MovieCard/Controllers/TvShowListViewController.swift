@@ -26,7 +26,16 @@ class TvShowListViewController: UIViewController {
             tvTableView.dataSource = self
         }
     }
-
+    
+    @IBAction func searchButtonTouched(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: "SearchView", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: SearchViewController.sbIdentifier)
+        let navCon = UINavigationController(rootViewController: vc)
+        navCon.modalPresentationStyle = .fullScreen
+        
+        present(navCon, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -76,8 +85,6 @@ extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
         
     }
-    
-
     
     
 }
