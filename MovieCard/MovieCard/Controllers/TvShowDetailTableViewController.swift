@@ -102,31 +102,56 @@ class TvShowDetailTableViewController: UITableViewController {
         LabelHeaderView.prefferedHeight
     }
     
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if self.isHeaderBtnTapped {
+            let headerView = tableView.headerView(forSection: 0) as! LabelHeaderView
+            foldHeaderView(headerView)
+            self.isHeaderBtnTapped = false
+        }
+    }
+    
+    private func unfoldHeaderView(_ headerView: LabelHeaderView) {
+        UIView.animate(withDuration: 0.2) {
+            headerView.label.sizeToFit()
+            headerView.label.frame = CGRect(
+                x: 10,
+                y: 0,
+                width: headerView.contentView.frame.width - 20,
+                height: headerView.label.frame.height
+            )
+            headerView.button.transform = CGAffineTransform.identity.rotated(by: .pi)
+            headerView.frame.size.height = headerView.label.frame.height + 42
+            headerView.layoutSubviews()
+            self.view.layoutSubviews()
+        }
+    }
+    
+    private func foldHeaderView(_ headerView: LabelHeaderView) {
+        UIView.animate(withDuration: 0.2) {
+            headerView.label.frame = CGRect(
+                x: 10,
+                y: 0,
+                width: headerView.contentView.frame.width - 20,
+                height: 100 / 2
+            )
+            headerView.frame.size.height = 100
+            headerView.button.transform = CGAffineTransform.identity.rotated(by: .pi * 2)
+            headerView.layoutSubviews()
+            
+            self.view.layoutSubviews()
+        }
+    }
+    
     @objc
     func headerBtnTapped() {
         self.isHeaderBtnTapped.toggle()
         let headerView = tableView.headerView(forSection: 0) as! LabelHeaderView
-
         if self.isHeaderBtnTapped {
-            headerView.label.sizeToFit()
-            headerView.label.frame = CGRect(x: 10, y: 0, width: headerView.contentView.frame.width - 20, height: headerView.label.frame.height)
-            LabelHeaderView.prefferedHeight = headerView.label.frame.height + 42
-            
-            headerView.button.transform = CGAffineTransform.identity.rotated(by: .pi)
-            
-            tableView.reloadData()
-            
+            unfoldHeaderView(headerView)
         } else {
-            
-            headerView.label.frame = CGRect(x: 10, y: 0, width: headerView.contentView.frame.width - 20, height: 100 / 2)
-            LabelHeaderView.prefferedHeight = 100
-            headerView.button.transform = CGAffineTransform.identity.rotated(by: .pi * 2)
-            
-            tableView.reloadData()
+            foldHeaderView(headerView)
         }
-        
-        
-        
     }
 
 

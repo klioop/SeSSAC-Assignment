@@ -10,15 +10,11 @@ import LoremSwiftum
 
 class LabelHeaderView: UITableViewHeaderFooterView {
     
-    typealias ButtonAction = () -> Void
-    
     static let headerIdentifier = "LabelHeaderView"
     
     static var prefferedHeight: CGFloat = 100
     
     var count = 0
-    
-    var buttonAction: ButtonAction?
     
     var label: UILabel = {
         let label = UILabel()
@@ -64,17 +60,6 @@ class LabelHeaderView: UITableViewHeaderFooterView {
             height: 32
         )
     }
-    
-    @objc
-    func didTapButton() {
-        
-        
-    }
-    
-    func configure(buttonAction: @escaping ButtonAction) {
-        self.buttonAction = buttonAction
-    }
-    
     
 
 }
