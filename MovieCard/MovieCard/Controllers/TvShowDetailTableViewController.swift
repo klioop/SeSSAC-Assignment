@@ -17,8 +17,10 @@ class TvShowDetailTableViewController: UITableViewController {
     }
     
     @IBOutlet weak var posterImageView: UIImageView!
-    
+     
     static let stroryBoardID = "TvShowDetailTableViewController"
+    
+    var isHeaderBtnTapped = false
     
     var tvShowInfo: TvShow?
     
@@ -39,15 +41,16 @@ class TvShowDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCell()
+        registerCellAndHeader()
         guard let tvShow = tvShowInfo, let url = URL(string: tvShow.imageUrl) else { return }
         backDropImageView.kf.setImage(with: url)
 
     }
     
-    func registerCell() {
+    func registerCellAndHeader() {
         let nib = UINib(nibName: DefaultTableViewCell.cellIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: DefaultTableViewCell.cellIdentifier)
+        tableView.register(LabelHeaderView.self, forHeaderFooterViewReuseIdentifier: LabelHeaderView.headerIdentifier)
     }
     
     func dequeueAndConfigure(
@@ -84,6 +87,46 @@ class TvShowDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         DefaultTableViewCell.prefferedHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LabelHeaderView.headerIdentifier)
+                as? LabelHeaderView else { fatalError() }
+        
+        headerView.button.addTarget(self, action: #selector(headerBtnTapped), for: .touchUpInside)
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        LabelHeaderView.prefferedHeight
+    }
+    
+    @objc
+    func headerBtnTapped() {
+        self.isHeaderBtnTapped.toggle()
+        let headerView = tableView.headerView(forSection: 0) as! LabelHeaderView
+
+        if self.isHeaderBtnTapped {
+            headerView.label.sizeToFit()
+            headerView.label.frame = CGRect(x: 10, y: 0, width: headerView.contentView.frame.width - 20, height: headerView.label.frame.height)
+            LabelHeaderView.prefferedHeight = headerView.label.frame.height + 42
+            
+            headerView.button.transform = CGAffineTransform.identity.rotated(by: .pi)
+            
+            tableView.reloadData()
+            
+        } else {
+            
+            headerView.label.frame = CGRect(x: 10, y: 0, width: headerView.contentView.frame.width - 20, height: 100 / 2)
+            LabelHeaderView.prefferedHeight = 100
+            headerView.button.transform = CGAffineTransform.identity.rotated(by: .pi * 2)
+            
+            tableView.reloadData()
+        }
+        
+        
+        
     }
 
 

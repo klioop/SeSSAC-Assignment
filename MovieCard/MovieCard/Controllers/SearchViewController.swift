@@ -37,8 +37,6 @@ class SearchViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    
-
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {

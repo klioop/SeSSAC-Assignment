@@ -113,7 +113,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQU-Ux-B1z">
                                                     <rect key="frame" x="20" y="68.5" width="374" height="332.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A Tale Dark &amp; Grimm" translatesAutoresizingMaskIntoConstraints="NO" id="QQC-8o-JKK">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kingfisher-10.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QQC-8o-JKK">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="199.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squid Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G93-we-NZw">
@@ -183,15 +183,24 @@
                                                                 <action selector="clipButtonTouched:" destination="F8d-YZ-SGW" eventType="touchUpInside" id="qZS-A6-y7E"/>
                                                             </connections>
                                                         </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rus-xm-7oV">
+                                                            <rect key="frame" x="20" y="284" width="334" height="1"/>
+                                                            <color key="backgroundColor" systemColor="labelColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="vlo-gT-bZI"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="gfw-FO-hS6" firstAttribute="top" secondItem="G93-we-NZw" secondAttribute="bottom" constant="8" symbolic="YES" id="90T-ku-eUd"/>
                                                         <constraint firstItem="gfw-FO-hS6" firstAttribute="width" secondItem="NQU-Ux-B1z" secondAttribute="width" multiplier="0.893048" id="9vg-4Q-Pgz"/>
                                                         <constraint firstItem="G93-we-NZw" firstAttribute="leading" secondItem="eMz-Cc-Qqi" secondAttribute="leading" id="BBd-ix-kxN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="rus-xm-7oV" secondAttribute="trailing" constant="20" symbolic="YES" id="Bhk-Is-OnR"/>
                                                         <constraint firstItem="QQC-8o-JKK" firstAttribute="top" secondItem="NQU-Ux-B1z" secondAttribute="top" id="COb-Ww-wND"/>
                                                         <constraint firstAttribute="trailing" secondItem="w5J-iQ-W9F" secondAttribute="trailing" constant="8" id="FDb-io-AU4"/>
                                                         <constraint firstAttribute="bottom" secondItem="GdL-H1-0kp" secondAttribute="bottom" constant="16" id="JwY-Fn-77b"/>
+                                                        <constraint firstItem="rus-xm-7oV" firstAttribute="leading" secondItem="NQU-Ux-B1z" secondAttribute="leading" constant="20" symbolic="YES" id="T1H-Vx-N2K"/>
                                                         <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="GdL-H1-0kp" secondAttribute="trailing" constant="246" id="T3p-Yn-YSw"/>
                                                         <constraint firstItem="GQ1-pA-zHf" firstAttribute="top" secondItem="QQC-8o-JKK" secondAttribute="bottom" constant="-39" id="VOx-yS-Xc2"/>
                                                         <constraint firstItem="GQ1-pA-zHf" firstAttribute="height" secondItem="eMz-Cc-Qqi" secondAttribute="height" id="a2n-NG-efh"/>
@@ -205,6 +214,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="QQC-8o-JKK" secondAttribute="trailing" id="lWl-eX-ncw"/>
                                                         <constraint firstItem="GQ1-pA-zHf" firstAttribute="leading" secondItem="eMz-Cc-Qqi" secondAttribute="trailing" id="mUe-YQ-zSP"/>
                                                         <constraint firstItem="QQC-8o-JKK" firstAttribute="leading" secondItem="NQU-Ux-B1z" secondAttribute="leading" id="oFL-4g-UXG"/>
+                                                        <constraint firstItem="GdL-H1-0kp" firstAttribute="top" secondItem="rus-xm-7oV" secondAttribute="bottom" constant="15.5" id="ote-k5-PpI"/>
                                                         <constraint firstItem="w5J-iQ-W9F" firstAttribute="top" secondItem="NQU-Ux-B1z" secondAttribute="top" constant="8" id="s1w-dg-sl1"/>
                                                         <constraint firstItem="G93-we-NZw" firstAttribute="top" secondItem="QQC-8o-JKK" secondAttribute="bottom" constant="8" id="wSa-zL-Hei"/>
                                                         <constraint firstItem="w5J-iQ-W9F" firstAttribute="width" secondItem="NQU-Ux-B1z" secondAttribute="width" multiplier="0.1" id="xXm-0b-Tub"/>
@@ -287,11 +297,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A Tale Dark &amp; Grimm" width="182" height="276"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="cloud" catalog="system" width="128" height="88"/>
+        <image name="kingfisher-10.jpg" width="250" height="250"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="paperclip.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
