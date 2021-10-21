@@ -26,7 +26,14 @@ class MapViewController: UIViewController {
     
     private lazy var theaters = TheaterLocation.testData
     
-    private var filteredTheaters: [TheaterLocation] = []
+    private var currentFilter = Filter.all
+    
+    private var filteredTheaters: [TheaterLocation] = [] {
+        didSet {
+            showAnnotations(with: currentFilter)
+        }
+    }
+    
 
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -43,32 +50,28 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Filter",
-            style: .plain,
-            target: self,
-            action: #selector(triggerFilter)
-        )
-        let center = CLLocationCoordinate2D(latitude: theaters[0].latitude, longitude: theaters[0].longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1 )
-        let region = MKCoordinateRegion(center: center, span: span)
-        mapView.setRegion(region, animated: true)
+        configureNavigationItem()
+        initialRegion()
         showAnnotations()
     }
     
     @objc
     private func triggerFilter() {
         let alert = UIAlertController(title: "분류", message: nil, preferredStyle: .actionSheet)
-        let lotteAction = UIAlertAction(title: Filter.lotte.rawValue, style: .default, handler: { _ in
-            self.filteredTheaters = self.getFilteredTheaters(type: Filter.lotte.rawValue)
-            self.showAnnotations(with: .lotte)
-            self.mapView.reloadInputViews()
+        let lotteAction = UIAlertAction(title: Filter.lotte.rawValue, style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.currentFilter = Filter.lotte
+            self.filteredTheaters = self.getFilteredTheaters(type: self.currentFilter.rawValue)
         })
-        let megaAction = UIAlertAction(title: Filter.mega.rawValue, style: .default) { _ in
-            self.filteredTheaters = self.getFilteredTheaters(type: Filter.mega.rawValue)
+        let megaAction = UIAlertAction(title: Filter.mega.rawValue, style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            self.currentFilter = Filter.mega
+            self.filteredTheaters = self.getFilteredTheaters(type: self.currentFilter.rawValue)
         }
-        let cgvAction = UIAlertAction(title: Filter.cgv.rawValue, style: .default) { _ in
-            self.filteredTheaters = self.getFilteredTheaters(type: Filter.cgv.rawValue)
+        let cgvAction = UIAlertAction(title: Filter.cgv.rawValue, style: .default) { [weak self]  _ in
+            guard let self = self else { return }
+            self.currentFilter = Filter.cgv
+            self.filteredTheaters = self.getFilteredTheaters(type: self.currentFilter.rawValue)
         }
         alert.addActions(lotteAction, megaAction, cgvAction)
         
@@ -76,6 +79,22 @@ class MapViewController: UIViewController {
     }
     
     // MARK: - Private functions
+    
+    private func configureNavigationItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Filter",
+            style: .plain,
+            target: self,
+            action: #selector(triggerFilter)
+        )
+    }
+    
+    private func initialRegion() {
+        let center = CLLocationCoordinate2D(latitude: theaters[0].latitude, longitude: theaters[0].longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1 )
+        let region = MKCoordinateRegion(center: center, span: span)
+        mapView.setRegion(region, animated: true)
+    }
     
     private func applyFilter(with filter: Filter, from theaters: [TheaterLocation]) -> [TheaterLocation] {
         switch filter {
@@ -107,13 +126,13 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(prevAnnotations)
         
         let annotations: [MKPointAnnotation]
+        
         switch filter {
         case .all:
             annotations = self.theaters.map{ setAnnotation(for: $0) }
         default:
             annotations = self.filteredTheaters.map{ setAnnotation(for: $0) }
         }
-        
         mapView.addAnnotations(annotations)
     }
     
