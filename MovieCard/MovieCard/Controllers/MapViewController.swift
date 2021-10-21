@@ -56,10 +56,16 @@ class MapViewController: UIViewController {
     private func triggerFilter() {
         let alert = UIAlertController(title: "분류", message: nil, preferredStyle: .actionSheet)
         let lotteAction = UIAlertAction(title: Filter.lotte.rawValue, style: .default, handler: { _ in
-//            self.filteredTheaters = self.filteredTheater(type: Filter.lotte.rawValue)
-            print("Lotte")
+            self.filteredTheaters = self.filteredTheater(type: Filter.lotte.rawValue)
         })
-        alert.addAction(lotteAction)
+        let megaAction = UIAlertAction(title: Filter.mega.rawValue, style: .default) { _ in
+            self.filteredTheaters = self.filteredTheater(type: Filter.mega.rawValue)
+        }
+        let cgvAction = UIAlertAction(title: Filter.cgv.rawValue, style: .default) { _ in
+            self.filteredTheaters = self.filteredTheater(type: Filter.cgv.rawValue)
+        }
+        alert.addActions(lotteAction, megaAction, cgvAction)
+        
         present(alert, animated: true, completion: nil)
     }
     
