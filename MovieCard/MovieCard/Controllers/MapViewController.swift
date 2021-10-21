@@ -26,7 +26,11 @@ class MapViewController: UIViewController {
     
     private lazy var theaters = TheaterLocation.testData
     
-    private var currentFilter = Filter.all
+    private var currentFilter = Filter.all {
+        didSet {
+            self.filteredTheaters = getFilteredTheaters(type: currentFilter.rawValue)
+        }
+    }
     
     private var filteredTheaters: [TheaterLocation] = [] {
         didSet {
@@ -55,24 +59,28 @@ class MapViewController: UIViewController {
         showAnnotations()
     }
     
+    // MARK: - obcj methods
+    
     @objc
     private func triggerFilter() {
         let alert = UIAlertController(title: "분류", message: nil, preferredStyle: .actionSheet)
-        let lotteAction = UIAlertAction(title: Filter.lotte.rawValue, style: .default, handler: { [weak self] _ in
+        let lotteAction = UIAlertAction(title: Filter.lotte.rawValue, style: .default) { [weak self] _ in
             guard let self = self else { return }
-            self.currentFilter = Filter.lotte
-            self.filteredTheaters = self.getFilteredTheaters(type: self.currentFilter.rawValue)
-        })
+            self.currentFilter = .lotte
+        }
         let megaAction = UIAlertAction(title: Filter.mega.rawValue, style: .default) { [weak self] _ in
             guard let self = self else { return }
-            self.currentFilter = Filter.mega
-            self.filteredTheaters = self.getFilteredTheaters(type: self.currentFilter.rawValue)
+            self.currentFilter = .mega
         }
         let cgvAction = UIAlertAction(title: Filter.cgv.rawValue, style: .default) { [weak self]  _ in
             guard let self = self else { return }
-            self.currentFilter = Filter.cgv
-            self.filteredTheaters = self.getFilteredTheaters(type: self.currentFilter.rawValue)
+            self.currentFilter = .cgv
         }
+        let allAction = UIAlertAction(title: Filter.all.rawValue, style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            self.currentFilter = .all
+        }
+        
         alert.addActions(lotteAction, megaAction, cgvAction)
         
         present(alert, animated: true, completion: nil)
@@ -174,7 +182,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         if let coordinate = locations.last?.coordinate {
             let center = CLLocationCoordinate2D(
                 latitude: coordinate.latitude,
@@ -183,9 +190,7 @@ extension MapViewController: CLLocationManagerDelegate {
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let region = MKCoordinateRegion(center: center, span: span)
             mapView.setRegion(region, animated: true)
-            
         }
-        
         locationManager.stopUpdatingLocation()
     }
     
