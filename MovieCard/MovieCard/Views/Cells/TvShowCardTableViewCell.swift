@@ -40,7 +40,7 @@ class TvShowCardTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = .clear
         updateUI()
     }
 

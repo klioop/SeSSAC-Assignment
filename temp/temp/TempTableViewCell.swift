@@ -9,6 +9,8 @@ import UIKit
 
 class TempTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tempLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

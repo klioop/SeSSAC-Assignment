@@ -11,6 +11,8 @@ class TvShowListViewController: UIViewController {
     
     private var tvShows = TvShow.testData
     
+    @IBOutlet weak var bookImage: UIImageView!
+    
     @IBOutlet weak var headerImageContainer: UIView! {
         didSet {
             headerImageContainer.layer.shadowOpacity = 0.8
@@ -18,6 +20,13 @@ class TvShowListViewController: UIViewController {
             headerImageContainer.layer.shadowOffset = CGSize(width: 1, height: 1)
             headerImageContainer.layer.cornerRadius = 6
         }
+    }
+    
+    @IBAction func mapButtonTouched(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: "Map", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: MapViewController.sbID)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBOutlet weak var tvTableView: UITableView! {
@@ -38,7 +47,28 @@ class TvShowListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .tertiarySystemBackground
+        addTapGesture(to: bookImage)
+    }
+    
+    func addTapGesture(to view: UIView) {
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(target: self , action: #selector(tapGestureRecognized(by:)))
+        )
+        
+    }
+    
+    @objc
+    func tapGestureRecognized(by recognizer: UITapGestureRecognizer) {
+        switch recognizer.state {
+        case .ended:
+            let sb = UIStoryboard(name: "BookCollection", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: BookViewController.sbID)
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
     }
     
 }

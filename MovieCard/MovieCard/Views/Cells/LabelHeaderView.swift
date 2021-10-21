@@ -21,7 +21,6 @@ class LabelHeaderView: UITableViewHeaderFooterView {
         
         label.numberOfLines = 0
         label.text = Lorem.paragraph
-        label.backgroundColor = .systemPink
         
         return label
     }()

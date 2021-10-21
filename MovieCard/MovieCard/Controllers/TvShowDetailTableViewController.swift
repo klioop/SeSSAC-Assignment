@@ -20,11 +20,13 @@ class TvShowDetailTableViewController: UITableViewController {
      
     static let stroryBoardID = "TvShowDetailTableViewController"
     
-    var isHeaderBtnTapped = false
-    
     var tvShowInfo: TvShow?
     
-    var starringArray: [String] {
+    // MARK: - private variables
+    
+    private var isHeaderBtnTapped = false
+    
+    private var starringArray: [String] {
         if let tvShow = tvShowInfo {
             let tempArr = tvShow.starring.components(separatedBy:" ")
             let result = tempArr.indices.map { idx -> String in
@@ -38,6 +40,8 @@ class TvShowDetailTableViewController: UITableViewController {
         }
         return []
     }
+    
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +51,15 @@ class TvShowDetailTableViewController: UITableViewController {
 
     }
     
-    func registerCellAndHeader() {
+    // MARK: - private functions
+    
+    private func registerCellAndHeader() {
         let nib = UINib(nibName: DefaultTableViewCell.cellIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: DefaultTableViewCell.cellIdentifier)
         tableView.register(LabelHeaderView.self, forHeaderFooterViewReuseIdentifier: LabelHeaderView.headerIdentifier)
     }
     
-    func dequeueAndConfigure(
+    private func dequeueAndConfigure(
         at indexPath: IndexPath,
         from tableView: UITableView
     ) -> UITableViewCell {
@@ -67,48 +73,6 @@ class TvShowDetailTableViewController: UITableViewController {
         posterImageView.image = UIImage(named: tvShowInfo?.title ?? "?")
         
         return cell
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return starringArray.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        dequeueAndConfigure(at: indexPath, from: tableView)
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        DefaultTableViewCell.prefferedHeight
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LabelHeaderView.headerIdentifier)
-                as? LabelHeaderView else { fatalError() }
-        
-        headerView.button.addTarget(self, action: #selector(headerBtnTapped), for: .touchUpInside)
-        
-        return headerView
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        LabelHeaderView.prefferedHeight
-    }
-    
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        if self.isHeaderBtnTapped {
-            let headerView = tableView.headerView(forSection: 0) as! LabelHeaderView
-            foldHeaderView(headerView)
-            self.isHeaderBtnTapped = false
-        }
     }
     
     private func unfoldHeaderView(_ headerView: LabelHeaderView) {
@@ -142,11 +106,56 @@ class TvShowDetailTableViewController: UITableViewController {
             self.view.layoutSubviews()
         }
     }
+
+    // MARK: - Table view data source and delegate
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return starringArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        dequeueAndConfigure(at: indexPath, from: tableView)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        DefaultTableViewCell.prefferedHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LabelHeaderView.headerIdentifier)
+                as? LabelHeaderView else { fatalError() }
+        
+        headerView.button.addTarget(self, action: #selector(headerBtnTapped), for: .touchUpInside)
+        headerView.label.text = tvShowInfo?.overview
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        LabelHeaderView.prefferedHeight
+    }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if self.isHeaderBtnTapped {
+            let headerView = tableView.headerView(forSection: 0) as! LabelHeaderView
+            foldHeaderView(headerView)
+            self.isHeaderBtnTapped = false
+        }
+    }
+    
+    // MARK: - objc func
     
     @objc
     func headerBtnTapped() {
         self.isHeaderBtnTapped.toggle()
         let headerView = tableView.headerView(forSection: 0) as! LabelHeaderView
+        
         if self.isHeaderBtnTapped {
             unfoldHeaderView(headerView)
         } else {
