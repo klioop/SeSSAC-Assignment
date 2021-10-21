@@ -65,23 +65,19 @@ class MapViewController: UIViewController {
     private func triggerFilter() {
         let alert = UIAlertController(title: "분류", message: nil, preferredStyle: .actionSheet)
         let lotteAction = UIAlertAction(title: Filter.lotte.rawValue, style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            self.currentFilter = .lotte
+            self?.currentFilter = .lotte
         }
         let megaAction = UIAlertAction(title: Filter.mega.rawValue, style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            self.currentFilter = .mega
+            self?.currentFilter = .mega
         }
         let cgvAction = UIAlertAction(title: Filter.cgv.rawValue, style: .default) { [weak self]  _ in
-            guard let self = self else { return }
-            self.currentFilter = .cgv
+            self?.currentFilter = .cgv
         }
         let allAction = UIAlertAction(title: Filter.all.rawValue, style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            self.currentFilter = .all
+            self?.currentFilter = .all
         }
         
-        alert.addActions(lotteAction, megaAction, cgvAction)
+        alert.addActions(lotteAction, megaAction, cgvAction, allAction)
         
         present(alert, animated: true, completion: nil)
     }
