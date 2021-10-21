@@ -49,6 +49,10 @@ class MapViewController: UIViewController {
             target: self,
             action: #selector(triggerFilter)
         )
+        let center = CLLocationCoordinate2D(latitude: theaters[0].latitude, longitude: theaters[0].longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1 )
+        let region = MKCoordinateRegion(center: center, span: span)
+        mapView.setRegion(region, animated: true)
         showAnnotations()
     }
     
@@ -56,13 +60,15 @@ class MapViewController: UIViewController {
     private func triggerFilter() {
         let alert = UIAlertController(title: "분류", message: nil, preferredStyle: .actionSheet)
         let lotteAction = UIAlertAction(title: Filter.lotte.rawValue, style: .default, handler: { _ in
-            self.filteredTheaters = self.filteredTheater(type: Filter.lotte.rawValue)
+            self.filteredTheaters = self.getFilteredTheaters(type: Filter.lotte.rawValue)
+            self.showAnnotations(with: .lotte)
+            self.mapView.reloadInputViews()
         })
         let megaAction = UIAlertAction(title: Filter.mega.rawValue, style: .default) { _ in
-            self.filteredTheaters = self.filteredTheater(type: Filter.mega.rawValue)
+            self.filteredTheaters = self.getFilteredTheaters(type: Filter.mega.rawValue)
         }
         let cgvAction = UIAlertAction(title: Filter.cgv.rawValue, style: .default) { _ in
-            self.filteredTheaters = self.filteredTheater(type: Filter.cgv.rawValue)
+            self.filteredTheaters = self.getFilteredTheaters(type: Filter.cgv.rawValue)
         }
         alert.addActions(lotteAction, megaAction, cgvAction)
         
@@ -80,7 +86,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func filteredTheater(type: String) -> [TheaterLocation] {
+    private func getFilteredTheaters(type: String) -> [TheaterLocation] {
         let filter = Filter(rawValue: type) ?? .all
         return applyFilter(with: filter, from: self.theaters)
     }
@@ -97,12 +103,24 @@ class MapViewController: UIViewController {
     }
     
     private func showAnnotations(with filter: Filter = .all) {
-        let annotations = theaters.map { setAnnotation(for: $0) }
+        let prevAnnotations = mapView.annotations
+        mapView.removeAnnotations(prevAnnotations)
+        
+        let annotations: [MKPointAnnotation]
+        switch filter {
+        case .all:
+            annotations = self.theaters.map{ setAnnotation(for: $0) }
+        default:
+            annotations = self.filteredTheaters.map{ setAnnotation(for: $0) }
+        }
+        
         mapView.addAnnotations(annotations)
     }
     
     
 }
+
+// MARK: - CLLocatonManagerDelegate
 
 extension MapViewController: CLLocationManagerDelegate {
     
