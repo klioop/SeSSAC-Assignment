@@ -9,7 +9,6 @@ import UIKit
 import MapKit
 import CoreLocation
 import CoreLocationUI
-import Kingfisher
 
 class MapViewController: UIViewController {
     
@@ -37,7 +36,6 @@ class MapViewController: UIViewController {
             showAnnotations(with: currentFilter)
         }
     }
-    
 
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -73,7 +71,7 @@ class MapViewController: UIViewController {
         let cgvAction = UIAlertAction(title: Filter.cgv.rawValue, style: .default) { [weak self]  _ in
             self?.currentFilter = .cgv
         }
-        let allAction = UIAlertAction(title: Filter.all.rawValue, style: .default) { [weak self] _ in
+        let allAction = UIAlertAction(title: "전체 보기", style: .default) { [weak self] _ in
             self?.currentFilter = .all
         }
         
@@ -97,6 +95,7 @@ class MapViewController: UIViewController {
         let center = CLLocationCoordinate2D(latitude: theaters[0].latitude, longitude: theaters[0].longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1 )
         let region = MKCoordinateRegion(center: center, span: span)
+        
         mapView.setRegion(region, animated: true)
     }
     
@@ -169,7 +168,15 @@ extension MapViewController: CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
         case .restricted, .denied:
-            print("설정으로 이동")
+            showAlert(
+                title: "위치 정보 접근 권한 거절",
+                message: "위치 정보 접근 권한을 설정에서 켜주세요",
+                okTitle: "설정으로 이동") {
+                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                }
         case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation()
         @unknown default:

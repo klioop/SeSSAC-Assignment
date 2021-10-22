@@ -28,11 +28,10 @@ class TvShowDetailTableViewController: UITableViewController {
     
     private var starringArray: [String] {
         if let tvShow = tvShowInfo {
-            let tempArr = tvShow.starring.components(separatedBy:" ")
-            let result = tempArr.indices.map { idx -> String in
-                var name = ""
-                if idx % 2 == 0 {
-                   name = tempArr[idx] + " " + tempArr[idx + 1]
+            let temp = tvShow.starring.components(separatedBy:", ")
+            let result = temp.map { name -> String in
+                if name.contains("-") {
+                    return name.replacingOccurrences(of: "-", with: "")
                 }
                 return name
             }
