@@ -19,6 +19,7 @@
 		31BFDAA2272825840021F80A /* OthersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BFDAA1272825830021F80A /* OthersTests.swift */; };
 		31BFDAA5272826BE0021F80A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 31BFDAA4272826BE0021F80A /* Alamofire */; };
 		31BFDAA8272826CD0021F80A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 31BFDAA7272826CD0021F80A /* SwiftyJSON */; };
+		31BFDAAB27282FE20021F80A /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BFDAAA27282FE20021F80A /* String+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		31BFDA9C2727E6FB0021F80A /* SearchViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTest.swift; sourceTree = "<group>"; };
 		31BFDA9F2727F16C0021F80A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		31BFDAA1272825830021F80A /* OthersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersTests.swift; sourceTree = "<group>"; };
+		31BFDAAA27282FE20021F80A /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		3168585A2727DD5B0087DE48 /* SearchMovieByDate */ = {
 			isa = PBXGroup;
 			children = (
+				31BFDAA927282FCC0021F80A /* Utilities */,
 				31BFDA9E2727F15F0021F80A /* Manager */,
 				31BFDA8A2727E17E0021F80A /* Controllers */,
 				316858722727DD9B0087DE48 /* APIKeys */,
@@ -156,6 +159,14 @@
 				31BFDA9F2727F16C0021F80A /* API.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		31BFDAA927282FCC0021F80A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				31BFDAAA27282FE20021F80A /* String+extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 				316858752727DDC80087DE48 /* APIKey.swift in Sources */,
 				31BFDA8C2727E1970021F80A /* SearchViewController.swift in Sources */,
 				3168585E2727DD5B0087DE48 /* SceneDelegate.swift in Sources */,
+				31BFDAAB27282FE20021F80A /* String+extensions.swift in Sources */,
 				31BFDAA02727F16C0021F80A /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "영화 검색"
-
     }
 
     @IBAction func didTapSearchButton(_ sender: UIButton) {
