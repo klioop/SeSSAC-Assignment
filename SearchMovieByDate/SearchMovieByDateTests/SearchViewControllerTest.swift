@@ -22,11 +22,6 @@ class SearchViewControllerTest: XCTestCase {
         XCTAssertEqual(sut.title, "영화 검색")
     }
     
-    func test_makeUrlQueryString() throws {
-        let apiManager = API.api
-        let queryParams = ["name": "sam"]
-        XCTAssertTrue(apiManager.makeUrlQueryString(queryParams: queryParams).contains("name=sam"))
-    }
     
     private func makeSUT() throws -> SearchViewController {
         let bundle = Bundle(for: SearchViewController.self)
