@@ -22,7 +22,6 @@ class SearchViewControllerTest: XCTestCase {
         XCTAssertEqual(sut.title, "영화 검색")
     }
     
-    
     private func makeSUT() throws -> SearchViewController {
         let bundle = Bundle(for: SearchViewController.self)
         let sb = UIStoryboard(name: "Main", bundle: bundle)

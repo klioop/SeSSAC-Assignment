@@ -9,6 +9,7 @@ import XCTest
 @testable import SearchMovieByDate
 
 class OthersTests: XCTestCase {
+    
     func test_makeUrlQueryString() throws {
         let apiManager = API.api
         let queryParams = ["name": "sam"]
