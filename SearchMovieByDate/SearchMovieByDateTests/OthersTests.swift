@@ -17,5 +17,9 @@ class OthersTests: XCTestCase {
         XCTAssertTrue(apiManager.makeUrlQueryString().contains(API.Constants.key))
         XCTAssertTrue(apiManager.makeUrlQueryString(queryParams: queryParams).contains("name=sam"))
     }
+    
+    func test_removeNotNumberCharacters() throws {
+        XCTAssertEqual("1234.abc".removeNotNumberCharatersInString(), "1234")
+    }
 
 }
