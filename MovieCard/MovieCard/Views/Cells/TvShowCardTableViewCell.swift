@@ -54,7 +54,6 @@ class TvShowCardTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
-        
         posterImageView.layer.cornerRadius = 6
         posterImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
@@ -65,6 +64,8 @@ class TvShowCardTableViewCell: UITableViewCell {
         cardContainer.layer.shadowOffset = CGSize(width: 2, height: 2)
         cardContainer.layer.masksToBounds = false
         cardContainer.backgroundColor = .secondarySystemBackground
+        
+        clipButton.tintColor = .white
     }
     
     func configure(
