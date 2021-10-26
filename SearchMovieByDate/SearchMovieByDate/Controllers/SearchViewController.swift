@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    @IBOutlet weak var serachTextField: UITextField!
+    @IBOutlet weak var searchTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()

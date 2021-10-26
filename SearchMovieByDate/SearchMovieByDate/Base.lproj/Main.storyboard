@@ -59,7 +59,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ggI-zD-krC"/>
                     <connections>
-                        <outlet property="serachTextField" destination="Qwf-T4-s7S" id="Hi1-4X-5lp"/>
+                        <outlet property="searchTextField" destination="Qwf-T4-s7S" id="Hi1-4X-5lp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvW-mC-bxk" sceneMemberID="firstResponder"/>
