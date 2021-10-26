@@ -24,11 +24,15 @@ struct API {
         case invalidURL
     }
     
-    func searchMovies(query: String, completion: (Result<JSON, Error>) -> Void) {
-        guard let safeQueryString = query.addingPercentEncoding(withAllowedCharacters: .whitespaces)
-        else { return }
-        let queryParams = ["targetDt": query]
-    
+    public func searchMovies(query: String, completion: @escaping (Result<JSON, Error>) -> Void) {
+        guard let safeQueryString = query.addingPercentEncoding(withAllowedCharacters: .whitespaces),
+              !safeQueryString.removeNotNumberCharatersInString().isEmpty else { return }
+        let queryParams = ["targetDt": safeQueryString]
+        
+        request(
+            url: url(queryParams: queryParams),
+            completion: completion
+        )
     }
     
     func makeUrlQueryString(queryParams: [String: String] = [:]) -> String {
@@ -37,10 +41,17 @@ struct API {
         for (key, value) in queryParams {
             queryItems.append(.init(name: key, value: value))
         }
-        
         queryItems.append(.init(name: "key", value: Constants.key))
-        return queryItems.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
         
+        return queryItems.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
+    }
+    
+    private func url(queryParams: [String: String] = [:]) -> URL? {
+        var urlString = Constants.baseUrl
+        let queryString = makeUrlQueryString(queryParams: queryParams)
+        
+        urlString += "?" + queryString
+        return URL(string: urlString)
     }
     
     func request(url: URL?, completion: @escaping (Result<JSON, Error>) -> Void) {
@@ -57,14 +68,6 @@ struct API {
                 completion(.failure(error))
             }
         }
-    }
-    
-    private func url(queryParams: [String: String] = [:]) -> URL? {
-        var urlString = Constants.baseUrl
-        let queryString = makeUrlQueryString(queryParams: queryParams)
-        
-        urlString += "?" + queryString
-        return URL(string: urlString)
     }
     
 }
