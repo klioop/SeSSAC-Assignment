@@ -11,27 +11,25 @@ import XCTest
 class SearchViewControllerTest: XCTestCase {
     
     func test_canInit() throws {
-        let bundle = Bundle(for: SearchViewController.self)
-        let sb = UIStoryboard(name: "Main", bundle: bundle)
-        
-        let initialVC = sb.instantiateInitialViewController()
-        let navVC = try XCTUnwrap(initialVC as? UINavigationController)
-        
-        _ = try XCTUnwrap(navVC.topViewController as? SearchViewController)
+       _ = try makeSUT()
     }
     
     func test_viewDidLoad_setsTitle() throws {
-        let bundle = Bundle(for: SearchViewController.self)
-        let sb = UIStoryboard(name: "Main", bundle: bundle)
-        
-        let initialVC = sb.instantiateInitialViewController()
-        let navVC = try XCTUnwrap(initialVC as? UINavigationController)
-        
-        let sut = try XCTUnwrap(navVC.topViewController as? SearchViewController)
+        let sut = try makeSUT()
         
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(sut.title, "영화 검색")
+    }
+    
+    private func makeSUT() throws -> SearchViewController {
+        let bundle = Bundle(for: SearchViewController.self)
+        let sb = UIStoryboard(name: "Main", bundle: bundle)
+        
+        let initialVC = sb.instantiateInitialViewController()
+        let navVC = try XCTUnwrap(initialVC as? UINavigationController)
+        
+        return try XCTUnwrap(navVC.topViewController as? SearchViewController)
     }
 
 
