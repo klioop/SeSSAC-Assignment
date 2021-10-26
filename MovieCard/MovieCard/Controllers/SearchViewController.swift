@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class SearchViewController: UIViewController {
     
@@ -19,6 +21,11 @@ class SearchViewController: UIViewController {
             tableView.dataSource = self
             tableView.register(UINib(nibName: DefaultTableViewCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: DefaultTableViewCell.cellIdentifier)
         }
+    }
+    
+    // naver 영화 네트워크
+    func fetchMovieData() {
+        
     }
     
     override func viewDidLoad() {

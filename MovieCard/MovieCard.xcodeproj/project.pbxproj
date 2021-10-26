@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3168584827279D300087DE48 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3168584727279D300087DE48 /* Alamofire */; };
+		3168584B27279D460087DE48 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3168584A27279D460087DE48 /* SwiftyJSON */; };
 		31BC0EDF271C588300BED0A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0EDE271C588300BED0A9 /* AppDelegate.swift */; };
 		31BC0EE1271C588300BED0A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0EE0271C588300BED0A9 /* SceneDelegate.swift */; };
 		31BC0EE6271C588300BED0A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BC0EE4271C588300BED0A9 /* Main.storyboard */; };
@@ -69,7 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3168584827279D300087DE48 /* Alamofire in Frameworks */,
 				31BC0F7F271EBAFC00BED0A9 /* LoremSwiftum in Frameworks */,
+				3168584B27279D460087DE48 /* SwiftyJSON in Frameworks */,
 				31BC0F66271D84C000BED0A9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +196,8 @@
 			packageProductDependencies = (
 				31BC0F65271D84C000BED0A9 /* Kingfisher */,
 				31BC0F7E271EBAFC00BED0A9 /* LoremSwiftum */,
+				3168584727279D300087DE48 /* Alamofire */,
+				3168584A27279D460087DE48 /* SwiftyJSON */,
 			);
 			productName = MovieCard;
 			productReference = 31BC0EDB271C588300BED0A9 /* MovieCard.app */;
@@ -224,6 +230,8 @@
 			packageReferences = (
 				31BC0F64271D84C000BED0A9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				31BC0F7D271EBAFC00BED0A9 /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
+				3168584627279D300087DE48 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3168584927279D460087DE48 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 31BC0EDC271C588300BED0A9 /* Products */;
 			projectDirPath = "";
@@ -424,11 +432,14 @@
 				DEVELOPMENT_TEAM = 7DY6Z945T9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieCard/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 근처 영화관을 보여주기 위해 위치 정보 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +449,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -452,11 +463,14 @@
 				DEVELOPMENT_TEAM = 7DY6Z945T9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieCard/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 근처 영화관을 보여주기 위해 위치 정보 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +480,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -494,6 +508,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3168584627279D300087DE48 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		3168584927279D460087DE48 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
 		31BC0F64271D84C000BED0A9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -513,6 +543,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3168584727279D300087DE48 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3168584627279D300087DE48 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3168584A27279D460087DE48 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3168584927279D460087DE48 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		31BC0F65271D84C000BED0A9 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 31BC0F64271D84C000BED0A9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
