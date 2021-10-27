@@ -21,6 +21,11 @@ struct APIManager {
         case invalidURL
     }
     
+    public func getDailyMovies(pathParameters: [String], completion: @escaping (Result<JSON, Error>) -> Void) -> Void {
+        guard let url = url(pathParameters: pathParameters) else { return }
+        request(url: url, completion: completion)
+    }
+    
     func makeUrlQueryString(queryParams: [String: String] = [:]) -> String {
         var queryItems = [URLQueryItem]()
         
