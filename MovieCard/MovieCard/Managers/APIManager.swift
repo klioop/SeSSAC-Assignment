@@ -21,7 +21,7 @@ struct APIManager {
         case invalidURL
     }
     
-    public func getMovies(pathParameters: [String], completion: @escaping (Result<JSON, Error>) -> Void) -> Void {
+    public func getMedia(pathParameters: [String], completion: @escaping (Result<JSON, Error>) -> Void) -> Void {
         guard let url = url(pathParameters: pathParameters) else { return }
         request(url: url, completion: completion)
     }
