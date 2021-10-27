@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qwf-T4-s7S">
-                                <rect key="frame" x="20" y="88" width="32" height="34"/>
+                                <rect key="frame" x="20" y="88" width="237.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -43,6 +43,10 @@
                                     <constraint firstAttribute="height" constant="10" id="HQo-04-l7v"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8on-7t-7Nm">
+                                <rect key="frame" x="0.0" y="145" width="414" height="717"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zea-i8-cVt"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
@@ -54,11 +58,17 @@
                             <constraint firstItem="b7o-y3-M6J" firstAttribute="leading" secondItem="8pE-Lc-Mvg" secondAttribute="trailing" constant="10" id="LLS-Mq-5qk"/>
                             <constraint firstItem="Qwf-T4-s7S" firstAttribute="leading" secondItem="zea-i8-cVt" secondAttribute="leading" constant="20" id="PTU-73-lKq"/>
                             <constraint firstItem="b7o-y3-M6J" firstAttribute="top" secondItem="zea-i8-cVt" secondAttribute="top" id="ZjF-AP-nNm"/>
+                            <constraint firstItem="8on-7t-7Nm" firstAttribute="leading" secondItem="zea-i8-cVt" secondAttribute="leading" id="cvk-r8-hVX"/>
                             <constraint firstItem="8pE-Lc-Mvg" firstAttribute="leading" secondItem="zea-i8-cVt" secondAttribute="leading" constant="20" id="dwD-hX-0hz"/>
+                            <constraint firstItem="8on-7t-7Nm" firstAttribute="trailing" secondItem="zea-i8-cVt" secondAttribute="trailing" id="fcS-s6-5V0"/>
+                            <constraint firstItem="8on-7t-7Nm" firstAttribute="top" secondItem="b7o-y3-M6J" secondAttribute="bottom" constant="8" symbolic="YES" id="hT9-7t-YMV"/>
+                            <constraint firstItem="8on-7t-7Nm" firstAttribute="bottom" secondItem="zea-i8-cVt" secondAttribute="bottom" id="sVu-r3-gzV"/>
+                            <constraint firstItem="Qwf-T4-s7S" firstAttribute="width" relation="greaterThanOrEqual" secondItem="8pE-Lc-Mvg" secondAttribute="width" multiplier="0.9" id="sc5-1S-kpS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ggI-zD-krC"/>
                     <connections>
+                        <outlet property="resultTableView" destination="8on-7t-7Nm" id="v1m-BM-uEG"/>
                         <outlet property="searchTextField" destination="Qwf-T4-s7S" id="Hi1-4X-5lp"/>
                     </connections>
                 </viewController>

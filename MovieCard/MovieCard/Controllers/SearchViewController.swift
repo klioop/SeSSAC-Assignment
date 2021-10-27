@@ -10,21 +10,40 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITableViewDataSourcePrefetching {
     
-    static let sbIdentifier = "SearchViewController"
+    // 셀이 화면에 보이기 전에 필요한 리소스를 덩어리로 미리 다운 받는 기능, cellforRow 보다 이전에 호출됨
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+        for indexPath in indexPaths {
+            if movies.count - 1 == indexPath.row {
+                self.startPage += 20
+                fetchMovieData()
+                print("prefetch:", indexPath)
+            }
+        }
+    }
+    // cancel
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        print("취소: \(indexPaths)")
+    }
     
-    var movies: [Movie] = []
-
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            tableView.prefetchDataSource = self
             tableView.register(UINib(nibName: DefaultTableViewCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: DefaultTableViewCell.cellIdentifier)
         }
     }
+        
+    static let sbIdentifier = "SearchViewController"
+    
+    var movies: [Movie] = []
+    
+    var startPage = 1
     
     // naver 영화 네트워크
     func fetchMovieData() {
@@ -33,7 +52,7 @@ class SearchViewController: UIViewController {
             "X-Naver-Client-Id": "b9k_fmXD5I0489ym9jxL",
             "X-Naver-Client-Secret": "_whh_4dX6Y"
         ]
-        guard let query = "?query=스파이더맨&display=10&start=1".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+        guard let query = "?query=가족&display=20&start=\(startPage)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
         }
         url += query
@@ -46,6 +65,7 @@ class SearchViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                print(json)
                 json["items"].arrayValue.forEach {
                     let title = $0["title"].stringValue
                     let formattedTitile = title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
@@ -99,8 +119,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let movie = movies[indexPath.row]
         
         cell.titleLabel.text = movie.title
-        let imageURL = URL(string: movie.image)
-        cell.defaultImageView.kf.setImage(with: imageURL)
+        
+        if let imageURL = URL(string: movie.image) {
+            cell.defaultImageView.kf.setImage(with: imageURL)
+        } else {
+            cell.defaultImageView.image = UIImage(systemName: "star")
+        }
+        
         cell.subTitleLabel.text = movie.subTitle
         
         return cell

@@ -24,9 +24,12 @@ struct API {
         case invalidURL
     }
     
-    public func searchMovies(query: String, completion: @escaping (Result<JSON, Error>) -> Void) {
+    public func searchMovies(query: String, completion: @escaping (Result<JSON, Error>) -> Void) -> Void {
         guard let safeQueryString = query.addingPercentEncoding(withAllowedCharacters: .whitespaces),
-              !safeQueryString.removeNotNumberCharatersInString().isEmpty else { return }
+              !safeQueryString.removeNotNumberCharatersInString().isEmpty else {
+                  completion(.failure(APIError.invalidURL))
+                  return
+              }
         let queryParams = ["targetDt": safeQueryString]
         
         request(
@@ -51,10 +54,11 @@ struct API {
         let queryString = makeUrlQueryString(queryParams: queryParams)
         
         urlString += "?" + queryString
+        
         return URL(string: urlString)
     }
     
-    func request(url: URL?, completion: @escaping (Result<JSON, Error>) -> Void) {
+    private func request(url: URL?, completion: @escaping (Result<JSON, Error>) -> Void) {
         guard let url = url else {
             completion(.failure(APIError.invalidURL))
             return

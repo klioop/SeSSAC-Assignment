@@ -22,6 +22,15 @@ class SearchViewControllerTest: XCTestCase {
         XCTAssertEqual(sut.title, "영화 검색")
     }
     
+    func test_configure_tableView() throws {
+        let sut = try makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        XCTAssertNotNil(sut.tableView.delegate)
+        XCTAssertNotNil(sut.tableView.dataSource)
+    }
+    
     private func makeSUT() throws -> SearchViewController {
         let bundle = Bundle(for: SearchViewController.self)
         let sb = UIStoryboard(name: "Main", bundle: bundle)
@@ -31,6 +40,11 @@ class SearchViewControllerTest: XCTestCase {
         
         return try XCTUnwrap(navVC.topViewController as? SearchViewController)
     }
+    
+}
 
-
+private extension SearchViewController {
+    var tableView: UITableView {
+        resultTableView
+    }
 }
