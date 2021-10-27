@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		312F0669272A161200F5AA17 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		316858582727DD5B0087DE48 /* SearchMovieByDate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchMovieByDate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3168585B2727DD5B0087DE48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3168585D2727DD5B0087DE48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		3168584F2727DD5B0087DE48 = {
 			isa = PBXGroup;
 			children = (
+				312F0669272A161200F5AA17 /* MyPlayground.playground */,
 				3168585A2727DD5B0087DE48 /* SearchMovieByDate */,
 				31BFDA922727E65A0021F80A /* SearchMovieByDateTests */,
 				316858592727DD5B0087DE48 /* Products */,

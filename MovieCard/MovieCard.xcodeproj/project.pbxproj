@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		312F0664272A129200F5AA17 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F0663272A129200F5AA17 /* APIManager.swift */; };
+		312F0668272A12E700F5AA17 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F0667272A12E700F5AA17 /* Key.swift */; };
 		3168584827279D300087DE48 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3168584727279D300087DE48 /* Alamofire */; };
 		3168584B27279D460087DE48 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3168584A27279D460087DE48 /* SwiftyJSON */; };
 		3168584D2727A7DC0087DE48 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168584C2727A7DC0087DE48 /* Movie.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		312F0663272A129200F5AA17 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		312F0667272A12E700F5AA17 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		3168584C2727A7DC0087DE48 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		31BC0EDB271C588300BED0A9 /* MovieCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BC0EDE271C588300BED0A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		312F0665272A129B00F5AA17 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				312F0663272A129200F5AA17 /* APIManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		312F0666272A12D800F5AA17 /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				312F0667272A12E700F5AA17 /* Key.swift */,
+			);
+			path = Secret;
+			sourceTree = "<group>";
+		};
 		31BC0ED2271C588300BED0A9 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +122,8 @@
 		31BC0EDD271C588300BED0A9 /* MovieCard */ = {
 			isa = PBXGroup;
 			children = (
+				312F0666272A12D800F5AA17 /* Secret */,
+				312F0665272A129B00F5AA17 /* Managers */,
 				31BC0FE0272172DA00BED0A9 /* Utilites */,
 				31BC0EF7271C594300BED0A9 /* Models */,
 				31BC0EF4271C58CE00BED0A9 /* Controllers */,
@@ -280,7 +302,9 @@
 				31BC0EDF271C588300BED0A9 /* AppDelegate.swift in Sources */,
 				31BC0EF9271C599E00BED0A9 /* TvShow.swift in Sources */,
 				31BC0EE1271C588300BED0A9 /* SceneDelegate.swift in Sources */,
+				312F0668272A12E700F5AA17 /* Key.swift in Sources */,
 				31BC0FDD2721075700BED0A9 /* Extensions.swift in Sources */,
+				312F0664272A129200F5AA17 /* APIManager.swift in Sources */,
 				31BC0FAA271F8F9E00BED0A9 /* BookCollectionViewCell.swift in Sources */,
 				31BC0F62271D75DA00BED0A9 /* DefaultTableViewCell.swift in Sources */,
 				31BC0F68271D8D0F00BED0A9 /* WebViewController.swift in Sources */,
