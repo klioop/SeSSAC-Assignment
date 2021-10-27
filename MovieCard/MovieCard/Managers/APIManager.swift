@@ -32,23 +32,22 @@ struct APIManager {
         for (key, value) in queryParams {
             queryItems.append(.init(name: key, value: value))
         }
-        queryItems.append(.init(name: "key", value: Constants.key))
+        queryItems.append(.init(name: "api_key", value: Constants.key))
         
         return queryItems.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
     }
     
-    func makeURLPathParameters(with strings: [String] = []) -> String {
-        let pathParameters = strings.joined(separator: "/")
-        return pathParameters
-    }
-    
     private func url(queryParams: [String: String] = [:], pathParameters: [String] = []) -> URL? {
         var urlString = Constants.baseUrl
-        let pathParameterString = makeURLPathParameters(with: pathParameters)
+        let pathParameterString = pathParameters.joined(separator: "/")
         let queryString = makeUrlQueryString(queryParams: queryParams)
+        
+        print(pathParameterString)
         
         urlString += pathParameterString
         urlString += "?" + queryString
+        
+        print(urlString)
         
         return URL(string: urlString)
     }
