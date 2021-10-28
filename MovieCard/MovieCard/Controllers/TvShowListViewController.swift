@@ -49,6 +49,7 @@ class TvShowListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
         addTapGesture(to: bookImage)
+        fetchListData()
     }
     
     private func fetchListData() {
@@ -63,7 +64,6 @@ class TvShowListViewController: UIViewController {
                         id: result["id"].intValue,
                         posterPath: result["poster_path"].stringValue,
                         backDropImagePath: result["backdrop_path"].stringValue,
-                        genreIDs: result["genre_ids"].arrayValue as! [Int],
                         firstAirDate: result["first_air_date"].stringValue,
                         overView: result["overview"].stringValue,
                         region: result["origin_country"].arrayValue[0].stringValue
@@ -77,6 +77,9 @@ class TvShowListViewController: UIViewController {
     }
     
     private func fetchDetail(of tvID: Int) {
+        guard let responseIdx = DailyTvResponse.responses.firstIndex(where: {$0.id == tvID}) else { return }
+        var response = DailyTvResponse.responses[responseIdx]
+        
         APIManager.shared.getDetails(pathParameters: ["tv", "\(tvID)"]) { result in
             switch result {
             case .success(let json):
@@ -84,11 +87,8 @@ class TvShowListViewController: UIViewController {
                 json["genres"].arrayValue.forEach {
                     genres.append($0["name"].stringValue)
                 }
-                let detail = TvDetailResponse(
-                    id: json["id"].intValue,
-                    genre: genres
-                )
-                TvDetailResponse.responses.append(detail)
+                response.genres = genres
+                DailyTvResponse.responses[responseIdx] = response
             case .failure(let err):
                 print(err)
             }
@@ -96,22 +96,21 @@ class TvShowListViewController: UIViewController {
     }
     
     private func fetchDetailCredits(of tvID: Int) {
-        guard let detailResponseIdx = TvDetailResponse.responses.firstIndex(where: { $0.id == tvID }) else { return }
-        var detailResponse = TvDetailResponse.responses[detailResponseIdx]
+        guard let responseIdx = DailyTvResponse.responses.firstIndex(where: {$0.id == tvID}) else { return }
+        var response = DailyTvResponse.responses[responseIdx]
         
-        APIManager.shared.getDetails(pathParameters: ["tv", "\(tvID)", "credits"]) { result in
+        APIManager.shared.getDetails(pathParameters: ["tv", "\(response.id)", "credits"]) { result in
             switch result {
             case .success(let json):
                 let names = json["cast"].arrayValue.map { castInfo -> String in
                     castInfo["name"].stringValue
                 }
-                detailResponse.starring = names
-                TvDetailResponse.responses[detailResponseIdx] = detailResponse
+                response.starring = names
+                DailyTvResponse.responses[responseIdx] = response
             case .failure(let err):
                 print(err)
             }
         }
-        
     }
     
     private func fetchPosterImage() {

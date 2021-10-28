@@ -16,7 +16,8 @@ struct DailyTvResponse {
     let id: Int
     let posterPath: String
     let backDropImagePath: String
-    let genreIDs: [Int]
+    var genres: [String] = []
+    var starring: [String] = []
     let firstAirDate: String
     let overView: String
     let region: String
