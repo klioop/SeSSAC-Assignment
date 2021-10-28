@@ -9,7 +9,7 @@ import Foundation
 
 struct DailyTvResponse {
     
-    static var responses: [DailyTvResponse] = []
+    static var responses: [DailyTvResponse] = [] 
     
     let title: String
     let rate: Double

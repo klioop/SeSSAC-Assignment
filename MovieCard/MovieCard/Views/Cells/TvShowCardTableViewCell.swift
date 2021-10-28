@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TvShowCardTableViewCell: UITableViewCell {
     
@@ -70,18 +71,19 @@ class TvShowCardTableViewCell: UITableViewCell {
     
     func configure(
         date: String,
-        genre: String,
-        rating: Double,
+//        genre: String?,
+        rating: String,
         name: String,
-        starring: String,
+//        starring: String,
+        posterImageUrl: URL?,
         clipButtonAction: @escaping ClipButtonAction
     ) {
         releaseDateLabel.text = date
-        genreLabel.text = "#\(genre)"
-        ratingLabel.text = "\(rating)"
+//        genreLabel.text = "#\(genre)"
+        ratingLabel.text = rating
         nameLabel.text = name
-        starringLabel.text = starring
-        posterImageView.image = UIImage(named: name)
+//        starringLabel.text = starring
+        posterImageView.kf.setImage(with: posterImageUrl)
         
         self.clipButtonAction = clipButtonAction
     }

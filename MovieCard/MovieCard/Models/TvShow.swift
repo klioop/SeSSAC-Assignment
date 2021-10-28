@@ -9,15 +9,14 @@ import Foundation
 
 struct TvShow {
     
-    static let tvShows: [TvShow] = []
-    
+    let id: Int
     let title: String
     let releaseDate: String
     var genre: [String] = []
     let region: String
     let overview: String
     let rate: String
-    var starring: [String] = []
+    var starring: String?
     var posterImageUrl: String?
     var backDropImageUrl: String?
 }

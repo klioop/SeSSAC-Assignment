@@ -5,13 +5,15 @@
 //  Created by klioop on 2021/10/28.
 //
 
-import Foundation
+import UIKit.UIImage
 import Alamofire
 import SwiftyJSON
 
 struct APIManager {
     
     typealias RequestCompletion = (Result<JSON, Error>) -> Void
+    
+    typealias RequestImageCompletion = (Result<JSON, Error>) -> Void
     
     static let shared = APIManager()
     
@@ -36,9 +38,9 @@ struct APIManager {
         request(url: url, completion: completion)
     }
     
-    public func getImage(pathParameter: [String], completion: @escaping RequestCompletion) {
+    public func getImage(pathParameter: [String], completion: @escaping RequestImageCompletion) {
         guard let url = url(endpoint: .image, pathParameters: pathParameter) else { return }
-        request(url: url, completion: completion)
+        requestImage(url: url, completion: completion)
     }
     
     public func getDetails(pathParameters: [String], completion: @escaping RequestCompletion) {
@@ -57,7 +59,7 @@ struct APIManager {
         return queryItems.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
     }
     
-    private func url(
+    func url(
         endpoint: EndPoint,
         queryParams: [String: String] = [:],
         pathParameters: [String] = []
@@ -69,6 +71,7 @@ struct APIManager {
         case .image: base = Constants.baseUrlForImage
         case .detail: base = Constants.baseUrlForDetail
         }
+        
         var urlString = base
         let pathParameterString = pathParameters.joined(separator: "/")
         let queryString = makeUrlQueryString(queryParams: queryParams)
@@ -82,6 +85,22 @@ struct APIManager {
     }
     
     private func request(url: URL?, completion: @escaping (Result<JSON, Error>) -> Void) {
+        guard let url = url else {
+            completion(.failure(APIError.invalidURL))
+            return
+        }
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(.success(json))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func requestImage(url: URL?, completion: @escaping (Result<JSON, Error>) -> Void) -> Void {
         guard let url = url else {
             completion(.failure(APIError.invalidURL))
             return

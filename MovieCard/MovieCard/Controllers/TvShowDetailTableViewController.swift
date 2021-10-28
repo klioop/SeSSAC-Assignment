@@ -28,8 +28,11 @@ class TvShowDetailTableViewController: UITableViewController {
     
     private var starringArray: [String] {
         if let tvShow = tvShowInfo {
-            let temp = tvShow.starring.components(separatedBy:", ")
-            let result = temp.map { name -> String in
+            var names: [String] = []
+            if let temp = tvShow.starring {
+                names = temp.components(separatedBy:", ")
+            }
+            let result = names.map { name -> String in
                 if name.contains("-") {
                     return name.replacingOccurrences(of: "-", with: "")
                 }
@@ -45,9 +48,12 @@ class TvShowDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCellAndHeader()
-        guard let tvShow = tvShowInfo, let url = URL(string: tvShow.imageUrl) else { return }
+        let apiManager: APIManager = .shared
+        guard let tvShow = tvShowInfo, let url = apiManager.url(
+            endpoint: .image,
+            pathParameters: [tvShow.posterImageUrl ?? "?"]
+        )  else { return }
         backDropImageView.kf.setImage(with: url)
-
     }
     
     // MARK: - private functions
@@ -161,6 +167,4 @@ class TvShowDetailTableViewController: UITableViewController {
             foldHeaderView(headerView)
         }
     }
-
-
 }
