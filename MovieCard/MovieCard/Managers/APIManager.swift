@@ -18,12 +18,13 @@ struct APIManager {
     struct Constants {
         static let baseUrlForList = "https://api.themoviedb.org/3/trending/"
         static let baseUrlForImage = "https://image.tmdb.org/t/p/original"
+        static let baseUrlForDetail = "https://api.themoviedb.org/3/"
     
         static let key = Key.trendMediaKey
     }
     
     enum EndPoint {
-        case list, image
+        case list, image, detail
     }
     
     enum APIError: Error {
@@ -37,6 +38,11 @@ struct APIManager {
     
     public func getImage(pathParameter: [String], completion: @escaping RequestCompletion) {
         guard let url = url(endpoint: .image, pathParameters: pathParameter) else { return }
+        request(url: url, completion: completion)
+    }
+    
+    public func getDetails(pathParameters: [String], completion: @escaping RequestCompletion) {
+        guard let url = url(endpoint: .detail, pathParameters: pathParameters) else { return }
         request(url: url, completion: completion)
     }
     
