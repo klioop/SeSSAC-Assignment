@@ -8,6 +8,9 @@
 import Foundation
 
 struct DailyTvResponse {
+    
+    static var responses: [DailyTvResponse] = []
+    
     let title: String
     let rate: Double
     let id: Int
@@ -16,5 +19,6 @@ struct DailyTvResponse {
     let genreIDs: [Int]
     let firstAirDate: String
     let overView: String
+    
 }
 

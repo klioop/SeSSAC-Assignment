@@ -9,7 +9,7 @@ import UIKit
 
 class TvShowListViewController: UIViewController {
     
-    private var tvShows = TvShow.testData
+    private var tvShows: [TvShow] = []
     
     @IBOutlet weak var bookImage: UIImageView!
     
@@ -51,7 +51,41 @@ class TvShowListViewController: UIViewController {
         addTapGesture(to: bookImage)
     }
     
-    private func fetchData() {
+    private func fetchListData() {
+        APIManager.shared.getMedia(pathParameters: ["tv", "day"]) { result in
+            switch result {
+            case .success(let json):
+                let results = json["results"].arrayValue
+                results.forEach { result in
+                    let response = DailyTvResponse(
+                        title: result["name"].stringValue,
+                        rate: result["vote_averate"].doubleValue,
+                        id: result["id"].intValue,
+                        posterPath: result["poster_path"].stringValue,
+                        backDropImagePath: result["backdrop_path"].stringValue,
+                        genreIDs: result["genre_ids"].arrayValue as! [Int],
+                        firstAirDate: result["first_air_date"].stringValue,
+                        overView: result["overview"].stringValue
+                    )
+                    DailyTvResponse.responses.append(response)
+                }
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    private func fetchGenre() {
+        
+    }
+    
+    private func fetchPosterImage() {
+        
+    }
+    
+    
+    
+    private func transFormResponseToModel(responses: [DailyTvResponse]) {
         
     }
     
