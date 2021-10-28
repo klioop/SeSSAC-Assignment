@@ -51,7 +51,11 @@ class TvShowListViewController: UIViewController {
         addTapGesture(to: bookImage)
     }
     
-    func addTapGesture(to view: UIView) {
+    private func fetchData() {
+        
+    }
+    
+    private func addTapGesture(to view: UIView) {
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self , action: #selector(tapGestureRecognized(by:)))

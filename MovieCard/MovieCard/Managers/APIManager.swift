@@ -13,8 +13,14 @@ struct APIManager {
     static let shared = APIManager()
     
     struct Constants {
-        static let baseUrl = "https://api.themoviedb.org/3/trending/"
+        static let baseUrlForList = "https://api.themoviedb.org/3/trending/"
+        static let baseUrlForImage = "https://image.tmdb.org/t/p/original"
+    
         static let key = Key.trendMediaKey
+    }
+    
+    enum EndPoint {
+        case list, image
     }
     
     enum APIError: Error {
@@ -22,7 +28,7 @@ struct APIManager {
     }
     
     public func getMedia(pathParameters: [String], completion: @escaping (Result<JSON, Error>) -> Void) -> Void {
-        guard let url = url(pathParameters: pathParameters) else { return }
+        guard let url = url(endpoint: .list, pathParameters: pathParameters) else { return }
         request(url: url, completion: completion)
     }
     
@@ -37,8 +43,19 @@ struct APIManager {
         return queryItems.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
     }
     
-    private func url(queryParams: [String: String] = [:], pathParameters: [String] = []) -> URL? {
-        var urlString = Constants.baseUrl
+    private func url(
+        endpoint: EndPoint,
+        queryParams: [String: String] = [:],
+        pathParameters: [String] = []
+    ) -> URL? {
+        var base: String
+        switch endpoint {
+        case .list: base = Constants.baseUrlForList
+        case .image: base = Constants.baseUrlForImage
+        default:
+            break
+        }
+        var urlString = base
         let pathParameterString = pathParameters.joined(separator: "/")
         let queryString = makeUrlQueryString(queryParams: queryParams)
         

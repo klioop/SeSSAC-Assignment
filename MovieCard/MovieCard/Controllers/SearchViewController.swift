@@ -10,6 +10,8 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
+// pagination: prefetch, willDisplayCell, scrollView
+
 class SearchViewController: UIViewController, UITableViewDataSourcePrefetching {
     
     // 셀이 화면에 보이기 전에 필요한 리소스를 덩어리로 미리 다운 받는 기능, cellforRow 보다 이전에 호출됨
@@ -18,7 +20,6 @@ class SearchViewController: UIViewController, UITableViewDataSourcePrefetching {
         for indexPath in indexPaths {
             if movies.count - 1 == indexPath.row {
                 self.startPage += 20
-                fetchMovieData()
                 print("prefetch:", indexPath)
             }
         }
@@ -46,13 +47,13 @@ class SearchViewController: UIViewController, UITableViewDataSourcePrefetching {
     var startPage = 1
     
     // naver 영화 네트워크
-    func fetchMovieData() {
+    func fetchMovieData(query: String) {
         var url = "https://openapi.naver.com/v1/search/movie.json"
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": "b9k_fmXD5I0489ym9jxL",
             "X-Naver-Client-Secret": "_whh_4dX6Y"
         ]
-        guard let query = "?query=가족&display=20&start=\(startPage)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+        guard let query = "?query=\(query)&display=20&start=\(startPage)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
         }
         url += query
@@ -97,7 +98,7 @@ class SearchViewController: UIViewController, UITableViewDataSourcePrefetching {
             target: self,
             action: #selector(triggerCloseBtn)
         )
-        fetchMovieData()
+        searchBar.delegate = self
     }
     
     @objc
@@ -133,5 +134,33 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         140
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    // executed when return button clicked
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
+        if let text = searchBar.text {
+            movies.removeAll()
+            startPage = 1
+            fetchMovieData(query: text)
+        }
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    // executed when cancel button clicked
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
+        movies.removeAll()
+        tableView.reloadData()
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    // 서치바에서 커서가 깜빡이기 시작할 때
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print(#function)
+        searchBar.setShowsCancelButton(true, animated: true)
     }
 }
