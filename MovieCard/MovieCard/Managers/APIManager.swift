@@ -10,6 +10,9 @@ import Alamofire
 import SwiftyJSON
 
 struct APIManager {
+    
+    typealias RequestCompletion = (Result<JSON, Error>) -> Void
+    
     static let shared = APIManager()
     
     struct Constants {
@@ -27,8 +30,13 @@ struct APIManager {
         case invalidURL
     }
     
-    public func getMedia(pathParameters: [String], completion: @escaping (Result<JSON, Error>) -> Void) -> Void {
+    public func getMedia(pathParameters: [String], completion: @escaping RequestCompletion) -> Void {
         guard let url = url(endpoint: .list, pathParameters: pathParameters) else { return }
+        request(url: url, completion: completion)
+    }
+    
+    public func getImage(pathParameter: [String], completion: @escaping RequestCompletion) {
+        guard let url = url(endpoint: .image, pathParameters: pathParameter) else { return }
         request(url: url, completion: completion)
     }
     
