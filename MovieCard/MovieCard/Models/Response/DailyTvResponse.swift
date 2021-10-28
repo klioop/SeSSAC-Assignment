@@ -19,6 +19,7 @@ struct DailyTvResponse {
     let genreIDs: [Int]
     let firstAirDate: String
     let overView: String
+    let region: String
     
 }
 

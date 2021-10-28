@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func debug() {
-        APIManager.shared.getMedia(pathParameters: ["tv", "day"]) { result in
+        APIManager.shared.getDetails(pathParameters: ["tv", "93405"]) { result in
             switch result {
             case .success(let json):
                 print(json)

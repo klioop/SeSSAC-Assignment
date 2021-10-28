@@ -65,7 +65,8 @@ class TvShowListViewController: UIViewController {
                         backDropImagePath: result["backdrop_path"].stringValue,
                         genreIDs: result["genre_ids"].arrayValue as! [Int],
                         firstAirDate: result["first_air_date"].stringValue,
-                        overView: result["overview"].stringValue
+                        overView: result["overview"].stringValue,
+                        region: result["origin_country"].arrayValue[0].stringValue
                     )
                     DailyTvResponse.responses.append(response)
                 }
@@ -75,7 +76,41 @@ class TvShowListViewController: UIViewController {
         }
     }
     
-    private func fetchGenre() {
+    private func fetchDetail(of tvID: Int) {
+        APIManager.shared.getDetails(pathParameters: ["tv", "\(tvID)"]) { result in
+            switch result {
+            case .success(let json):
+                var genres: [String] = []
+                json["genres"].arrayValue.forEach {
+                    genres.append($0["name"].stringValue)
+                }
+                let detail = TvDetailResponse(
+                    id: json["id"].intValue,
+                    genre: genres
+                )
+                TvDetailResponse.responses.append(detail)
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    private func fetchDetailCredits(of tvID: Int) {
+        guard let detailResponseIdx = TvDetailResponse.responses.firstIndex(where: { $0.id == tvID }) else { return }
+        var detailResponse = TvDetailResponse.responses[detailResponseIdx]
+        
+        APIManager.shared.getDetails(pathParameters: ["tv", "\(tvID)", "credits"]) { result in
+            switch result {
+            case .success(let json):
+                let names = json["cast"].arrayValue.map { castInfo -> String in
+                    castInfo["name"].stringValue
+                }
+                detailResponse.starring = names
+                TvDetailResponse.responses[detailResponseIdx] = detailResponse
+            case .failure(let err):
+                print(err)
+            }
+        }
         
     }
     

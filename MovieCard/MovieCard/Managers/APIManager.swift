@@ -63,17 +63,15 @@ struct APIManager {
         pathParameters: [String] = []
     ) -> URL? {
         var base: String
+        
         switch endpoint {
         case .list: base = Constants.baseUrlForList
         case .image: base = Constants.baseUrlForImage
-        default:
-            break
+        case .detail: base = Constants.baseUrlForDetail
         }
         var urlString = base
         let pathParameterString = pathParameters.joined(separator: "/")
         let queryString = makeUrlQueryString(queryParams: queryParams)
-        
-        print(pathParameterString)
         
         urlString += pathParameterString
         urlString += "?" + queryString
