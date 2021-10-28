@@ -13,12 +13,13 @@ struct TvShow {
     
     let title: String
     let releaseDate: String
-    let genre: String
+    var genre: [String] = []
     let region: String
     let overview: String
-    let rate: Double
-    let starring: String
-    let imageUrl: String
+    let rate: String
+    var starring: [String] = []
+    var posterImageUrl: String?
+    var backDropImageUrl: String?
 }
 
 extension TvShow {

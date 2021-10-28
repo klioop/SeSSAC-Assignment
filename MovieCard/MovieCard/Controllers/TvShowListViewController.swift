@@ -52,6 +52,11 @@ class TvShowListViewController: UIViewController {
         fetchListData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     private func fetchListData() {
         APIManager.shared.getMedia(pathParameters: ["tv", "day"]) { result in
             switch result {
@@ -120,7 +125,19 @@ class TvShowListViewController: UIViewController {
     
     
     private func transFormResponseToModel(responses: [DailyTvResponse]) {
-        
+        tvShows = responses.map { response -> TvShow in
+            let rating = String(format: "%.2f", response.rate)
+            let show = TvShow(
+                title: response.title,
+                releaseDate: response.firstAirDate,
+                region: response.region,
+                overview: response.overView,
+                rate: rating,
+                posterImageUrl: response.posterPath,
+                backDropImageUrl: response.backDropImagePath
+            )
+            return show
+        }
     }
     
     private func addTapGesture(to view: UIView) {
@@ -128,7 +145,6 @@ class TvShowListViewController: UIViewController {
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self , action: #selector(tapGestureRecognized(by:)))
         )
-        
     }
     
     @objc
