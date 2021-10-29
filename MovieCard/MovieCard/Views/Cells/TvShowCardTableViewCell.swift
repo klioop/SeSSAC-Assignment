@@ -71,18 +71,18 @@ class TvShowCardTableViewCell: UITableViewCell {
     
     func configure(
         date: String,
-//        genre: String?,
+        genre: String?,
         rating: String,
         name: String,
-//        starring: String,
+        starring: String,
         posterImageUrl: URL?,
         clipButtonAction: @escaping ClipButtonAction
     ) {
         releaseDateLabel.text = date
-//        genreLabel.text = "#\(genre)"
+        genreLabel.text = "#\(genre ?? "?")"
         ratingLabel.text = rating
         nameLabel.text = name
-//        starringLabel.text = starring
+        starringLabel.text = starring
         posterImageView.kf.setImage(with: posterImageUrl)
         
         self.clipButtonAction = clipButtonAction

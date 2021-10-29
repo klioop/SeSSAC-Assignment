@@ -167,11 +167,11 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ1-pA-zHf">
-                                                            <rect key="frame" x="50" y="160.5" width="30" height="20"/>
+                                                            <rect key="frame" x="50" y="160.5" width="40" height="20"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="2J2-jD-OFw"/>
-                                                                <constraint firstAttribute="width" secondItem="GQ1-pA-zHf" secondAttribute="height" multiplier="3:2" id="DdL-kX-lD5"/>
+                                                                <constraint firstAttribute="width" secondItem="GQ1-pA-zHf" secondAttribute="height" multiplier="4:2" id="DdL-kX-lD5"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

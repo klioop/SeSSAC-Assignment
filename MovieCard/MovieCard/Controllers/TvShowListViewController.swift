@@ -50,7 +50,13 @@ class TvShowListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
         addTapGesture(to: bookImage)
-        fetchListData(completion: transFormResponseToModel(responses:))
+        fetchListData(completion: { [unowned self] responses in
+            self.transformResponseToModel(responses: responses) {
+                DispatchQueue.main.async {
+                    self.tvTableView.reloadData()
+                }
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,8 +88,19 @@ class TvShowListViewController: UIViewController {
         }
     }
     
+    private func fetchDetailAndCredits(of tvID: Int) {
+        fetchCredits(of: tvID) {
+            self.fetchDetail(of: tvID) { [unowned self] in
+                if self.tvShows.filter({ !$0.genre.isEmpty }).count == self.tvShows.count {
+                    self.tvTableView.reloadData()
+                }
+            }
+        }
+    }
+    
     private func fetchDetail(
-        of tvID: Int
+        of tvID: Int,
+        completion: (() -> Void)? = nil
     ) {
         guard let tvShowIdx = tvShows.firstIndex(where: {$0.id == tvID}) else { return }
         var tvShow = tvShows[tvShowIdx]
@@ -96,13 +113,18 @@ class TvShowListViewController: UIViewController {
                     genres.append($0["name"].stringValue)
                 }
                 tvShow.genre = genres
+                self.tvShows[tvShowIdx] = tvShow
+                completion?()
             case .failure(let err):
                 print(err)
             }
         }
     }
     
-    private func fetchCredits(of tvID: Int, cellConfigureAction: @escaping () -> Void) {
+    private func fetchCredits(
+        of tvID: Int,
+        completion: (() -> Void)? = nil
+    ) {
         guard let tvShowIdx = tvShows.firstIndex(where: {$0.id == tvID}) else { return }
         var tvShow = tvShows[tvShowIdx]
         
@@ -112,15 +134,19 @@ class TvShowListViewController: UIViewController {
                 let names = json["cast"].arrayValue.map { castInfo -> String in
                     castInfo["name"].stringValue
                 }
-                tvShow.starring = names.joined(separator: " ")
-                cellConfigureAction()
+                tvShow.starring = names.joined(separator: ", ")
+                self.tvShows[tvShowIdx] = tvShow
+                completion?()
             case .failure(let err):
                 print(err)
             }
         }
     }
     
-    private func transFormResponseToModel(responses: [DailyTvResponse]) {
+    private func transformResponseToModel(
+        responses: [DailyTvResponse],
+        completion: @escaping () -> Void
+    ) {
         tvShows = responses.map { response -> TvShow in
             let rating = String(format: "%.2f", response.rate)
             let show = TvShow(
@@ -135,7 +161,9 @@ class TvShowListViewController: UIViewController {
             )
             return show
         }
-        tvTableView.reloadData()
+        tvShows.forEach { tvShow in
+            fetchDetailAndCredits(of: tvShow.id)
+        }
     }
     
     private func addTapGesture(to view: UIView) {
@@ -167,7 +195,7 @@ extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TvShowCardTableViewCell.cellIdentifier, for: indexPath)
-                as! TvShowCardTableViewCell
+        as! TvShowCardTableViewCell
         
         let tvShow = tvShows[indexPath.row]
         let imageUrl = APIManager.shared.url(endpoint: .image, pathParameters: [tvShow.posterImageUrl ?? ""])
@@ -176,9 +204,10 @@ extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
             self.tvShows[indexPath.row] = tvShow
             cell.configure(
                 date: tvShow.releaseDate,
+                genre: tvShow.genre.isEmpty ? "ddd" : tvShow.genre[0],
                 rating: tvShow.rate,
                 name: tvShow.title,
-//                starring: tvShow.starring ?? "?",
+                starring: tvShow.starring ?? "?",
                 posterImageUrl: imageUrl
             ) {
                 let vc = WebViewController()
@@ -188,7 +217,7 @@ extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
                 self.present(navCon, animated: true, completion: nil)
             }
         }
-
+        
         return cell
     }
     
