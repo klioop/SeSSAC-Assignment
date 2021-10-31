@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func debug() {
-        let vm = ViewModel()
+        let vm = TvShowListViewModel()
         vm.fillData { data in
             vm.fetchGenresAndCasts(of: data) {
                 print(TvShow.data[0])

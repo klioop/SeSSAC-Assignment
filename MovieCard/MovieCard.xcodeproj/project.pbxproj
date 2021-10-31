@@ -122,6 +122,14 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		31393AE1272E7210003CF43E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				31393ADD272D2114003CF43E /* TvShowListViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		31BC0ED2271C588300BED0A9 = {
 			isa = PBXGroup;
 			children = (
@@ -197,9 +205,9 @@
 		31BC0EF7271C594300BED0A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31393AE1272E7210003CF43E /* View Models */,
 				312F0671272A749300F5AA17 /* Response */,
 				31BC0EF8271C599E00BED0A9 /* TvShow.swift */,
-				31393ADD272D2114003CF43E /* TvShowListViewModel.swift */,
 				31BC0FD62720D61A00BED0A9 /* TheaterLocation.swift */,
 				3168584C2727A7DC0087DE48 /* Movie.swift */,
 				31393ADF272E6E66003CF43E /* TvShowModel.swift */,

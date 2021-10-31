@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ViewModel {
+class TvShowListViewModel {
     
     let model = TvShowModel()
     
-    let api: APIManager = .shared
+    private let api: APIManager = .shared
     
     private func transform(response: DailyTvResponse) -> TvShow {
         let rating = String(format: "%.2f", response.rate)
@@ -41,6 +41,7 @@ class ViewModel {
                     } else {
                         region = result["origin_country"].arrayValue[0].stringValue
                     }
+                    
                     let response = DailyTvResponse(
                         title: result["name"].stringValue,
                         rate: result["vote_average"].doubleValue,
@@ -85,7 +86,6 @@ class ViewModel {
         group.notify(queue: .main) {
             completion()
         }
-        
     }
     
 }
