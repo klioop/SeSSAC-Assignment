@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        debug()
+//        debug()
         return true
     }
 
@@ -33,14 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func debug() {
-        APIManager.shared.getDetails(pathParameters: ["tv", "93405"]) { result in
-            switch result {
-            case .success(let json):
-                print(json)
-            case .failure(let err):
-                print(err)
+        let vm = ViewModel()
+        vm.fillData { data in
+            vm.fetchGenresAndCasts(of: data) {
+                print(TvShow.data[0])
             }
         }
+            
     }
 
 

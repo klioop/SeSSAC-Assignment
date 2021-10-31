@@ -10,6 +10,8 @@ import XCTest
 
 class TvShowListViewController: UIViewController {
     
+    let viewModel = ViewModel()
+    
     private var tvShows: [TvShow] = []
     
     @IBOutlet weak var bookImage: UIImageView!
@@ -46,125 +48,25 @@ class TvShowListViewController: UIViewController {
         present(navCon, animated: true, completion: nil)
     }
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
         addTapGesture(to: bookImage)
-        fetchListData(completion: { [unowned self] responses in
-            self.transformResponseToModel(responses: responses) {
-                DispatchQueue.main.async {
-                    self.tvTableView.reloadData()
-                }
+        viewModel.fillData { [unowned self] data in
+            self.viewModel.fetchGenresAndCasts(of: data) {
+                self.tvShows = TvShow.data
+                self.tvTableView.reloadData()
             }
-        })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    private func fetchListData(completion: @escaping ([DailyTvResponse]) -> Void) {
-        APIManager.shared.getMedia(pathParameters: ["tv", "day"]) { result in
-            switch result {
-            case .success(let json):
-                let results = json["results"].arrayValue
-                results.forEach { result in
-                    let response = DailyTvResponse(
-                        title: result["name"].stringValue,
-                        rate: result["vote_average"].doubleValue,
-                        id: result["id"].intValue,
-                        posterPath: result["poster_path"].stringValue,
-                        backDropImagePath: result["backdrop_path"].stringValue,
-                        firstAirDate: result["first_air_date"].stringValue,
-                        overView: result["overview"].stringValue,
-                        region: result["origin_country"].arrayValue[0].stringValue
-                    )
-                    DailyTvResponse.responses.append(response)
-                }
-                completion(DailyTvResponse.responses)
-            case .failure(let err):
-                print(err)
-            }
-        }
-    }
-    
-    private func fetchDetailAndCredits(of tvID: Int) {
-        fetchCredits(of: tvID) {
-            self.fetchDetail(of: tvID) { [unowned self] in
-                if self.tvShows.filter({ !$0.genre.isEmpty }).count == self.tvShows.count {
-                    self.tvTableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    private func fetchDetail(
-        of tvID: Int,
-        completion: (() -> Void)? = nil
-    ) {
-        guard let tvShowIdx = tvShows.firstIndex(where: {$0.id == tvID}) else { return }
-        var tvShow = tvShows[tvShowIdx]
-        
-        APIManager.shared.getDetails(pathParameters: ["tv", "\(tvID)"]) { result in
-            switch result {
-            case .success(let json):
-                var genres: [String] = []
-                json["genres"].arrayValue.forEach {
-                    genres.append($0["name"].stringValue)
-                }
-                tvShow.genre = genres
-                self.tvShows[tvShowIdx] = tvShow
-                completion?()
-            case .failure(let err):
-                print(err)
-            }
-        }
-    }
-    
-    private func fetchCredits(
-        of tvID: Int,
-        completion: (() -> Void)? = nil
-    ) {
-        guard let tvShowIdx = tvShows.firstIndex(where: {$0.id == tvID}) else { return }
-        var tvShow = tvShows[tvShowIdx]
-        
-        APIManager.shared.getDetails(pathParameters: ["tv", "\(tvID)", "credits"]) { result in
-            switch result {
-            case .success(let json):
-                let names = json["cast"].arrayValue.map { castInfo -> String in
-                    castInfo["name"].stringValue
-                }
-                tvShow.starring = names.joined(separator: ", ")
-                self.tvShows[tvShowIdx] = tvShow
-                completion?()
-            case .failure(let err):
-                print(err)
-            }
-        }
-    }
-    
-    private func transformResponseToModel(
-        responses: [DailyTvResponse],
-        completion: @escaping () -> Void
-    ) {
-        tvShows = responses.map { response -> TvShow in
-            let rating = String(format: "%.2f", response.rate)
-            let show = TvShow(
-                id: response.id,
-                title: response.title,
-                releaseDate: response.firstAirDate,
-                region: response.region,
-                overview: response.overView,
-                rate: rating,
-                posterImageUrl: response.posterPath,
-                backDropImageUrl: response.backDropImagePath
-            )
-            return show
-        }
-        tvShows.forEach { tvShow in
-            fetchDetailAndCredits(of: tvShow.id)
-        }
-    }
+    // MARK: - private funcs
     
     private func addTapGesture(to view: UIView) {
         view.isUserInteractionEnabled = true
@@ -172,6 +74,8 @@ class TvShowListViewController: UIViewController {
             UITapGestureRecognizer(target: self , action: #selector(tapGestureRecognized(by:)))
         )
     }
+    
+    // MARK: - objc
     
     @objc
     func tapGestureRecognized(by recognizer: UITapGestureRecognizer) {
@@ -184,8 +88,9 @@ class TvShowListViewController: UIViewController {
             break
         }
     }
-    
 }
+
+// MARK: - extension - tableview
 
 extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
     

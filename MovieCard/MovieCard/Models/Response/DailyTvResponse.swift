@@ -9,7 +9,9 @@ import Foundation
 
 struct DailyTvResponse {
     
-    static var responses: [DailyTvResponse] = [] 
+    static var responses: [DailyTvResponse] = []
+    
+    let api: APIManager = .shared
     
     let title: String
     let rate: Double
@@ -22,5 +24,5 @@ struct DailyTvResponse {
     let overView: String
     let region: String
     
+    
 }
-

@@ -48,6 +48,21 @@ struct APIManager {
         request(url: url, completion: completion)
     }
     
+    public func getDetailInfo(pathParameters: [String], completion: @escaping(JSON) -> Void) {
+        guard let url = url(endpoint: .detail, pathParameters: pathParameters) else {
+            return
+        }
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(json)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func makeUrlQueryString(queryParams: [String: String] = [:]) -> String {
         var queryItems = [URLQueryItem]()
         
@@ -78,8 +93,6 @@ struct APIManager {
         
         urlString += pathParameterString
         urlString += "?" + queryString
-        
-        print(urlString)
         
         return URL(string: urlString)
     }

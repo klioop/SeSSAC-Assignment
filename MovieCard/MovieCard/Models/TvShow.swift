@@ -8,7 +8,6 @@
 import Foundation
 
 struct TvShow {
-    
     let id: Int
     let title: String
     let releaseDate: String
@@ -19,10 +18,13 @@ struct TvShow {
     var starring: String?
     var posterImageUrl: String?
     var backDropImageUrl: String?
+    
 }
 
 extension TvShow {
-    
+    static var data: [TvShow] = []
 }
+
+
 
 

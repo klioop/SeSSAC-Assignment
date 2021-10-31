@@ -13,12 +13,16 @@ extension UIAlertController {
     func addActions(_ actions: UIAlertAction...) {
         actions.forEach { addAction($0) }
     }
-    
 }
 
 extension UIViewController {
     
-    func showAlert(title: String, message: String, okTitle: String, okAction: @escaping () -> ()) {
+    func showAlert(
+        title: String,
+        message: String,
+        okTitle: String,
+        okAction: @escaping () -> ()
+    ) {
         let alert = UIAlertController(
             title: title,
             message: message,
