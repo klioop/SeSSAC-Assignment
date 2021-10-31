@@ -10,7 +10,9 @@ import SwiftyJSON
 
 class TvShowListViewModel {
     
-    let model = TvShowModel()
+    var data: [TvShow] = []
+    
+    private let model = TvShowModel()
     
     private let api: APIManager = .shared
     

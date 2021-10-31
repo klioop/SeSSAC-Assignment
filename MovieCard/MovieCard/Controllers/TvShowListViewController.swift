@@ -12,8 +12,6 @@ class TvShowListViewController: UIViewController {
     
     private let viewModel = TvShowListViewModel()
     
-    private var tvShows: [TvShow] = []
-    
     @IBOutlet weak var bookImage: UIImageView!
     
     @IBOutlet weak var headerImageContainer: UIView! {
@@ -56,7 +54,7 @@ class TvShowListViewController: UIViewController {
         addTapGesture(to: bookImage)
         viewModel.fillData { [unowned self] data in
             self.viewModel.fetchGenresAndCasts(of: data) {
-                self.tvShows = TvShow.data
+                self.viewModel.data = TvShow.data
                 self.tvTableView.reloadData()
             }
         }
@@ -95,18 +93,17 @@ class TvShowListViewController: UIViewController {
 extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tvShows.count
+        viewModel.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TvShowCardTableViewCell.cellIdentifier, for: indexPath)
         as! TvShowCardTableViewCell
         
-        let tvShow = tvShows[indexPath.row]
+        let tvShow = viewModel.data[indexPath.row]
         let imageUrl = APIManager.shared.url(endpoint: .image, pathParameters: [tvShow.posterImageUrl ?? ""])
         
         DispatchQueue.main.async { [unowned self] in
-            self.tvShows[indexPath.row] = tvShow
             cell.configure(
                 date: tvShow.releaseDate,
                 genre: tvShow.genre.isEmpty ? "ddd" : tvShow.genre[0],
@@ -134,7 +131,7 @@ extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
         let sb = UIStoryboard(name: "TvShowDetail", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: TvShowDetailTableViewController.stroryBoardID)
                 as? TvShowDetailTableViewController else { return }
-        let tvShowInfo = tvShows[indexPath.row]
+        let tvShowInfo = viewModel.data[indexPath.row]
         
         vc.tvShowInfo = tvShowInfo
         navigationController?.pushViewController(vc, animated: true)
