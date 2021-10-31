@@ -16,7 +16,9 @@ class TvShowDetailTableViewController: UITableViewController {
         }
     }
     
-    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var posterImageView: UIImageView! {
+        didSet { posterImageView.contentMode = .scaleAspectFit }
+    }
      
     static let stroryBoardID = "TvShowDetailTableViewController"
     
@@ -49,11 +51,18 @@ class TvShowDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         registerCellAndHeader()
         let apiManager: APIManager = .shared
-        guard let tvShow = tvShowInfo, let url = apiManager.url(
-            endpoint: .image,
-            pathParameters: [tvShow.posterImageUrl ?? "?"]
-        )  else { return }
-        backDropImageView.kf.setImage(with: url)
+        guard let tvShow = tvShowInfo,
+              let backDropUrl = apiManager.url(
+                endpoint: .image,
+                pathParameters: [tvShow.backDropImageUrl ?? "?"]
+              ),
+              let posterUrl = apiManager.url(
+                endpoint: .image,
+                pathParameters: [tvShow.posterImageUrl ?? "?"]
+              )
+        else { return }
+        backDropImageView.kf.setImage(with: backDropUrl)
+        posterImageView.kf.setImage(with: posterUrl)
     }
     
     // MARK: - private functions
@@ -74,8 +83,6 @@ class TvShowDetailTableViewController: UITableViewController {
         cell.defaultImageView.image = UIImage(named: tvShowInfo?.title ?? "?")
         cell.titleLabel.text = starringArray[indexPath.row]
         cell.subTitleLabel.text = "Hello"
-        
-        posterImageView.image = UIImage(named: tvShowInfo?.title ?? "?")
         
         return cell
     }

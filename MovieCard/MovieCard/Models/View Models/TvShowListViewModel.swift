@@ -50,14 +50,15 @@ class TvShowListViewModel {
     }
     
     func fillData(completion: @escaping ([TvShow]) -> Void) -> Void {
-        api.getMedia(pathParameters: ["tv", "day"]) { result in
+        api.getMedia(pathParameters: ["tv", "day"]) { [weak self] result in
             switch result {
             case .success(let json):
                 let results = json["results"].arrayValue
                 
                 results.forEach { result in
-                    let response = self.makeResponse(from: result)
-                    let tvShow = self.transform(response: response)
+                    guard let response = self?.makeResponse(from: result),
+                          let tvShow = self?.transform(response: response)
+                    else { return }
                     TvShow.data.append(tvShow)
                 }
                 completion(TvShow.data)
