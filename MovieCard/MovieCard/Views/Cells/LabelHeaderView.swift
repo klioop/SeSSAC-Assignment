@@ -27,7 +27,7 @@ class LabelHeaderView: UITableViewHeaderFooterView {
     
     let button: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
         
         return button
     }()

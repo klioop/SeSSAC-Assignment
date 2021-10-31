@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class TvShowListViewModel {
     
@@ -29,29 +30,33 @@ class TvShowListViewModel {
         )
     }
     
+    private func makeResponse(from json: JSON) -> DailyTvResponse {
+        var region: String
+        if json["origin_country"].arrayValue.isEmpty {
+            region = "KR"
+        } else {
+            region = json["origin_country"].arrayValue[0].stringValue
+        }
+        return DailyTvResponse(
+            title: json["name"].stringValue,
+            rate: json["vote_average"].doubleValue,
+            id: json["id"].intValue,
+            posterPath: json["poster_path"].stringValue,
+            backDropImagePath: json["backdrop_path"].stringValue,
+            firstAirDate: json["first_air_date"].stringValue,
+            overView: json["overview"].stringValue,
+            region: region
+        )
+    }
+    
     func fillData(completion: @escaping ([TvShow]) -> Void) -> Void {
         api.getMedia(pathParameters: ["tv", "day"]) { result in
             switch result {
             case .success(let json):
                 let results = json["results"].arrayValue
+                
                 results.forEach { result in
-                    var region: String
-                    if result["origin_country"].arrayValue.isEmpty {
-                        region = "KR"
-                    } else {
-                        region = result["origin_country"].arrayValue[0].stringValue
-                    }
-                    
-                    let response = DailyTvResponse(
-                        title: result["name"].stringValue,
-                        rate: result["vote_average"].doubleValue,
-                        id: result["id"].intValue,
-                        posterPath: result["poster_path"].stringValue,
-                        backDropImagePath: result["backdrop_path"].stringValue,
-                        firstAirDate: result["first_air_date"].stringValue,
-                        overView: result["overview"].stringValue,
-                        region: region
-                    )
+                    let response = self.makeResponse(from: result)
                     let tvShow = self.transform(response: response)
                     TvShow.data.append(tvShow)
                 }

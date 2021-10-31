@@ -10,7 +10,7 @@ import XCTest
 
 class TvShowListViewController: UIViewController {
     
-    let viewModel = TvShowListViewModel()
+    private let viewModel = TvShowListViewModel()
     
     private var tvShows: [TvShow] = []
     
