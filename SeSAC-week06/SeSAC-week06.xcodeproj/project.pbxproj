@@ -18,6 +18,7 @@
 		31393B55272FB91E003CF43E /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B54272FB91E003CF43E /* Content.storyboard */; };
 		31393B57272FB93D003CF43E /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B56272FB93D003CF43E /* Calendar.storyboard */; };
 		31393B59272FB95E003CF43E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B58272FB95E003CF43E /* Search.storyboard */; };
+		31393B5B272FB97E003CF43E /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B5A272FB97E003CF43E /* Setting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		31393B54272FB91E003CF43E /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
 		31393B56272FB93D003CF43E /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		31393B58272FB95E003CF43E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		31393B5A272FB97E003CF43E /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				31393B54272FB91E003CF43E /* Content.storyboard */,
 				31393B56272FB93D003CF43E /* Calendar.storyboard */,
 				31393B58272FB95E003CF43E /* Search.storyboard */,
+				31393B5A272FB97E003CF43E /* Setting.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				31393B59272FB95E003CF43E /* Search.storyboard in Resources */,
 				31393B53272FB8F8003CF43E /* Home.storyboard in Resources */,
 				31393B55272FB91E003CF43E /* Content.storyboard in Resources */,
+				31393B5B272FB97E003CF43E /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
