@@ -10,11 +10,9 @@ import XCTest
 class HomeViewControllerTest: XCTestCase {
     
     func test_make_sut() throws {
-        let sut = try makeSUT()
-        
+        _ = try makeSUT()
     }
     
-
     private func makeSUT() throws -> HomeViewController {
         let bundle = Bundle(for: HomeViewController.self)
         let sb = UIStoryboard(name: "Home", bundle: bundle)
