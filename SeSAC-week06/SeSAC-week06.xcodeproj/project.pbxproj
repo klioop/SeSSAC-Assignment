@@ -20,6 +20,24 @@
 		31393B59272FB95E003CF43E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B58272FB95E003CF43E /* Search.storyboard */; };
 		31393B5B272FB97E003CF43E /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B5A272FB97E003CF43E /* Setting.storyboard */; };
 		31393B63272FB99E003CF43E /* SeSAC_week06Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */; };
+		31393B74272FBB10003CF43E /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6B272FBB10003CF43E /* SCDream6.otf */; };
+		31393B75272FBB10003CF43E /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6B272FBB10003CF43E /* SCDream6.otf */; };
+		31393B76272FBB10003CF43E /* SCDream1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6C272FBB10003CF43E /* SCDream1.otf */; };
+		31393B77272FBB10003CF43E /* SCDream1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6C272FBB10003CF43E /* SCDream1.otf */; };
+		31393B78272FBB10003CF43E /* SCDream7.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6D272FBB10003CF43E /* SCDream7.otf */; };
+		31393B79272FBB10003CF43E /* SCDream7.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6D272FBB10003CF43E /* SCDream7.otf */; };
+		31393B7A272FBB10003CF43E /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6E272FBB10003CF43E /* SCDream5.otf */; };
+		31393B7B272FBB10003CF43E /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6E272FBB10003CF43E /* SCDream5.otf */; };
+		31393B7C272FBB10003CF43E /* SCDream8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6F272FBB10003CF43E /* SCDream8.otf */; };
+		31393B7D272FBB10003CF43E /* SCDream8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6F272FBB10003CF43E /* SCDream8.otf */; };
+		31393B7E272FBB10003CF43E /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B70272FBB10003CF43E /* SCDream2.otf */; };
+		31393B7F272FBB10003CF43E /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B70272FBB10003CF43E /* SCDream2.otf */; };
+		31393B80272FBB10003CF43E /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B71272FBB10003CF43E /* SCDream4.otf */; };
+		31393B81272FBB10003CF43E /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B71272FBB10003CF43E /* SCDream4.otf */; };
+		31393B82272FBB10003CF43E /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B72272FBB10003CF43E /* SCDream3.otf */; };
+		31393B83272FBB10003CF43E /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B72272FBB10003CF43E /* SCDream3.otf */; };
+		31393B84272FBB10003CF43E /* SCDream9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B73272FBB10003CF43E /* SCDream9.otf */; };
+		31393B85272FBB10003CF43E /* SCDream9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B73272FBB10003CF43E /* SCDream9.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +67,15 @@
 		31393B5A272FB97E003CF43E /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		31393B60272FB99E003CF43E /* SeSAC-week06Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SeSAC-week06Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSAC_week06Tests.swift; sourceTree = "<group>"; };
+		31393B6B272FBB10003CF43E /* SCDream6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream6.otf; sourceTree = "<group>"; };
+		31393B6C272FBB10003CF43E /* SCDream1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream1.otf; sourceTree = "<group>"; };
+		31393B6D272FBB10003CF43E /* SCDream7.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream7.otf; sourceTree = "<group>"; };
+		31393B6E272FBB10003CF43E /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
+		31393B6F272FBB10003CF43E /* SCDream8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream8.otf; sourceTree = "<group>"; };
+		31393B70272FBB10003CF43E /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
+		31393B71272FBB10003CF43E /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
+		31393B72272FBB10003CF43E /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
+		31393B73272FBB10003CF43E /* SCDream9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream9.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +117,7 @@
 		31393B32272FB79B003CF43E /* SeSAC-week06 */ = {
 			isa = PBXGroup;
 			children = (
+				31393B69272FBA1E003CF43E /* Resources */,
 				31393B4B272FB7ED003CF43E /* Controllers */,
 				31393B4A272FB7D2003CF43E /* Utilities */,
 				31393B49272FB7CB003CF43E /* Localization */,
@@ -169,6 +197,30 @@
 				31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */,
 			);
 			path = "SeSAC-week06Tests";
+			sourceTree = "<group>";
+		};
+		31393B69272FBA1E003CF43E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				31393B6A272FBA25003CF43E /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		31393B6A272FBA25003CF43E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				31393B6C272FBB10003CF43E /* SCDream1.otf */,
+				31393B70272FBB10003CF43E /* SCDream2.otf */,
+				31393B72272FBB10003CF43E /* SCDream3.otf */,
+				31393B71272FBB10003CF43E /* SCDream4.otf */,
+				31393B6E272FBB10003CF43E /* SCDream5.otf */,
+				31393B6B272FBB10003CF43E /* SCDream6.otf */,
+				31393B6D272FBB10003CF43E /* SCDream7.otf */,
+				31393B6F272FBB10003CF43E /* SCDream8.otf */,
+				31393B73272FBB10003CF43E /* SCDream9.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,11 +304,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31393B80272FBB10003CF43E /* SCDream4.otf in Resources */,
 				31393B57272FB93D003CF43E /* Calendar.storyboard in Resources */,
+				31393B84272FBB10003CF43E /* SCDream9.otf in Resources */,
 				31393B40272FB79D003CF43E /* LaunchScreen.storyboard in Resources */,
 				31393B3D272FB79D003CF43E /* Assets.xcassets in Resources */,
+				31393B7A272FBB10003CF43E /* SCDream5.otf in Resources */,
+				31393B82272FBB10003CF43E /* SCDream3.otf in Resources */,
+				31393B7E272FBB10003CF43E /* SCDream2.otf in Resources */,
+				31393B74272FBB10003CF43E /* SCDream6.otf in Resources */,
 				31393B3B272FB79B003CF43E /* Main.storyboard in Resources */,
+				31393B78272FBB10003CF43E /* SCDream7.otf in Resources */,
+				31393B76272FBB10003CF43E /* SCDream1.otf in Resources */,
 				31393B59272FB95E003CF43E /* Search.storyboard in Resources */,
+				31393B7C272FBB10003CF43E /* SCDream8.otf in Resources */,
 				31393B53272FB8F8003CF43E /* Home.storyboard in Resources */,
 				31393B55272FB91E003CF43E /* Content.storyboard in Resources */,
 				31393B5B272FB97E003CF43E /* Setting.storyboard in Resources */,
@@ -267,6 +328,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31393B7F272FBB10003CF43E /* SCDream2.otf in Resources */,
+				31393B7D272FBB10003CF43E /* SCDream8.otf in Resources */,
+				31393B79272FBB10003CF43E /* SCDream7.otf in Resources */,
+				31393B85272FBB10003CF43E /* SCDream9.otf in Resources */,
+				31393B81272FBB10003CF43E /* SCDream4.otf in Resources */,
+				31393B75272FBB10003CF43E /* SCDream6.otf in Resources */,
+				31393B83272FBB10003CF43E /* SCDream3.otf in Resources */,
+				31393B77272FBB10003CF43E /* SCDream1.otf in Resources */,
+				31393B7B272FBB10003CF43E /* SCDream5.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
