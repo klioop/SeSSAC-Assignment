@@ -38,6 +38,8 @@
 		31393B83272FBB10003CF43E /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B72272FBB10003CF43E /* SCDream3.otf */; };
 		31393B84272FBB10003CF43E /* SCDream9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B73272FBB10003CF43E /* SCDream9.otf */; };
 		31393B85272FBB10003CF43E /* SCDream9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B73272FBB10003CF43E /* SCDream9.otf */; };
+		31393B87272FBEB2003CF43E /* UIFontTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B86272FBEB2003CF43E /* UIFontTest.swift */; };
+		31393B88272FBF79003CF43E /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B4F272FB811003CF43E /* UIFont+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,7 @@
 		31393B71272FBB10003CF43E /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
 		31393B72272FBB10003CF43E /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
 		31393B73272FBB10003CF43E /* SCDream9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream9.otf; sourceTree = "<group>"; };
+		31393B86272FBEB2003CF43E /* UIFontTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */,
+				31393B86272FBEB2003CF43E /* UIFontTest.swift */,
 			);
 			path = "SeSAC-week06Tests";
 			sourceTree = "<group>";
@@ -358,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31393B87272FBEB2003CF43E /* UIFontTest.swift in Sources */,
+				31393B88272FBF79003CF43E /* UIFont+extension.swift in Sources */,
 				31393B63272FB99E003CF43E /* SeSAC_week06Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
