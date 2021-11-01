@@ -16,6 +16,7 @@
 		31393B50272FB811003CF43E /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B4F272FB811003CF43E /* UIFont+extension.swift */; };
 		31393B53272FB8F8003CF43E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B52272FB8F8003CF43E /* Home.storyboard */; };
 		31393B55272FB91E003CF43E /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B54272FB91E003CF43E /* Content.storyboard */; };
+		31393B57272FB93D003CF43E /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B56272FB93D003CF43E /* Calendar.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		31393B4F272FB811003CF43E /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 		31393B52272FB8F8003CF43E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		31393B54272FB91E003CF43E /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
+		31393B56272FB93D003CF43E /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				31393B39272FB79B003CF43E /* Main.storyboard */,
 				31393B52272FB8F8003CF43E /* Home.storyboard */,
 				31393B54272FB91E003CF43E /* Content.storyboard */,
+				31393B56272FB93D003CF43E /* Calendar.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31393B57272FB93D003CF43E /* Calendar.storyboard in Resources */,
 				31393B40272FB79D003CF43E /* LaunchScreen.storyboard in Resources */,
 				31393B3D272FB79D003CF43E /* Assets.xcassets in Resources */,
 				31393B3B272FB79B003CF43E /* Main.storyboard in Resources */,
