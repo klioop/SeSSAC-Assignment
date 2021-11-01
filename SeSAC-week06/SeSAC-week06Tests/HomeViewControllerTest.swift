@@ -10,7 +10,8 @@ import XCTest
 class HomeViewControllerTest: XCTestCase {
     
     func test_make_sut() throws {
-        let vc = try makeSUT()
+        let sut = try makeSUT()
+        
     }
     
 
