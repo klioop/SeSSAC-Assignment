@@ -19,7 +19,18 @@
 		31393B57272FB93D003CF43E /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B56272FB93D003CF43E /* Calendar.storyboard */; };
 		31393B59272FB95E003CF43E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B58272FB95E003CF43E /* Search.storyboard */; };
 		31393B5B272FB97E003CF43E /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B5A272FB97E003CF43E /* Setting.storyboard */; };
+		31393B63272FB99E003CF43E /* SeSAC_week06Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31393B64272FB99E003CF43E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31393B28272FB79B003CF43E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31393B2F272FB79B003CF43E;
+			remoteInfo = "SeSAC-week06";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		31393B30272FB79B003CF43E /* SeSAC-week06.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC-week06.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,10 +47,19 @@
 		31393B56272FB93D003CF43E /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		31393B58272FB95E003CF43E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		31393B5A272FB97E003CF43E /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		31393B60272FB99E003CF43E /* SeSAC-week06Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SeSAC-week06Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSAC_week06Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		31393B2D272FB79B003CF43E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31393B5D272FB99E003CF43E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				31393B32272FB79B003CF43E /* SeSAC-week06 */,
+				31393B61272FB99E003CF43E /* SeSAC-week06Tests */,
 				31393B31272FB79B003CF43E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				31393B30272FB79B003CF43E /* SeSAC-week06.app */,
+				31393B60272FB99E003CF43E /* SeSAC-week06Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +163,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		31393B61272FB99E003CF43E /* SeSAC-week06Tests */ = {
+			isa = PBXGroup;
+			children = (
+				31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */,
+			);
+			path = "SeSAC-week06Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,6 +191,24 @@
 			productReference = 31393B30272FB79B003CF43E /* SeSAC-week06.app */;
 			productType = "com.apple.product-type.application";
 		};
+		31393B5F272FB99E003CF43E /* SeSAC-week06Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31393B66272FB99E003CF43E /* Build configuration list for PBXNativeTarget "SeSAC-week06Tests" */;
+			buildPhases = (
+				31393B5C272FB99E003CF43E /* Sources */,
+				31393B5D272FB99E003CF43E /* Frameworks */,
+				31393B5E272FB99E003CF43E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31393B65272FB99E003CF43E /* PBXTargetDependency */,
+			);
+			name = "SeSAC-week06Tests";
+			productName = "SeSAC-week06Tests";
+			productReference = 31393B60272FB99E003CF43E /* SeSAC-week06Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -173,6 +221,10 @@
 				TargetAttributes = {
 					31393B2F272FB79B003CF43E = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					31393B5F272FB99E003CF43E = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 31393B2F272FB79B003CF43E;
 					};
 				};
 			};
@@ -190,6 +242,7 @@
 			projectRoot = "";
 			targets = (
 				31393B2F272FB79B003CF43E /* SeSAC-week06 */,
+				31393B5F272FB99E003CF43E /* SeSAC-week06Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -210,6 +263,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31393B5E272FB99E003CF43E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -224,7 +284,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31393B5C272FB99E003CF43E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31393B63272FB99E003CF43E /* SeSAC_week06Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31393B65272FB99E003CF43E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31393B2F272FB79B003CF43E /* SeSAC-week06 */;
+			targetProxy = 31393B64272FB99E003CF43E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		31393B39272FB79B003CF43E /* Main.storyboard */ = {
@@ -418,6 +494,52 @@
 			};
 			name = Release;
 		};
+		31393B67272FB99E003CF43E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DY6Z945T9;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "klioop.SeSAC-week06Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeSAC-week06.app/SeSAC-week06";
+			};
+			name = Debug;
+		};
+		31393B68272FB99E003CF43E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DY6Z945T9;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "klioop.SeSAC-week06Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeSAC-week06.app/SeSAC-week06";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -435,6 +557,15 @@
 			buildConfigurations = (
 				31393B45272FB79D003CF43E /* Debug */,
 				31393B46272FB79D003CF43E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31393B66272FB99E003CF43E /* Build configuration list for PBXNativeTarget "SeSAC-week06Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31393B67272FB99E003CF43E /* Debug */,
+				31393B68272FB99E003CF43E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
