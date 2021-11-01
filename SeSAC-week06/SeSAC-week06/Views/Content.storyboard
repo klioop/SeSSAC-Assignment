@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Content View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="ContentViewController" id="Y6W-OH-hqX" customClass="ContentViewController" customModule="SeSAC_week06" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentViewController" id="Y6W-OH-hqX" customClass="AddViewController" customModule="SeSAC_week06" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

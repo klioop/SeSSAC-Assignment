@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContentViewController: UIViewController {
+class AddViewController: UIViewController {
     
     let sbID = "ContentViewController"
 
