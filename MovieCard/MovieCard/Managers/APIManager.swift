@@ -33,6 +33,8 @@ struct APIManager {
         case invalidURL
     }
     
+    // MARK: - public func
+    
     public func getMedia(pathParameters: [String], completion: @escaping RequestCompletion) -> Void {
         guard let url = url(endpoint: .list, pathParameters: pathParameters) else { return }
         request(url: url, completion: completion)

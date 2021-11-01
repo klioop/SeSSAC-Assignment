@@ -19,7 +19,7 @@
 		31393B57272FB93D003CF43E /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B56272FB93D003CF43E /* Calendar.storyboard */; };
 		31393B59272FB95E003CF43E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B58272FB95E003CF43E /* Search.storyboard */; };
 		31393B5B272FB97E003CF43E /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B5A272FB97E003CF43E /* Setting.storyboard */; };
-		31393B63272FB99E003CF43E /* SeSAC_week06Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */; };
+		31393B63272FB99E003CF43E /* MainControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B62272FB99E003CF43E /* MainControllerTests.swift */; };
 		31393B74272FBB10003CF43E /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6B272FBB10003CF43E /* SCDream6.otf */; };
 		31393B75272FBB10003CF43E /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6B272FBB10003CF43E /* SCDream6.otf */; };
 		31393B76272FBB10003CF43E /* SCDream1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B6C272FBB10003CF43E /* SCDream1.otf */; };
@@ -40,6 +40,12 @@
 		31393B85272FBB10003CF43E /* SCDream9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31393B73272FBB10003CF43E /* SCDream9.otf */; };
 		31393B87272FBEB2003CF43E /* UIFontTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B86272FBEB2003CF43E /* UIFontTest.swift */; };
 		31393B88272FBF79003CF43E /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B4F272FB811003CF43E /* UIFont+extension.swift */; };
+		31393B89272FC32F003CF43E /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B4D272FB804003CF43E /* String+extension.swift */; };
+		31393B8E272FC489003CF43E /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B8D272FC489003CF43E /* StringExtensionTests.swift */; };
+		31393B90272FC702003CF43E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B8F272FC702003CF43E /* HomeViewController.swift */; };
+		31393B91272FC702003CF43E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B8F272FC702003CF43E /* HomeViewController.swift */; };
+		31393B93272FC75F003CF43E /* HomeViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B92272FC75F003CF43E /* HomeViewControllerTest.swift */; };
+		31393B9427301DC1003CF43E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B52272FB8F8003CF43E /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +74,7 @@
 		31393B58272FB95E003CF43E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		31393B5A272FB97E003CF43E /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		31393B60272FB99E003CF43E /* SeSAC-week06Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SeSAC-week06Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSAC_week06Tests.swift; sourceTree = "<group>"; };
+		31393B62272FB99E003CF43E /* MainControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerTests.swift; sourceTree = "<group>"; };
 		31393B6B272FBB10003CF43E /* SCDream6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream6.otf; sourceTree = "<group>"; };
 		31393B6C272FBB10003CF43E /* SCDream1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream1.otf; sourceTree = "<group>"; };
 		31393B6D272FBB10003CF43E /* SCDream7.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream7.otf; sourceTree = "<group>"; };
@@ -79,6 +85,9 @@
 		31393B72272FBB10003CF43E /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
 		31393B73272FBB10003CF43E /* SCDream9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream9.otf; sourceTree = "<group>"; };
 		31393B86272FBEB2003CF43E /* UIFontTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontTest.swift; sourceTree = "<group>"; };
+		31393B8D272FC489003CF43E /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		31393B8F272FC702003CF43E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		31393B92272FC75F003CF43E /* HomeViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +183,7 @@
 		31393B4B272FB7ED003CF43E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				31393B8F272FC702003CF43E /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,8 +207,10 @@
 		31393B61272FB99E003CF43E /* SeSAC-week06Tests */ = {
 			isa = PBXGroup;
 			children = (
-				31393B62272FB99E003CF43E /* SeSAC_week06Tests.swift */,
+				31393B62272FB99E003CF43E /* MainControllerTests.swift */,
 				31393B86272FBEB2003CF43E /* UIFontTest.swift */,
+				31393B8D272FC489003CF43E /* StringExtensionTests.swift */,
+				31393B92272FC75F003CF43E /* HomeViewControllerTest.swift */,
 			);
 			path = "SeSAC-week06Tests";
 			sourceTree = "<group>";
@@ -333,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31393B7F272FBB10003CF43E /* SCDream2.otf in Resources */,
+				31393B9427301DC1003CF43E /* Home.storyboard in Resources */,
 				31393B7D272FBB10003CF43E /* SCDream8.otf in Resources */,
 				31393B79272FBB10003CF43E /* SCDream7.otf in Resources */,
 				31393B85272FBB10003CF43E /* SCDream9.otf in Resources */,
@@ -355,6 +368,7 @@
 				31393B36272FB79B003CF43E /* SceneDelegate.swift in Sources */,
 				31393B50272FB811003CF43E /* UIFont+extension.swift in Sources */,
 				31393B4E272FB804003CF43E /* String+extension.swift in Sources */,
+				31393B90272FC702003CF43E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,9 +376,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31393B89272FC32F003CF43E /* String+extension.swift in Sources */,
 				31393B87272FBEB2003CF43E /* UIFontTest.swift in Sources */,
+				31393B91272FC702003CF43E /* HomeViewController.swift in Sources */,
 				31393B88272FBF79003CF43E /* UIFont+extension.swift in Sources */,
-				31393B63272FB99E003CF43E /* SeSAC_week06Tests.swift in Sources */,
+				31393B93272FC75F003CF43E /* HomeViewControllerTest.swift in Sources */,
+				31393B8E272FC489003CF43E /* StringExtensionTests.swift in Sources */,
+				31393B63272FB99E003CF43E /* MainControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

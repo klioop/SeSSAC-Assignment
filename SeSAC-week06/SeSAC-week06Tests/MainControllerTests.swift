@@ -7,9 +7,11 @@
 
 import XCTest
 
-class SeSAC_week06Tests: XCTestCase {
+class MainControllerTests: XCTestCase {
     
-    
+    private func makeSUT() {
+        
+    }
 
 
 }
