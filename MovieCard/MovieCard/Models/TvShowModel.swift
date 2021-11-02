@@ -45,4 +45,20 @@ struct TvShowModel {
             TvShow.data[index] = tvShow
         }
     }
+    
+    func transformToRealmObject(_ tvShow: TvShow) -> TvShowScema {
+        TvShowScema(
+            idFromAPI: tvShow.id,
+            title: tvShow.title,
+            releaseDate: tvShow.releaseDate,
+            genre: tvShow.genre,
+            region: tvShow.region,
+            overview: tvShow.overview,
+            rate: tvShow.rate,
+            starring: tvShow.starring,
+            posterImageUrl: tvShow.posterImageUrl,
+            backDropImageUrl: tvShow.backDropImageUrl
+        )
+    }
+    
 }

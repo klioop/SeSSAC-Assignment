@@ -98,4 +98,8 @@ class TvShowListViewModel {
         }
     }
     
+    func transformToRealmObject(_ tvShow: TvShow) -> TvShowScema {
+        model.transformToRealmObject(tvShow)
+    }
+    
 }

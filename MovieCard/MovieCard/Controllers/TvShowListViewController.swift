@@ -7,6 +7,7 @@
 
 import UIKit
 import XCTest
+import RealmSwift
 
 class TvShowListViewController: UIViewController {
     
@@ -56,6 +57,7 @@ class TvShowListViewController: UIViewController {
         
         addTapGesture(to: bookImage)
         setUpData()
+        print(try! Realm().configuration.fileURL ?? "?")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,21 +70,11 @@ class TvShowListViewController: UIViewController {
         if !UserDefaults.hasOnBoarded {
             viewModel.fillData { [unowned self] data in
                 self.viewModel.fetchGenresAndCasts(of: data) {
-                    self.viewModel.data = TvShow.data
-                    self.viewModel.data.forEach { tvShow in
-                        let tvShowObject = TvShowScema(
-                            idFromAPI: tvShow.id,
-                            title: tvShow.title,
-                            releaseDate: tvShow.releaseDate,
-                            genre: tvShow.genre,
-                            region: tvShow.region,
-                            overview: tvShow.overview,
-                            rate: tvShow.rate,
-                            starring: tvShow.starring,
-                            posterImageUrl: tvShow.posterImageUrl,
-                            backDropImageUrl: tvShow.backDropImageUrl
-                        )
+                    TvShow.data.forEach { tvShow in
+                        let tvShowObject = self.viewModel.transformToRealmObject(tvShow)
                         try? self.persistanceManager.addTvShowObjcetToRealm(tvShowObject)
+                        
+                        self.viewModel.data = TvShow.data
                         self.tvTableView.reloadData()
                     }
                     UserDefaults.hasOnBoarded = true
@@ -90,23 +82,8 @@ class TvShowListViewController: UIViewController {
             }
         } else {
             let dataObjects = persistanceManager.readTvShowObjectsFromRealm()
-            TvShow.data = dataObjects.map { object -> TvShow in
-                var genres: [String] = []
-                object.genre.forEach {
-                    genres.append($0 ?? "?")
-                }
-                return TvShow(
-                    id: object.idFromAPI,
-                    title: object.title,
-                    releaseDate: object.releaseDate,
-                    genre: genres,
-                    region: object.region,
-                    overview: object.overview,
-                    rate: object.rate,
-                    starring: object.starring,
-                    posterImageUrl: object.posterImageUrl,
-                    backDropImageUrl: object.backDropImageUrl
-                )
+            TvShow.data = dataObjects.map { [unowned self] object -> TvShow in
+                self.persistanceManager.trasnformToTvShow(from: object)
             }
             viewModel.data = TvShow.data
             self.tvTableView.reloadData()
