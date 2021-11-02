@@ -10,6 +10,7 @@
 		31217AD82730F65B00461395 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31217AD72730F65B00461395 /* PersistanceManager.swift */; };
 		31217ADB2730FBAF00461395 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 31217ADA2730FBAF00461395 /* Realm */; };
 		31217ADD2730FBAF00461395 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 31217ADC2730FBAF00461395 /* RealmSwift */; };
+		31217AE02730FC9000461395 /* TvShowScema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31217ADF2730FC9000461395 /* TvShowScema.swift */; };
 		312F0664272A129200F5AA17 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F0663272A129200F5AA17 /* APIManager.swift */; };
 		312F0668272A12E700F5AA17 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F0667272A12E700F5AA17 /* Key.swift */; };
 		312F066E272A67A900F5AA17 /* DailyTvResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F066D272A67A800F5AA17 /* DailyTvResponse.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		31217AD72730F65B00461395 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		31217ADF2730FC9000461395 /* TvShowScema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowScema.swift; sourceTree = "<group>"; };
 		312F0663272A129200F5AA17 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		312F0667272A12E700F5AA17 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		312F066D272A67A800F5AA17 /* DailyTvResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTvResponse.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		31217ADE2730FC7A00461395 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				31217ADF2730FC9000461395 /* TvShowScema.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		312F0665272A129B00F5AA17 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 		31BC0EDD271C588300BED0A9 /* MovieCard */ = {
 			isa = PBXGroup;
 			children = (
+				31217ADE2730FC7A00461395 /* Realm */,
 				312F0666272A12D800F5AA17 /* Secret */,
 				312F0665272A129B00F5AA17 /* Managers */,
 				31BC0FE0272172DA00BED0A9 /* Utilites */,
@@ -368,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31217AE02730FC9000461395 /* TvShowScema.swift in Sources */,
 				31BC0EFB271C651400BED0A9 /* TvShowCardTableViewCell.swift in Sources */,
 				31BC0F5E271D746E00BED0A9 /* TvShowDetailTableViewController.swift in Sources */,
 				31BC0FD72720D61A00BED0A9 /* TheaterLocation.swift in Sources */,
