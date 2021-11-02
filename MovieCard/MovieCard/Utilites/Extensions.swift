@@ -40,3 +40,27 @@ extension UIViewController {
     }
     
 }
+
+@propertyWrapper
+struct UserDefaultWrapper<Value> {
+    let key: String
+    let defaultValue: Value
+    let container: UserDefaults = .standard
+    
+    var wrappedValue: Value {
+        get { container.object(forKey: key) as? Value ?? defaultValue }
+        set {
+            container.set(newValue, forKey: key)
+        }
+    }
+}
+
+extension UserDefaults {
+    public enum Key: String {
+        case hasOnBoarded
+    }
+    
+    @UserDefaultWrapper(key: Key.hasOnBoarded.rawValue, defaultValue: false)
+    static var hasOnBoarded: Bool
+    
+}

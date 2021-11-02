@@ -42,6 +42,7 @@ class TvShowScema: Object {
         self.overview = overview
         self.rate = rate
         self.posterImageUrl = posterImageUrl
+        self.backDropImageUrl = backDropImageUrl
     }
 
     
