@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddViewController: UIViewController {
     
@@ -18,9 +19,12 @@ class AddViewController: UIViewController {
     @IBOutlet weak var dateButton: UIButton!
     
     let sbID = "AddViewController"
+    
+    let localRealm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(localRealm.configuration.fileURL!)
 
     }
     
@@ -28,6 +32,17 @@ class AddViewController: UIViewController {
         
     }
     @IBAction func didTapSaveButton(_ sender: Any) {
+        // Add some tasks
+        let task = UserDiary(
+            title: "First",
+            content: "Hello, World!",
+            dateWritten: Date(),
+            registerDate: Date()
+        )
+        try! localRealm.write {
+            localRealm.add(task)
+        }
+        print("SAVED!")
         
     }
     @IBAction func didTapCancelButton(_ sender: Any) {
