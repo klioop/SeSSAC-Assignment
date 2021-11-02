@@ -50,6 +50,5 @@ class TvShowScema: Object {
         self.posterImageUrl = posterImageUrl
         self.backDropImageUrl = backDropImageUrl
     }
-
     
 }

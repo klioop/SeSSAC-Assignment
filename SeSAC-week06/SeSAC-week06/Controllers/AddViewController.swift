@@ -18,13 +18,16 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var dateButton: UIButton!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     let sbID = "AddViewController"
     
     let localRealm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(localRealm.configuration.fileURL!)
 
     }
     
@@ -47,6 +50,10 @@ class AddViewController: UIViewController {
     }
     @IBAction func didTapCancelButton(_ sender: Any) {
         
+    }
+    
+    private func configureOutLets() {
+        textField.placeholder = AddViewLocalization.textFieldPlaceholder.rawValue.localized(tableName: "AddViewController")
     }
     
 }

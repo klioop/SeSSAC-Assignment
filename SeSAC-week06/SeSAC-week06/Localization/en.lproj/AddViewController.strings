@@ -8,4 +8,6 @@
 
 "save_button" = "save";
 "cancel_button" = "cancel";
+"textField_placeholder" = "Type your title here";
+"textView_placeholder" = "Type your diary here";
 
