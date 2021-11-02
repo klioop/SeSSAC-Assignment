@@ -62,6 +62,7 @@ class TvShowListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tvTableView.reloadData()
     }
     
     // MARK: - private funcs
@@ -75,7 +76,6 @@ class TvShowListViewController: UIViewController {
                         try? self.persistanceManager.addTvShowObjcetToRealm(tvShowObject)
                         
                         self.viewModel.data = TvShow.data
-                        self.tvTableView.reloadData()
                     }
                     UserDefaults.hasOnBoarded = true
                 }
@@ -86,7 +86,6 @@ class TvShowListViewController: UIViewController {
                 self.persistanceManager.trasnformToTvShow(from: object)
             }
             viewModel.data = TvShow.data
-            self.tvTableView.reloadData()
         }
     }
     
