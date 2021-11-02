@@ -28,12 +28,14 @@ class AddViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureOutlets()
 
     }
     
     @IBAction func didTapDateButton(_ sender: UIButton) {
         
     }
+    
     @IBAction func didTapSaveButton(_ sender: Any) {
         // Add some tasks
         let task = UserDiary(
@@ -45,15 +47,51 @@ class AddViewController: UIViewController {
         try! localRealm.write {
             localRealm.add(task)
         }
-        print("SAVED!")
-        
     }
+    
     @IBAction func didTapCancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func configureOutlets() {
+        dateButton.backgroundColor = .systemBlue
+        dateButton.setTitleColor(.white, for: .normal)
+        dateButton.layer.cornerRadius = 6
         
+        textField.placeholder = AddViewLocalization
+            .Localization
+            .textFieldPlaceholder
+            .rawValue
+            .localized(tableName: AddViewLocalization.tableName)
+        saveButton.title = AddViewLocalization
+            .Localization
+            .save
+            .rawValue
+            .localized(tableName: AddViewLocalization.tableName)
+        cancelButton.title = AddViewLocalization
+            .Localization
+            .cancel
+            .rawValue
+            .localized(tableName: AddViewLocalization.tableName)
+        configureTextView()
     }
     
-    private func configureOutLets() {
-        textField.placeholder = AddViewLocalization.textFieldPlaceholder.rawValue.localized(tableName: "AddViewController")
+    private func configureTextView() {
+        addTextView.delegate = self
+        addTextView.textColor = .lightGray
+        addTextView.text = AddViewLocalization
+            .Localization
+            .textViewPlaceholder
+            .rawValue
+            .localized(tableName: AddViewLocalization.tableName)
     }
     
+}
+
+extension AddViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+        textView.textColor = .label
+    }
 }

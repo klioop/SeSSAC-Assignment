@@ -19,7 +19,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Px0-2A-GwD">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="xfv-Y8-yL7"/>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="xfv-Y8-yL7">
+                            <connections>
+                                <action selector="didTapPlusButton:" destination="Y6W-OH-hqX" id="bGc-6l-X8L"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -6,8 +6,8 @@
   
 */
 
-"save_button" = "save";
-"cancel_button" = "cancel";
+"save_button" = "Save";
+"cancel_button" = "Cancel";
 "textField_placeholder" = "Type your title here";
 "textView_placeholder" = "Type your diary here";
 

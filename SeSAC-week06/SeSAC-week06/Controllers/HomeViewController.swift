@@ -9,10 +9,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    static let sbID = "HomeViewController"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    static let sbID = "HomeViewController"
-    
+    @IBAction func didTapPlusButton(_ sender: UIBarButtonItem) {
+        let bundle = Bundle(for: AddViewController.self)
+        let sb = UIStoryboard(name: "Content", bundle: bundle)
+        guard let navVC = sb.instantiateInitialViewController() as? UINavigationController else { return }
+        
+        present(navVC, animated: true)
+    }
 }

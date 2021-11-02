@@ -7,9 +7,16 @@
 
 import Foundation
 
-enum AddViewLocalization: String {
-    case save = "save_button"
-    case cancel = "cancel_button"
-    case textFieldPlaceholder = "textField_placeholder"
-    case textViewPlaceholder = "textView_placeholder"
+struct AddViewLocalization {
+    
+    static let tableName = "AddViewController"
+    
+    enum Localization: String {
+        case save = "save_button"
+        case cancel = "cancel_button"
+        case textFieldPlaceholder = "textField_placeholder"
+        case textViewPlaceholder = "textView_placeholder"
+    }
+    
 }
+

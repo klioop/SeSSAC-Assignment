@@ -60,6 +60,7 @@
 		31393B9A27301F4A003CF43E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B9927301F49003CF43E /* SearchViewController.swift */; };
 		31393B9B27301F4A003CF43E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B9927301F49003CF43E /* SearchViewController.swift */; };
 		31393B9C27301F6C003CF43E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B58272FB95E003CF43E /* Search.storyboard */; };
+		31C88FAE27315BAB00CB3010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B39272FB79B003CF43E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -396,6 +397,7 @@
 				31393B85272FBB10003CF43E /* SCDream9.otf in Resources */,
 				31393B9527301EDD003CF43E /* Content.storyboard in Resources */,
 				31393B81272FBB10003CF43E /* SCDream4.otf in Resources */,
+				31C88FAE27315BAB00CB3010 /* Main.storyboard in Resources */,
 				31393B75272FBB10003CF43E /* SCDream6.otf in Resources */,
 				31393B83272FBB10003CF43E /* SCDream3.otf in Resources */,
 				31217AC5273026F900461395 /* AddViewController.strings in Resources */,
