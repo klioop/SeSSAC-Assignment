@@ -62,7 +62,9 @@ class TvShowListViewController: UIViewController {
         view.backgroundColor = .tertiarySystemBackground
         
         addTapGesture(to: bookImage)
+        resetHasOnBoard()
         setUpData()
+        print(UserDefaults.date)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,15 +74,28 @@ class TvShowListViewController: UIViewController {
     
     // MARK: - private funcs
     
+    private func resetHasOnBoard() {
+        let component = Calendar.current.dateComponents([.hour, .day], from: Date())
+        
+        if UserDefaults.date != component.day,
+        let hourToTrigger = component.hour,
+        hourToTrigger == 10 {
+            UserDefaults.hasOnBoarded = false
+        }
+    }
+    
     private func setUpData() {
         if !UserDefaults.hasOnBoarded {
             viewModel.fillData { [unowned self] data in
                 self.viewModel.fetchGenresAndCasts(of: data) {
                     TvShow.data.forEach { tvShow in
-                        let tvShowObject = self.viewModel.transformToRealmObject(tvShow)
+                        let tvShowObject = self.viewModel.transformToRealmObject(from: tvShow)
                         try? self.persistanceManager.addTvShowObjcetToRealm(tvShowObject)
-                        
                         self.viewModel.data = TvShow.data
+                        self.tvTableView.reloadData()
+                    }
+                    if let day = Calendar.current.dateComponents([.day], from: Date()).day {
+                        UserDefaults.date = day
                     }
                     UserDefaults.hasOnBoarded = true
                 }

@@ -17,7 +17,6 @@ class TvShowListViewModel {
     
     private let api: APIManager = .shared
     
-    
     private func transform(response: DailyTvResponse) -> TvShow {
         let rating = String(format: "%.2f", response.rate)
         return TvShow(
@@ -98,7 +97,7 @@ class TvShowListViewModel {
         }
     }
     
-    func transformToRealmObject(_ tvShow: TvShow) -> TvShowScema {
+    func transformToRealmObject(from tvShow: TvShow) -> TvShowScema {
         model.transformToRealmObject(tvShow)
     }
     

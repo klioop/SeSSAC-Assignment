@@ -58,9 +58,13 @@ struct UserDefaultWrapper<Value> {
 extension UserDefaults {
     public enum Key: String {
         case hasOnBoarded
+        case date
     }
     
     @UserDefaultWrapper(key: Key.hasOnBoarded.rawValue, defaultValue: false)
     static var hasOnBoarded: Bool
+    
+    @UserDefaultWrapper(key: Key.date.rawValue, defaultValue: -1)
+    static var date: Int
     
 }

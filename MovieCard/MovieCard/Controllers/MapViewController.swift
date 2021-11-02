@@ -138,8 +138,6 @@ class MapViewController: UIViewController {
         }
         mapView.addAnnotations(annotations)
     }
-    
-    
 }
 
 // MARK: - CLLocatonManagerDelegate
