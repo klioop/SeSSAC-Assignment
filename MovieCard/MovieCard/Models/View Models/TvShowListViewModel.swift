@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
 class TvShowListViewModel {
     
@@ -15,6 +16,7 @@ class TvShowListViewModel {
     private let model = TvShowModel()
     
     private let api: APIManager = .shared
+    
     
     private func transform(response: DailyTvResponse) -> TvShow {
         let rating = String(format: "%.2f", response.rate)

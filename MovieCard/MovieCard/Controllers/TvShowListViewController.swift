@@ -10,7 +10,9 @@ import XCTest
 
 class TvShowListViewController: UIViewController {
     
-    private let viewModel = TvShowListViewModel()
+    private var viewModel = TvShowListViewModel()
+    
+    private let persistanceManager: PersistanceManager = .shared
     
     @IBOutlet weak var bookImage: UIImageView!
     
@@ -51,13 +53,9 @@ class TvShowListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
+        
         addTapGesture(to: bookImage)
-        viewModel.fillData { [unowned self] data in
-            self.viewModel.fetchGenresAndCasts(of: data) {
-                self.viewModel.data = TvShow.data
-                self.tvTableView.reloadData()
-            }
-        }
+        setUpData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +63,55 @@ class TvShowListViewController: UIViewController {
     }
     
     // MARK: - private funcs
+    
+    private func setUpData() {
+        if !UserDefaults.hasOnBoarded {
+            viewModel.fillData { [unowned self] data in
+                self.viewModel.fetchGenresAndCasts(of: data) {
+                    self.viewModel.data = TvShow.data
+                    self.viewModel.data.forEach { tvShow in
+                        let tvShowObject = TvShowScema(
+                            idFromAPI: tvShow.id,
+                            title: tvShow.title,
+                            releaseDate: tvShow.releaseDate,
+                            genre: tvShow.genre,
+                            region: tvShow.region,
+                            overview: tvShow.overview,
+                            rate: tvShow.rate,
+                            starring: tvShow.starring,
+                            posterImageUrl: tvShow.posterImageUrl,
+                            backDropImageUrl: tvShow.backDropImageUrl
+                        )
+                        try? self.persistanceManager.addTvShowObjcetToRealm(tvShowObject)
+                        self.tvTableView.reloadData()
+                    }
+                    UserDefaults.hasOnBoarded = true
+                }
+            }
+        } else {
+            let dataObjects = persistanceManager.readTvShowObjectsFromRealm()
+            TvShow.data = dataObjects.map { object -> TvShow in
+                var genres: [String] = []
+                object.genre.forEach {
+                    genres.append($0 ?? "?")
+                }
+                return TvShow(
+                    id: object.idFromAPI,
+                    title: object.title,
+                    releaseDate: object.releaseDate,
+                    genre: genres,
+                    region: object.region,
+                    overview: object.overview,
+                    rate: object.rate,
+                    starring: object.starring,
+                    posterImageUrl: object.posterImageUrl,
+                    backDropImageUrl: object.backDropImageUrl
+                )
+            }
+            viewModel.data = TvShow.data
+            self.tvTableView.reloadData()
+        }
+    }
     
     private func addTapGesture(to view: UIView) {
         view.isUserInteractionEnabled = true
@@ -131,6 +178,7 @@ extension TvShowListViewController: UITableViewDelegate, UITableViewDataSource {
         let sb = UIStoryboard(name: "TvShowDetail", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: TvShowDetailTableViewController.stroryBoardID)
                 as? TvShowDetailTableViewController else { return }
+        
         let tvShowInfo = viewModel.data[indexPath.row]
         
         vc.tvShowInfo = tvShowInfo

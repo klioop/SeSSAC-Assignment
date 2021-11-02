@@ -11,6 +11,7 @@ import RealmSwift
 class TvShowScema: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     
+    @Persisted var idFromAPI: Int
     @Persisted var title: String
     @Persisted var releaseDate: String
     @Persisted var genre: List<String?>
@@ -21,7 +22,8 @@ class TvShowScema: Object {
     @Persisted var posterImageUrl: String?
     @Persisted var backDropImageUrl: String?
     
-    init(
+    convenience init(
+        idFromAPI: Int,
         title: String,
         releaseDate: String,
         genre: [String],
@@ -32,9 +34,12 @@ class TvShowScema: Object {
         posterImageUrl: String?,
         backDropImageUrl: String?
     ) {
+        self.init()
+        
         let genreList = List<String?>()
         genreList.append(objectsIn: genre)
         
+        self.idFromAPI = idFromAPI
         self.title = title
         self.releaseDate = releaseDate
         self.genre = genreList
