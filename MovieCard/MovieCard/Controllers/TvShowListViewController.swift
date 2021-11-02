@@ -11,9 +11,13 @@ import RealmSwift
 
 class TvShowListViewController: UIViewController {
     
+    // MARK: - private variables and constants
+    
     private var viewModel = TvShowListViewModel()
     
     private let persistanceManager: PersistanceManager = .shared
+    
+    // MARK: - IBoutlets
     
     @IBOutlet weak var bookImage: UIImageView!
     
@@ -25,6 +29,8 @@ class TvShowListViewController: UIViewController {
             headerImageContainer.layer.cornerRadius = 6
         }
     }
+    
+    // MARK: - IBActions
     
     @IBAction func mapButtonTouched(_ sender: UIBarButtonItem) {
         let sb = UIStoryboard(name: "Map", bundle: nil)
@@ -57,7 +63,6 @@ class TvShowListViewController: UIViewController {
         
         addTapGesture(to: bookImage)
         setUpData()
-        print(try! Realm().configuration.fileURL ?? "?")
     }
     
     override func viewWillAppear(_ animated: Bool) {
