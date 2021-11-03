@@ -63,5 +63,24 @@ class SearchViewController: UIViewController {
         }
     }
     
+    func revise(_ object: UserDiary) {
+        
+        try! localRealm.write {
+            object.title = "dfdf"
+            object.content = "dfadfad"
+        }
+        
+        // 권장 x
+//        try! localRealm.write {
+//            let update = UserDiary(value: ["-id" : object._id, "title": "Here"])
+//            localRealm.add(update, update: .modified)
+//        }
+
+//        try! localRealm.write {
+//            localRealm.create(UserDiary.self, value:["_id": object._id, "title": "바꾸자 얘만"], update: .modified)
+//        }
+        
+    }
+    
     
 }

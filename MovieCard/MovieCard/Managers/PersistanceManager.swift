@@ -49,6 +49,17 @@ final class PersistanceManager {
         }
     }
     
+    func delteAllTvShowObjects() {
+        do {
+            try localRealm.write {
+                let allObjects = localRealm.objects(TvShowScema.self)
+                localRealm.delete(allObjects)
+            }
+        } catch {
+            
+        }
+    }
+    
 }
 
 
