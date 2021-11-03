@@ -8,12 +8,16 @@
 import Foundation
 import UIKit
 
+// MARK: - UIAlertController extension
+
 extension UIAlertController {
     
     func addActions(_ actions: UIAlertAction...) {
         actions.forEach { addAction($0) }
     }
 }
+
+// MARK: - UIViewController extension
 
 extension UIViewController {
     
@@ -55,7 +59,10 @@ struct UserDefaultWrapper<Value> {
     }
 }
 
+// MARK: - UserDefaults extension
+
 extension UserDefaults {
+    
     public enum Key: String {
         case hasOnBoarded
         case date

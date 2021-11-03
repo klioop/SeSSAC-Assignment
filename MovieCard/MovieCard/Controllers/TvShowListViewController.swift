@@ -103,7 +103,7 @@ class TvShowListViewController: UIViewController {
         } else {
             let dataObjects = persistanceManager.readTvShowObjectsFromRealm()
             TvShow.data = dataObjects.map { [unowned self] object -> TvShow in
-                self.persistanceManager.trasnformToTvShow(from: object)
+                return self.persistanceManager.trasnformToTvShow(from: object)
             }
             viewModel.data = TvShow.data
         }
