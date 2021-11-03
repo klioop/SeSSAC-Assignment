@@ -42,6 +42,26 @@ class SearchViewController: UIViewController {
         return nil
     }
     
+    func deleteImageFromDocument(imageName: String) {
+        let manager = FileManager.default
+        guard let documnetDirectory = manager
+                .urls(
+                    for: .documentDirectory,
+                       in: .userDomainMask
+                )
+                .first else {
+                    return
+                }
+        let imageURL = documnetDirectory.appendingPathComponent(imageName)
+        if manager.fileExists(atPath: imageURL.path) {
+            do {
+                try manager.removeItem(at: imageURL)
+                print("이미지 삭제 완료")
+            } catch {
+                print("이미지를 삭제하지 못했습니다")
+            }
+        }
+    }
     
     
 }
