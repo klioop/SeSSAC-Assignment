@@ -14,7 +14,7 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    @IBOutlet weak var addImageView: UIImageView!
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     
     @IBOutlet weak var addTextView: UITextView!
     
@@ -24,16 +24,25 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
-    let sbID = "AddViewController"
+    private let sbID = "AddViewController"
     
     let localRealm = try! Realm()
     
-    let persistanceManager = PersistanceManager.shared
+    private let persistanceManager = PersistanceManager.shared
+    
+    private var images: [UIImage] = [UIImage(systemName: "star")!]
 
+    // MARK: - life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureOutlets()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photoCollectionView.reloadData()
     }
     
     private func configurePHPhotoPickerAndReturnPHPickerVC() -> PHPickerViewController {
@@ -124,7 +133,22 @@ class AddViewController: UIViewController {
             .cancel
             .rawValue
             .localized(tableName: AddViewLocalization.tableName)
+        
         configureTextView()
+        configureCollectionView()
+    }
+    
+    private func configureCollectionView() {
+        let layOut = UICollectionViewFlowLayout()
+        layOut.scrollDirection = .horizontal
+        
+        photoCollectionView.register(
+            AddPhotoCollectionViewCell.self,
+            forCellWithReuseIdentifier: AddPhotoCollectionViewCell.cellID
+        )
+        photoCollectionView.collectionViewLayout = layOut
+        photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
     }
     
     private func configureTextView() {
@@ -152,13 +176,39 @@ extension AddViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
         
-        results.forEach { result in
+        results.forEach { [weak self] result in
             result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
                 guard let image = reading as? UIImage, error == nil else {
                     return
                 }
-                print(image)
+                self?.images.append(image)
+                
+                DispatchQueue.main.async {
+                    self?.photoCollectionView.reloadData()
+                }
             }
         }
     }
+}
+
+// MARK: - collection view
+
+extension AddViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+        
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: AddPhotoCollectionViewCell.cellID, for: indexPath
+        ) as? AddPhotoCollectionViewCell else { fatalError("Could not find the cell!!") }
+        
+        let image = images[indexPath.item]
+                
+        cell.phImageView2.image = image
+                
+        return cell
+    }
+    
 }

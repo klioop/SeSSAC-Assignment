@@ -60,14 +60,18 @@
 		31393B9A27301F4A003CF43E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B9927301F49003CF43E /* SearchViewController.swift */; };
 		31393B9B27301F4A003CF43E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B9927301F49003CF43E /* SearchViewController.swift */; };
 		31393B9C27301F6C003CF43E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B58272FB95E003CF43E /* Search.storyboard */; };
+		31B61E9B273538FA0099B4FE /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B61E99273538FA0099B4FE /* AddPhotoCollectionViewCell.swift */; };
+		31B61E9C273538FA0099B4FE /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B61E99273538FA0099B4FE /* AddPhotoCollectionViewCell.swift */; };
+		31B61E9D273538FA0099B4FE /* AddPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B61E9A273538FA0099B4FE /* AddPhotoCollectionViewCell.xib */; };
+		31B61E9E273538FA0099B4FE /* AddPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B61E9A273538FA0099B4FE /* AddPhotoCollectionViewCell.xib */; };
 		31C88FAE27315BAB00CB3010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B39272FB79B003CF43E /* Main.storyboard */; };
 		31DB7A8B2732BA4C00E8EEF8 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A8A2732BA4C00E8EEF8 /* PersistanceManager.swift */; };
 		31DB7A8C2732BA4C00E8EEF8 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A8A2732BA4C00E8EEF8 /* PersistanceManager.swift */; };
 		31DB7A8E273368CF00E8EEF8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A8D273368CF00E8EEF8 /* SettingViewController.swift */; };
 		31DB7A8F273368CF00E8EEF8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A8D273368CF00E8EEF8 /* SettingViewController.swift */; };
 		31DB7A9227336DC900E8EEF8 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 31DB7A9127336DC900E8EEF8 /* Zip */; };
-		31DB7A952734326200E8EEF8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A942734326200E8EEF8 /* Model.swift */; };
-		31DB7A962734326200E8EEF8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A942734326200E8EEF8 /* Model.swift */; };
+		31DB7A952734326200E8EEF8 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A942734326200E8EEF8 /* DiaryModel.swift */; };
+		31DB7A962734326200E8EEF8 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A942734326200E8EEF8 /* DiaryModel.swift */; };
 		31DB7A982734B52D00E8EEF8 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A972734B52D00E8EEF8 /* DatePickerViewController.swift */; };
 		31DB7A992734B52D00E8EEF8 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB7A972734B52D00E8EEF8 /* DatePickerViewController.swift */; };
 		31DB7A9C2734C26900E8EEF8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 31DB7A9B2734C26900E8EEF8 /* FSCalendar */; };
@@ -124,9 +128,11 @@
 		31393B92272FC75F003CF43E /* HomeViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTest.swift; sourceTree = "<group>"; };
 		31393B9627301EF8003CF43E /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		31393B9927301F49003CF43E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		31B61E99273538FA0099B4FE /* AddPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		31B61E9A273538FA0099B4FE /* AddPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		31DB7A8A2732BA4C00E8EEF8 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		31DB7A8D273368CF00E8EEF8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		31DB7A942734326200E8EEF8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		31DB7A942734326200E8EEF8 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		31DB7A972734B52D00E8EEF8 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		31DB7A9D2734C27E00E8EEF8 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		31DB7AA02734CE8600E8EEF8 /* RealmQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuery.swift; sourceTree = "<group>"; };
@@ -265,6 +271,8 @@
 		31393B51272FB825003CF43E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				31B61E99273538FA0099B4FE /* AddPhotoCollectionViewCell.swift */,
+				31B61E9A273538FA0099B4FE /* AddPhotoCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -315,7 +323,7 @@
 		31DB7A932734325000E8EEF8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				31DB7A942734326200E8EEF8 /* Model.swift */,
+				31DB7A942734326200E8EEF8 /* DiaryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,6 +437,7 @@
 				31393B59272FB95E003CF43E /* Search.storyboard in Resources */,
 				31393B7C272FBB10003CF43E /* SCDream8.otf in Resources */,
 				31393B53272FB8F8003CF43E /* Home.storyboard in Resources */,
+				31B61E9D273538FA0099B4FE /* AddPhotoCollectionViewCell.xib in Resources */,
 				31393B55272FB91E003CF43E /* Content.storyboard in Resources */,
 				31393B5B272FB97E003CF43E /* Setting.storyboard in Resources */,
 			);
@@ -450,6 +459,7 @@
 				31393B83272FBB10003CF43E /* SCDream3.otf in Resources */,
 				31217AC5273026F900461395 /* AddViewController.strings in Resources */,
 				31393B77272FBB10003CF43E /* SCDream1.otf in Resources */,
+				31B61E9E273538FA0099B4FE /* AddPhotoCollectionViewCell.xib in Resources */,
 				31393B9C27301F6C003CF43E /* Search.storyboard in Resources */,
 				31393B7B272FBB10003CF43E /* SCDream5.otf in Resources */,
 			);
@@ -470,8 +480,9 @@
 				31393B50272FB811003CF43E /* UIFont+extension.swift in Sources */,
 				31217AD42730C97500461395 /* RealmModel.swift in Sources */,
 				31DB7A8B2732BA4C00E8EEF8 /* PersistanceManager.swift in Sources */,
-				31DB7A952734326200E8EEF8 /* Model.swift in Sources */,
+				31DB7A952734326200E8EEF8 /* DiaryModel.swift in Sources */,
 				31393B4E272FB804003CF43E /* String+extension.swift in Sources */,
+				31B61E9B273538FA0099B4FE /* AddPhotoCollectionViewCell.swift in Sources */,
 				31393B9727301EF8003CF43E /* AddViewController.swift in Sources */,
 				31217ACB2730BFF400461395 /* Localization.swift in Sources */,
 				31DB7AA12734CE8600E8EEF8 /* RealmQuery.swift in Sources */,
@@ -486,12 +497,13 @@
 			files = (
 				31DB7A9F2734C27E00E8EEF8 /* CalendarViewController.swift in Sources */,
 				31393B9827301EF8003CF43E /* AddViewController.swift in Sources */,
+				31B61E9C273538FA0099B4FE /* AddPhotoCollectionViewCell.swift in Sources */,
 				31DB7AA22734CE8600E8EEF8 /* RealmQuery.swift in Sources */,
 				31393B89272FC32F003CF43E /* String+extension.swift in Sources */,
 				31393B87272FBEB2003CF43E /* UIFontTest.swift in Sources */,
 				31DB7A8F273368CF00E8EEF8 /* SettingViewController.swift in Sources */,
 				31DB7A8C2732BA4C00E8EEF8 /* PersistanceManager.swift in Sources */,
-				31DB7A962734326200E8EEF8 /* Model.swift in Sources */,
+				31DB7A962734326200E8EEF8 /* DiaryModel.swift in Sources */,
 				31217AD52730C97500461395 /* RealmModel.swift in Sources */,
 				31393B9B27301F4A003CF43E /* SearchViewController.swift in Sources */,
 				31393B91272FC702003CF43E /* HomeViewController.swift in Sources */,
