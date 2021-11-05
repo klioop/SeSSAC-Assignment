@@ -7,6 +7,8 @@
 
 import UIKit
 import RealmSwift
+import Photos
+import PhotosUI
 
 class AddViewController: UIViewController {
     
@@ -32,6 +34,21 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         configureOutlets()
 
+    }
+    
+    private func configurePHPhotoPickerAndReturnPHPickerVC() -> PHPickerViewController {
+        var config = PHPickerConfiguration(photoLibrary: .shared())
+        config.selectionLimit = 10
+        config.filter = .any(of: [.images, .livePhotos])
+        let vc = PHPickerViewController(configuration: config)
+        vc.delegate = self
+        
+        return vc
+    }
+    
+    @IBAction func didTapAddPhotoButton(_ sender: UIButton) {
+        let phvc = configurePHPhotoPickerAndReturnPHPickerVC()
+        self.present(phvc, animated: true, completion: nil)
     }
     
     @IBAction func didTapDateButton(_ sender: UIButton) {
@@ -86,12 +103,11 @@ class AddViewController: UIViewController {
         
     }
     
-    
-    
     private func configureOutlets() {
         dateButton.backgroundColor = .systemBlue
         dateButton.setTitleColor(.white, for: .normal)
         dateButton.layer.cornerRadius = 6
+        dateButton.setTitle(DateFormatter().string(from: Date()), for: .normal)
         
         textField.placeholder = AddViewLocalization
             .Localization
@@ -128,5 +144,21 @@ extension AddViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
         textView.textColor = .label
+    }
+}
+
+extension AddViewController: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        results.forEach { result in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
+                guard let image = reading as? UIImage, error == nil else {
+                    return
+                }
+                print(image)
+            }
+        }
     }
 }

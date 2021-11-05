@@ -27,12 +27,12 @@ class CalendarViewController: UIViewController {
         
         tasks = localRealm.objects(UserDiary.self)
         
-        let recent = localRealm.objects(UserDiary.self).sorted(byKeyPath: "registerDate", ascending: false).first?.title
-        let photo = localRealm.objects(UserDiary.self).filter("content != nil")
-        let favorite = localRealm.objects(UserDiary.self).filter("favorite == false")
+//        let recent = localRealm.objects(UserDiary.self).sorted(byKeyPath: "registerDate", ascending: false).first?.title
+//        let photo = localRealm.objects(UserDiary.self).filter("content != nil")
+//        let favorite = localRealm.objects(UserDiary.self).filter("favorite == false")
         // String -> ' ', AND, OR
-        let search = localRealm.objects(UserDiary.self).filter("title CONTAINS[c] 'first' OR content CONTAINS[c] 'dd'")
-        print(search)
+//        let search = localRealm.objects(UserDiary.self).filter("title CONTAINS[c] 'first' OR content CONTAINS[c] 'dd'")
+        
         
     }
     

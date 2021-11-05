@@ -53,10 +53,11 @@ class SettingViewController: UIViewController {
     @IBAction func didTapRestoreBtn() {
         // 복구 1. 파일 앱 열기 + 확장자
         // import MobileCoreServices
-        let documentPicker = UIDocumentPickerViewController(
-            documentTypes: [kUTTypeArchive as String],
-            in: .import
-        )
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.archive])
+//        let documentPicker = UIDocumentPickerViewController(
+//            documentTypes: [kUTTypeArchive as String],
+//            in: .import
+//        )
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
         
