@@ -22,7 +22,7 @@ class AddPhotoCollectionViewCell: UICollectionViewCell {
 //
 //        return imageView
 //    }()
-    
+//
 //    override init(frame: CGRect) {
 //        super.init(frame: frame)
 //        contentView.addSubview(phImageView)

@@ -116,7 +116,9 @@ class AddViewController: UIViewController {
         dateButton.backgroundColor = .systemBlue
         dateButton.setTitleColor(.white, for: .normal)
         dateButton.layer.cornerRadius = 6
-        dateButton.setTitle(DateFormatter().string(from: Date()), for: .normal)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        dateButton.setTitle(formatter.string(from: Date()), for: .normal)
         
         textField.placeholder = AddViewLocalization
             .Localization
@@ -142,10 +144,9 @@ class AddViewController: UIViewController {
         let layOut = UICollectionViewFlowLayout()
         layOut.scrollDirection = .horizontal
         
-        photoCollectionView.register(
-            AddPhotoCollectionViewCell.self,
-            forCellWithReuseIdentifier: AddPhotoCollectionViewCell.cellID
-        )
+        let nib = UINib(nibName: AddPhotoCollectionViewCell.cellID, bundle: nil)
+        
+        photoCollectionView.register(nib, forCellWithReuseIdentifier: AddPhotoCollectionViewCell.cellID)
         photoCollectionView.collectionViewLayout = layOut
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
@@ -211,4 +212,7 @@ extension AddViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: UIScreen.main.bounds.width - 100, height: collectionView.frame.height - 10)
+    }
 }

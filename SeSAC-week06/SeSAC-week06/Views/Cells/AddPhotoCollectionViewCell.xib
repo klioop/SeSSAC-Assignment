@@ -43,7 +43,7 @@
             </constraints>
             <size key="customSize" width="291" height="260"/>
             <connections>
-                <outlet property="phImageView2" destination="z29-H0-YL4" id="hhz-rF-220"/>
+                <outlet property="phImageView2" destination="z29-H0-YL4" id="q5O-rk-xba"/>
             </connections>
             <point key="canvasLocation" x="305.07246376811594" y="159.375"/>
         </collectionViewCell>

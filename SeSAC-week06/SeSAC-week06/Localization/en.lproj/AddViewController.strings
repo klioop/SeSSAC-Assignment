@@ -9,5 +9,5 @@
 "save_button" = "Save";
 "cancel_button" = "Cancel";
 "textField_placeholder" = "Type your title here";
-"textView_placeholder" = "Type your diary here";
+"textView_placeholder" = "Type your diary content here";
 
