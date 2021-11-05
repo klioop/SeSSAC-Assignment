@@ -10,22 +10,23 @@ import RealmSwift
 
 class SearchViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     static let sbID = "SearchViewController"
     
     let localRealm = try! Realm()
     
-    var tasks: Results<UserDiary>!
+    let model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tasks = localRealm.objects(UserDiary.self)
-//        print(tasks)
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableView.reloadData()
     }
     
     // 도큐먼트 경로 -> 이미지 찾기 -> UIImage -> UIImageView
@@ -82,5 +83,31 @@ class SearchViewController: UIViewController {
         
     }
     
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .systemBackground
+    }
+        
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        Model.data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let diary = Model.data[indexPath.row]
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        let dateString = formatter.string(from: diary.dateWritten)
+        
+        cell.textLabel?.text = diary.title
+        cell.detailTextLabel?.text = dateString
+        
+        return cell
+    }
 }

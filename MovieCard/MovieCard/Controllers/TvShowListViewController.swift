@@ -88,6 +88,7 @@ class TvShowListViewController: UIViewController {
         if !UserDefaults.hasOnBoarded {
             viewModel.fillData { [unowned self] data in
                 self.viewModel.fetchGenresAndCasts(of: data) {
+                    self.persistanceManager.delteAllTvShowObjects()
                     TvShow.data.forEach { tvShow in
                         let tvShowObject = self.viewModel.transformToRealmObject(from: tvShow)
                         try? self.persistanceManager.addTvShowObjcetToRealm(tvShowObject)
@@ -97,7 +98,7 @@ class TvShowListViewController: UIViewController {
                     if let day = Calendar.current.dateComponents([.day], from: Date()).day {
                         UserDefaults.date = day
                     }
-                    UserDefaults.hasOnBoarded = true
+                    UserDefaults.hasOnBoarded = true                    
                 }
             }
         } else {

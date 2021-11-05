@@ -18,6 +18,8 @@
                     <connections>
                         <segue destination="PiN-aE-m2N" kind="relationship" relationship="viewControllers" id="y9d-to-BSN"/>
                         <segue destination="ZeR-KY-wxN" kind="relationship" relationship="viewControllers" id="5NN-ls-d3g"/>
+                        <segue destination="aHs-IK-aut" kind="relationship" relationship="viewControllers" id="LeC-fw-pk8"/>
+                        <segue destination="IFg-jQ-ULT" kind="relationship" relationship="viewControllers" id="S2e-Xo-LGP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mb-D5-xDg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -82,8 +84,68 @@
             </objects>
             <point key="canvasLocation" x="116" y="254"/>
         </scene>
+        <!--Setting-->
+        <scene sceneID="4yO-GK-KuR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="hqC-X0-RBy" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qQ2-R7-grP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usq-nL-TpL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.7246376811595" y="839.0625"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="mo1-If-gVf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="rtN-Oh-5cn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IQl-ZF-ioY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RaY-wt-sb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117" y="897"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="UTP-pF-0Bd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aHs-IK-aut" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="checkmark.seal" catalog="system" id="Fzl-qR-zUx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="665-1t-QOe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hqC-X0-RBy" kind="relationship" relationship="rootViewController" id="xN6-Yh-UWE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sYq-Sg-wHW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="972.99107142857133"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="PdM-2D-dYG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFg-jQ-ULT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="calendar" catalog="system" id="km9-8e-MIs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o7D-LN-hN2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rtN-Oh-5cn" kind="relationship" relationship="rootViewController" id="hbM-cH-kZO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sXY-63-v1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="1034"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="checkmark.seal" catalog="system" width="128" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
     </resources>

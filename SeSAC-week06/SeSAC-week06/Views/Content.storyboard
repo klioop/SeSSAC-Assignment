@@ -21,8 +21,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Elephant" translatesAutoresizingMaskIntoConstraints="NO" id="FM9-eM-ae1">
-                                <rect key="frame" x="0.0" y="88" width="414" height="358.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FM9-eM-ae1">
+                                <rect key="frame" x="0.0" y="89" width="414" height="356"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNJ-Cv-kOq">
                                 <rect key="frame" x="20" y="500.5" width="374" height="44"/>
@@ -89,6 +89,35 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="70.982142857142847"/>
         </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="XRV-ZQ-7Ha">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerViewController" id="Mgj-Rk-A2U" customClass="DatePickerViewController" customModule="SeSAC_week06" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gHn-96-mkI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mdz-py-LXx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F8B-jG-oDz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mdz-py-LXx" firstAttribute="top" secondItem="F8B-jG-oDz" secondAttribute="top" id="IUq-jB-BM3"/>
+                            <constraint firstItem="Mdz-py-LXx" firstAttribute="trailing" secondItem="F8B-jG-oDz" secondAttribute="trailing" id="fjI-cX-pvu"/>
+                            <constraint firstItem="Mdz-py-LXx" firstAttribute="leading" secondItem="F8B-jG-oDz" secondAttribute="leading" id="pgW-Fn-HF7"/>
+                            <constraint firstItem="F8B-jG-oDz" firstAttribute="bottom" secondItem="Mdz-py-LXx" secondAttribute="bottom" id="w0s-mU-oGU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Mdz-py-LXx" id="4dQ-cr-VW9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UR8-BH-FKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1792.753623188406" y="76.339285714285708"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q5f-3W-2Ma">
             <objects>
@@ -109,7 +138,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Elephant" width="56" height="167"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

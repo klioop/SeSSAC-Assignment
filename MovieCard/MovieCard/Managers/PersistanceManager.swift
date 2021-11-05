@@ -56,7 +56,7 @@ final class PersistanceManager {
                 localRealm.delete(allObjects)
             }
         } catch {
-            
+            print(error.localizedDescription)
         }
     }
     
