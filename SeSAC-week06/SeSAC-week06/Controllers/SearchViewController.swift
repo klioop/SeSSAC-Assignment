@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     
     let localRealm = try! Realm()
     
-    let model = Model()
+    let model = DiaryModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,12 +94,12 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Model.data.count
+        DiaryModel.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let diary = Model.data[indexPath.row]
+        let diary = DiaryModel.data[indexPath.row]
         
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
