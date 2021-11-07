@@ -37,7 +37,7 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureOutlets()
-        print(localRealm.configuration.fileURL!)
+//        print(localRealm.configuration.fileURL!)
 
     }
     

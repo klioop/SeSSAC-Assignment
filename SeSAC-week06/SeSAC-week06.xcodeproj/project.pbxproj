@@ -60,6 +60,7 @@
 		31393B9A27301F4A003CF43E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B9927301F49003CF43E /* SearchViewController.swift */; };
 		31393B9B27301F4A003CF43E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31393B9927301F49003CF43E /* SearchViewController.swift */; };
 		31393B9C27301F6C003CF43E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31393B58272FB95E003CF43E /* Search.storyboard */; };
+		31AC48952737E37400EE43D5 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AC48942737E37400EE43D5 /* DiaryDetailViewController.swift */; };
 		31B61E9B273538FA0099B4FE /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B61E99273538FA0099B4FE /* AddPhotoCollectionViewCell.swift */; };
 		31B61E9C273538FA0099B4FE /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B61E99273538FA0099B4FE /* AddPhotoCollectionViewCell.swift */; };
 		31B61E9D273538FA0099B4FE /* AddPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B61E9A273538FA0099B4FE /* AddPhotoCollectionViewCell.xib */; };
@@ -128,6 +129,7 @@
 		31393B92272FC75F003CF43E /* HomeViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTest.swift; sourceTree = "<group>"; };
 		31393B9627301EF8003CF43E /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		31393B9927301F49003CF43E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		31AC48942737E37400EE43D5 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 		31B61E99273538FA0099B4FE /* AddPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		31B61E9A273538FA0099B4FE /* AddPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		31DB7A8A2732BA4C00E8EEF8 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				31DB7A8D273368CF00E8EEF8 /* SettingViewController.swift */,
 				31DB7A972734B52D00E8EEF8 /* DatePickerViewController.swift */,
 				31DB7A9D2734C27E00E8EEF8 /* CalendarViewController.swift */,
+				31AC48942737E37400EE43D5 /* DiaryDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				31393B50272FB811003CF43E /* UIFont+extension.swift in Sources */,
 				31217AD42730C97500461395 /* RealmModel.swift in Sources */,
 				31DB7A8B2732BA4C00E8EEF8 /* PersistanceManager.swift in Sources */,
+				31AC48952737E37400EE43D5 /* DiaryDetailViewController.swift in Sources */,
 				31DB7A952734326200E8EEF8 /* DiaryModel.swift in Sources */,
 				31393B4E272FB804003CF43E /* String+extension.swift in Sources */,
 				31B61E9B273538FA0099B4FE /* AddPhotoCollectionViewCell.swift in Sources */,

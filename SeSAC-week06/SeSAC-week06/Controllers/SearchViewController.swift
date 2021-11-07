@@ -29,40 +29,7 @@ class SearchViewController: UIViewController {
         tableView.reloadData()
     }
     
-    // 도큐먼트 경로 -> 이미지 찾기 -> UIImage -> UIImageView
-    func loadImageFromDocumnetDirectory(imageName: String) -> UIImage? {
-        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
-        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
-        
-        if let directoryPath = path.first {
-            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
-            return UIImage(contentsOfFile: imageURL.path)
-        }
-        
-        return nil
-    }
-    
-    func deleteImageFromDocument(imageName: String) {
-        let manager = FileManager.default
-        guard let documnetDirectory = manager
-                .urls(
-                    for: .documentDirectory,
-                       in: .userDomainMask
-                )
-                .first else {
-                    return
-                }
-        let imageURL = documnetDirectory.appendingPathComponent(imageName)
-        if manager.fileExists(atPath: imageURL.path) {
-            do {
-                try manager.removeItem(at: imageURL)
-                print("이미지 삭제 완료")
-            } catch {
-                print("이미지를 삭제하지 못했습니다")
-            }
-        }
-    }
+   
     
     func revise(_ object: UserDiary) {
         
@@ -110,4 +77,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let diary = DiaryModel.data[indexPath.row]
+        let vc = DiaryDetailViewController(userDiary: diary, persistanceManager: PersistanceManager())
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
