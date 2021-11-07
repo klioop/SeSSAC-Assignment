@@ -38,8 +38,25 @@ class PersistanceManager {
         }
     }
     
+    func makeSubDirectoryInDocument(with name: String) {
+        let manager: FileManager = .default
+        let path = manager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(name)
+        if !manager.fileExists(atPath: path.path) {
+            try! manager.createDirectory(
+                at: path,
+                withIntermediateDirectories: true,
+                attributes: nil
+            )
+        }
+    }
+    
     func saveImageToDocumentDirectory(imageName: String, image: UIImage) {
         let manager = FileManager.default
+        let imageDirectoryUrl = manager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("images", isDirectory: true)
+        
+        if !manager.fileExists(atPath: imageDirectoryUrl.path) {
+            makeSubDirectoryInDocument(with: "images")
+        }
         
         // 1. 이미지 저장할 경로 설정: 도큐먼트 폴더, FileManager
         // ex) desktop/jack/ios/folder 고정되어있지 않음
@@ -53,7 +70,7 @@ class PersistanceManager {
                 }
         // 2. 이미지 파일 이름 & 최종 경로 설정
         // desktop/jack/ios/folder/222.png
-        let imageURL = documnetDirectory.appendingPathComponent(imageName)
+        let imageURL = documnetDirectory.appendingPathComponent("images/\(imageName).png")
         
         // 3. 이미지 압축
         // jpeg for compression

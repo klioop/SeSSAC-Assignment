@@ -37,6 +37,7 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureOutlets()
+        print(localRealm.configuration.fileURL!)
 
     }
     
@@ -61,7 +62,7 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func didTapDateButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "날자 썬택", message: "날짜를 선택해 주세요", preferredStyle: .alert)
+        let alert = UIAlertController(title: "날자 선택", message: "날짜를 선택해 주세요", preferredStyle: .alert)
         guard let contentView = self.storyboard?.instantiateViewController(withIdentifier: DatePickerViewController.sbID) as? DatePickerViewController else { return }
 //        contentView.preferredContentSize = CGSize(
 //            width: UIScreen.main.bounds.width,
@@ -100,16 +101,28 @@ class AddViewController: UIViewController {
         )
         try! localRealm.write {
             localRealm.add(task)
-//            if let image = addImageView.image {
-//                self.saveImageToDocumentDirectory(imageName: "\(task._id).png", image: image)
-//            }
         }
+        saveImages(to: task)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didTapCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    private func saveImages(to diary: UserDiary) {
+        if !images.isEmpty {
+            images.indices.forEach { [weak self] index in
+                let imageName = "\(diary.title)_\(index + 1)"
+                let imageObject =  UserDiaryImage(name: imageName)
+                try! localRealm.write {
+                    localRealm.add(imageObject)
+                    diary.images.append(imageObject)
+                }
+                self?.persistanceManager.saveImageToDocumentDirectory(imageName: imageName, image: (self?.images[index])!)
+            }
+        }
     }
     
     private func configureOutlets() {
@@ -143,7 +156,6 @@ class AddViewController: UIViewController {
     private func configureCollectionView() {
         let layOut = UICollectionViewFlowLayout()
         layOut.scrollDirection = .horizontal
-        
         let nib = UINib(nibName: AddPhotoCollectionViewCell.cellID, bundle: nil)
         
         photoCollectionView.register(nib, forCellWithReuseIdentifier: AddPhotoCollectionViewCell.cellID)

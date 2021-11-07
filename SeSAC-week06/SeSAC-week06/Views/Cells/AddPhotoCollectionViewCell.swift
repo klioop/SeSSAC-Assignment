@@ -11,7 +11,11 @@ class AddPhotoCollectionViewCell: UICollectionViewCell {
     
     static let cellID = "AddPhotoCollectionViewCell"
      
-    @IBOutlet weak var phImageView2: UIImageView!
+    @IBOutlet weak var phImageView2: UIImageView! {
+        didSet {
+            phImageView2.contentMode = .scaleAspectFill
+        }
+    }
     
     override class func awakeFromNib() {
         super.awakeFromNib()

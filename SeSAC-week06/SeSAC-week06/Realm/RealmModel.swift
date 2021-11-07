@@ -17,6 +17,8 @@ class UserDiary: Object {
     @Persisted var dateWritten: Date
     @Persisted var registerDate: Date?
     @Persisted var favorite: Bool
+    @Persisted var images: List<UserDiaryImage>
+    
     
     convenience init(
         title: String,
@@ -32,4 +34,17 @@ class UserDiary: Object {
         self.registerDate = registerDate
         self.favorite = false
     }
+}
+
+class UserDiaryImage: Object {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    
+    @Persisted var name: String
+    @Persisted(originProperty: "images") var diary: LinkingObjects<UserDiary>
+    
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
+    
 }
