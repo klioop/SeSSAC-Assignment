@@ -39,6 +39,7 @@ private extension RoundedImageView {
             
             return imageView
         }()
+        
         return imageView
     }
     
